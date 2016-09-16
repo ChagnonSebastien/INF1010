@@ -24,20 +24,22 @@ public:
     std::string obtenirNom() const;
     void modifierNom(const std::string& nom);
 
+	Creature** obtenirCreatures() const;
+	void modifierCreature(Creature** creatures);
+
+	unsigned int obtenirNombreCreatures() const;
+	void modifierNombreCreatures(unsigned int nombreCreatures);
+
+	unsigned int obtenirNombreCreaturesMax() const;
+	void modifierNombreCreaturesMax(unsigned int nombreCreaturesMax);
+
     ObjetMagique obtenirObjetMagique() const;
     void modifierObjetMagique(const ObjetMagique& objetMagique);
 
-    void utiliserObjetMagique(Creature* creature);
-
-
-    unsigned int obtenirNombreCreatures() const;
-
-    Creature** obtenirCreatures() const;
-    void modifierCreature(Creature** creatures);
 
     bool ajouterCreature(const Creature& creature);
     bool retirerCreature(const std::string& nom);
-
+	void utiliserObjetMagique(Creature* creature);
     void affichage() const;
 
 private:
