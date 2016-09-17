@@ -17,7 +17,7 @@ void ObjetMagique::modifierNom(string nom)
 	nom_ = nom;
 }
 
-string ObjetMagique::obtenirNom()
+string ObjetMagique::obtenirNom() const
 {
 	return nom_;
 }
@@ -28,11 +28,12 @@ void ObjetMagique::modifierBonus(int bonus)
 
 }
 
-int ObjetMagique::obtenirBonus()
+int ObjetMagique::obtenirBonus() const
 {
 	return bonus_;
 }
 
 void ObjetMagique::affichage()
 {
+	cout << "L'objet " << nom_ << " fournit un bonus de " << bonus_ << endl;
 }

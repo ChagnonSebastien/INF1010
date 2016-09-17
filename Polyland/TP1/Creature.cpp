@@ -79,12 +79,12 @@ void Creature::modifierEnergie(int energie)
 	energie_ = energie;
 }
 
-int Creature::obtenirEnergieTotal() const
+int Creature::obtenirEnergieTotale() const
 {
 	return energieTotal_;
 }
 
-void Creature::modifierEnergieTotal(int energieTotal)
+void Creature::modifierEnergieTotale(int energieTotal)
 {
 	energieTotal_ = energieTotal;
 }
@@ -134,6 +134,7 @@ void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
 {
 	//L'attaque est possible si votre créature a assez d'energie
 	//Et que la creature adverse a encore des points de vie
+	//Si la creature adverse n'a plus de vie, afficher un message en conséquent
 	
 	if (this->energie_ >= pouvoir.obtenirEnergieNecessaire()) {
 		cout << this->nom_ << " n'a pas assez d'énergie pour attaquer"
@@ -171,8 +172,8 @@ void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
 			<< endl;
 	}
 	else {
-        //La créature adverse est déjà vaincue
-		cout << "Attaque " << pouvoir.obtenirNom() << " a échouée" << endl;
+		// L'attaque a raté
+		std::cout << "Attaque " << pouvoir_.obtenirNom() << " a échoué" << endl;
 	}
 
 

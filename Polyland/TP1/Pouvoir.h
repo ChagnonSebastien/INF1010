@@ -9,6 +9,7 @@ Description: les dresseurs sont les etres capables d'attraper des creatures
 #define POUVOIR_H
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -30,7 +31,7 @@ public:
 
 private:
 	string nom_;
-	int nombreDeDegat_;
+	int nombreDeDegats_;
 	int energieNecessaire_;
 
 };

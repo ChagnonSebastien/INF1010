@@ -9,6 +9,7 @@ Description: les dresseurs sont les etres capables d'attraper des creatures
 #define OBJET_MAGIQUE_H
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -20,9 +21,9 @@ public:
 	~ObjetMagique();
 
 	void modifierNom(string nom);
-	string obtenirNom();
+	string obtenirNom() const;
 	void modifierBonus(int bonus);
-	int obtenirBonus();
+	int obtenirBonus() const;
 
 	void affichage();
 

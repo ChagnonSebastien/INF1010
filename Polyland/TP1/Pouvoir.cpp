@@ -28,12 +28,12 @@ void Pouvoir::modifierNom(string nom)
 
 int Pouvoir::obtenirNombreDeDegat() const
 {
-	return nombreDeDegat_;
+	return nombreDeDegats_;
 }
 
 void Pouvoir::modifierNombreDeDegat(int nombreDeDegat)
 {
-	nombreDeDegat_ = nombreDeDegat;
+	nombreDeDegats_ = nombreDeDegat;
 }
 
 int Pouvoir::obtenirEnergieNecessaire() const
@@ -48,4 +48,6 @@ void Pouvoir::modifierEnergieNecessaire(int energieNecessaire)
 
 void Pouvoir::description()
 {
+	cout << "Son pouvoir est : " << nom_ << " d'energie et inflige " 
+		<< nombreDeDegats_ << " degats" << endl;
 }

@@ -33,8 +33,8 @@ public:
 	void modifierPointDeVieTotal(int pointDeVieTotal);
 	int obtenirEnergie() const;
 	void modifierEnergie(int energie);
-	int obtenirEnergieTotal() const;
-	void modifierEnergieTotal(int energieTotal);
+	int obtenirEnergieTotale() const;
+	void modifierEnergieTotale(int energieTotal);
 	int obtenirExperience() const;
 	void modifierExperience(int experience);
 	int obtenirExperienceNecessaire() const;
