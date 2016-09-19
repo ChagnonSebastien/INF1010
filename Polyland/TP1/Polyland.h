@@ -5,19 +5,34 @@ Date de creation: 31 aout 2016
 Date de modification: 4 septembre 2016
 Description: les dresseurs sont les etres capables d'attraper des creatures
 */
-#ifndef CREATURE_H
-#define CREATURE_H
+#ifndef POLYLAND_H
+#define POLYLAND_H
 
-#include "Pouvoir.h"
+#include "Dresseur.h"
+#include "Creature.h"
 
-class Creature
+class Polyland
 {
 public:
-	void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature);
-	int Creature::experienceGagner(const Creature& creature);
+	Polyland();
+	~Polyland();
+
+	bool ajouterDresseur(Dresseur& dresseur);
+	bool retirerDresseur(Dresseur& dresseur);
+	bool ajouterCreature(Creature& creature);
+	bool retirerCreature(Creature& creature);
+
+	Dresseur* choisirDresseurAleatoire();
+	Creature* choisirCreatureAleatoire();
+
+	bool attraperCreature(Dresseur* dresseur, Creature* Creature);
+	bool relacherCreature(Dresseur* dresseur, Creature* Creature);
 
 private:
-
+	Dresseur* dresseurs[100];
+	int nombreDresseurs;
+	Creature* creatures[1000];
+	int nombreCreatures;
 };
 
 #endif
