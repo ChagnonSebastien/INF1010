@@ -18,7 +18,7 @@ class Dresseur
 {
 public:
     Dresseur();
-    Dresseur(const std::string& nom);
+    Dresseur(const std::string& nomz);
     ~Dresseur();
 
     std::string obtenirNom() const;
