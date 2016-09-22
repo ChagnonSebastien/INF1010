@@ -111,10 +111,27 @@ bool Polyland::attraperCreature(Dresseur* dresseur, Creature* Creature) {
 
 bool Polyland::relacherCreature(Dresseur* dresseur, Creature* Creature) {
 
+	return dresseur->retirerCreature(Creature->obtenirNom());
 
 }
 
-void Polyland::infoDresseur() const {
+void Polyland::infoDresseur(string nom) const {
 
+	int i = 0;
+
+	while (i < nombreCreatures_ && dresseurs_[i]->obtenirNom() == nom) {
+		i++;
+	}
+	
+	cout << dresseurs_[i]->obtenirNom() << " possede " << dresseurs_[i]->obtenirNombreCreatures() << " creature(s)" << endl;
+	
+	for (int j = 0; j < dresseurs_[i]->obtenirNombreCreatures(); j++) {
+		cout << "- " << (j + 1) << " -"; 
+		dresseurs_[j]->affichage();
+		cout << endl;
+	}
 }
+
+
+
 
