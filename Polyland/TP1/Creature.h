@@ -44,7 +44,7 @@ public:
 	Pouvoir obtenirPouvoir() const;
 	void modifierPouvoir(Pouvoir pouvoir);
 
-	void attaquer(const Pouvoir & pouvoir, Creature & creature);
+	void attaquer(Creature & creature);
 	int experienceGagner(const Creature& creature);
 	void information();
 

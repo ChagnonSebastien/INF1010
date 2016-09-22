@@ -130,14 +130,15 @@ void Creature::modifierPouvoir(Pouvoir pouvoir)
 	pouvoir_ = pouvoir;
 }
 
-void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
+// enlever pouvoir
+void Creature::attaquer(Creature & creature)
 {
 	//L'attaque est possible si votre créature a assez d'energie
 	//Et que la creature adverse a encore des points de vie
 	//Si la creature adverse n'a plus de vie, afficher un message en conséquent
 	
-	if (energie_ >= pouvoir.obtenirEnergieNecessaire()) {
-		cout << tnom_ << " n'a pas assez d'énergie pour attaquer"
+	if (energie_ < pouvoir_.obtenirEnergieNecessaire()) {
+		cout << nom_ << " n'a pas assez d'énergie pour attaquer"
 			<< " avec ce pouvoir." << endl;
 		return;
 	}
@@ -149,14 +150,14 @@ void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
 	}
 
 	//Calcul du nombre de degat selon une formule
-	unsigned int degat = (pouvoir.obtenirNombreDeDegat())* (attaque_ / 2 - creature.defense_);
+	unsigned int degat = (pouvoir_.obtenirNombreDeDegat())* (attaque_ / 2 - creature.defense_);
 	//On choisit un nombre aléatoire entre 1 et 6
 	int tentative = rand() % 6;
 	//l'attaque rate une fois sur 6
 	if (tentative != 3) {
 		//Afficher le nom de la créature qui lance l'attaque, le nom de l'attaque,
 		//le nombre de dégat infligé, et la créature qui est attaquée
-		cout << nom_ << " lance " << pouvoir.obtenirNom() 
+		cout << nom_ << " lance " << pouvoir_.obtenirNom() 
 			<< " qui inflige " << degat << " degat à " << creature.obtenirNom()
 			<< endl;
 
