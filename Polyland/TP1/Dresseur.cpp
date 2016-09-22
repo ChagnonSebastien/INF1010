@@ -111,8 +111,8 @@ bool Dresseur::retirerCreature(const std::string & nom)
 //L'attribut point de vie et energie de la créature ne doivent jamais dépasser le nombre des attributs maximaux correspondants (???)
 void Dresseur::utiliserObjetMagique(Creature * creature)
 {
-	creature->modifierPointDeVie(creature->obtenirPointDeVie() + this->objetMagique_.obtenirBonus());
-	creature->modifierEnergie(creature->obtenirEnergie() + this->objetMagique_.obtenirBonus());
+	creature->modifierPointDeVie(creature->obtenirPointDeVie() + objetMagique_.obtenirBonus());
+	creature->modifierEnergie(creature->obtenirEnergie() + objetMagique_.obtenirBonus());
 }
 
 void Dresseur::affichage() const

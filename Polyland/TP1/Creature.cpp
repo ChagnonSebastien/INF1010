@@ -136,8 +136,8 @@ void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
 	//Et que la creature adverse a encore des points de vie
 	//Si la creature adverse n'a plus de vie, afficher un message en conséquent
 	
-	if (this->energie_ >= pouvoir.obtenirEnergieNecessaire()) {
-		cout << this->nom_ << " n'a pas assez d'énergie pour attaquer"
+	if (energie_ >= pouvoir.obtenirEnergieNecessaire()) {
+		cout << tnom_ << " n'a pas assez d'énergie pour attaquer"
 			<< " avec ce pouvoir." << endl;
 		return;
 	}
@@ -156,19 +156,19 @@ void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
 	if (tentative != 3) {
 		//Afficher le nom de la créature qui lance l'attaque, le nom de l'attaque,
 		//le nombre de dégat infligé, et la créature qui est attaquée
-		cout << this->nom_ << " lance " << pouvoir.obtenirNom() 
+		cout << nom_ << " lance " << pouvoir.obtenirNom() 
 			<< " qui inflige " << degat << " degat à " << creature.obtenirNom()
 			<< endl;
 
 		//Afficher le nombre d'XP gagné si c'est approprié, n'oubliez pas de faire
 		//les modifications adéquates
 		if (creature.obtenirPointDeVie() <= 0)
-			cout << this->nom_ << " a gagné " << experienceGagner(creature) 
+			cout << nom_ << " a gagné " << experienceGagner(creature) 
 				<< " XP" << endl;
 
 		//Afficher le nombre de point de vie restant de la créature attaquée
 		//Faites attention aux requis d'une attaque
-		cout << this->nom_ << " a encore " << this->pointDeVie_ << " PV" 
+		cout << nom_ << " a encore " << pointDeVie_ << " PV" 
 			<< endl;
 	}
 	else {
