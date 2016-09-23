@@ -11,7 +11,7 @@ Creature::Creature(string nom, int attaque, int defence, int pointDeVie,
 	int energie, Pouvoir pouvoir) :
 	nom_(nom), attaque_(attaque), defense_(defence), pointDeVie_(pointDeVie),
 	pointDeVieTotal_(pointDeVie), energie_(energie), energieTotal_(energie),
-	experience_(0), experienceNecessaire_(100), niveau_(1), pouvoir_()
+	experience_(0), experienceNecessaire_(100), niveau_(1), pouvoir_(pouvoir)
 {
 }
 

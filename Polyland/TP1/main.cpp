@@ -57,15 +57,55 @@ int main()
 
 	// Ajouter les dresseurs et les creatures à Polyland
 	// A COMPLETER...
-	polyland.ajouterDresseur(Sasha);
-	polyland.ajouterDresseur(Pierre);
-	polyland.ajouterDresseur(Regis);
-	polyland.ajouterDresseur(Vous);
 
-	polyland.ajouterCreature(Pokachu);
-	polyland.ajouterCreature(Salimouche);
-	polyland.ajouterCreature(Carapouce);
-	polyland.ajouterCreature(Balbazar);
+	if (polyland.ajouterCreature(Pokachu)) {
+		cout << "Pokachu a bien été ajouté !" << endl;
+	}
+	else {
+		cout << "Pokachu n'a pas été ajouté !" << endl;
+	}
+	if (polyland.ajouterCreature(Salimouche)) {
+		cout << "Salimouche a bien été ajouté !" << endl;
+	}
+	else {
+		cout << "Salimouche n'a pas été ajouté !" << endl;
+	}
+	if (polyland.ajouterCreature(Carapouce)) {
+		cout << "Carapouce a bien été ajouté !" << endl;
+	}
+	else {
+		cout << "Carapouce n'a pas ajouté !" << endl;
+	}
+	if (polyland.ajouterCreature(Balbazar)) {
+		cout << "Balbazar a bien été ajouté !" << endl;
+	}
+	else {
+		cout << "Balbazar n'a pas été ajouté !" << endl;
+	}
+	if (polyland.ajouterDresseur(Sasha)) {
+		cout << "Sasha a bien été ajouté !" << endl;
+	}
+	else {
+		cout << "Sasha n'a pas été ajouté !" << endl;
+	}
+	if (polyland.ajouterDresseur(Pierre)) {
+		cout << "Pierre a bien été ajouté !" << endl;
+	}
+	else {
+		cout << "Pierre n'a pas été ajouté !" << endl;
+	}
+	if (polyland.ajouterDresseur(Regis)) {
+		cout << "Regis a bien été ajouté !" << endl;
+	}
+	else {
+		cout << "Regis n'a pas été ajouté !" << endl;
+	}
+	if (polyland.ajouterDresseur(Vous)) {
+		cout << "Vous avez été bien ajouté !" << endl;
+	}
+	else {
+		cout << "Vous n'avez pas été ajouté !" << endl;
+	}
 
 
 	/*******************************************************************/
@@ -168,7 +208,7 @@ int main()
 	cout << "Pokachu et salimouche n'arrete pas de se chamailler, vous decidez d'abandonner Salimouche" << endl;
 	polyland.infoDresseur("Sasha");
 	//Vous en avez marre des chamailleries, vous décidez de relacher Salimouche
-	if (polyland.relacherCreature(&Vous, Salimouche)) {
+	if (polyland.relacherCreature(&Vous, "Salimouche")) {
 		cout << "Vous avez decidé de relacher Salimouche !" << endl;
 	}
 	else {

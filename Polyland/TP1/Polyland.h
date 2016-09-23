@@ -26,7 +26,7 @@ public:
 	Creature* choisirCreatureAleatoire();
 
 	bool attraperCreature(Dresseur* dresseur, Creature Creature);
-	bool relacherCreature(Dresseur* dresseur, Creature Creature);
+	bool relacherCreature(Dresseur* dresseur, string nom);
 
 	void infoDresseur(string nom) const;
 
