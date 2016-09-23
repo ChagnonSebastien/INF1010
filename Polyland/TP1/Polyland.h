@@ -28,11 +28,13 @@ public:
 	bool attraperCreature(Dresseur* dresseur, Creature* Creature);
 	bool relacherCreature(Dresseur* dresseur, Creature* Creature);
 
+	void infoDresseur() const;
+
 private:
-	Dresseur* dresseurs[100];
-	int nombreDresseurs;
-	Creature* creatures[1000];
-	int nombreCreatures;
+	Dresseur* dresseurs_[100];
+	int nombreDresseurs_;
+	Creature* creatures_[1000];
+	int nombreCreatures_;
 };
 
 #endif
