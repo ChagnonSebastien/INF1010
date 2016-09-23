@@ -27,7 +27,9 @@ int main()
 	// ("Regis")
 	// A COMPLETER...
 
-
+	Dresseur Sasha("Sasha");
+	Dresseur Pierre("Pierre");
+	Dresseur Regis("Regis");
 
 	cout << endl << "CREATION ET AFFICHAGE DES CREATURES" << endl;
 	// Creer les Creatures suivantes (nom, attaque, defense, pointDeVie, energue, pouvoir):
@@ -40,17 +42,30 @@ int main()
 	Pouvoir eclair("Eclair", 10, 5);
 	Pouvoir lanceFeuille("Lance feuille", 5, 5);
 
+	Creature Pokachu("Pokachu", 10, 2, 50, 25, eclair);
+	Creature Salimouche("Salimouche", 12, 3, 45, 20, bouleDeFeu);
+	Creature Carapouce("Carapouce", 10, 1, 55, 25, pistoletAEau);
+	Creature Balbazar("Balbazar", 11, 2, 50, 22, lanceFeuille);
 
 	// Afficher les informations sur Pokachu creature (en utilisant la m�thode d'affichage)
-	// A COMPLETER...
+	Pokachu.information();
 
 	cout << endl << "Ajout des creatures et dresseurs de Polyland" << endl;
 
-	PolyLand polyland;
+	Polyland polyland;
 	Dresseur Vous("Vous");
 
 	// Ajouter les dresseurs et les creatures à Polyland
 	// A COMPLETER...
+	polyland.ajouterDresseur(Sasha);
+	polyland.ajouterDresseur(Pierre);
+	polyland.ajouterDresseur(Regis);
+	polyland.ajouterDresseur(Vous);
+
+	polyland.ajouterCreature(Pokachu);
+	polyland.ajouterCreature(Salimouche);
+	polyland.ajouterCreature(Carapouce);
+	polyland.ajouterCreature(Balbazar);
 
 
 	/*******************************************************************/
@@ -59,9 +74,10 @@ int main()
 	/*******************************************************************/
 	cout << endl << "BIENVENUE A POLYLAND" << endl;
 
-	Sasha->ajouterCreature(Salimouche);
-	Pierre->ajouterCreature(Balbazar);
-	Regis->ajouterCreature(Carapouce);
+	// -> ou . ?
+	Sasha.ajouterCreature(Salimouche);
+	Pierre.ajouterCreature(Balbazar);
+	Regis.ajouterCreature(Carapouce);
 
 	cout << endl << "Choix de la premiere creature" << endl;
 
@@ -146,7 +162,7 @@ int main()
 
 	cout << endl << "AFFICHAGE DE VOS INFORMATIONS" << endl;
 	Dresseur* dresseurAleatoire = polyland.choisirDresseurAleatoire();
-	polyland.ajouterDresseur(&Vous);
+	polyland.ajouterDresseur(Vous);
 	polyland.infoDresseur("Vous");
 
 	cout << "Pokachu et salimouche n'arrete pas de se chamailler, vous decidez d'abandonner Salimouche" << endl;

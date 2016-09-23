@@ -130,7 +130,7 @@ void Creature::modifierPouvoir(Pouvoir pouvoir)
 	pouvoir_ = pouvoir;
 }
 
-// enlever pouvoir
+
 void Creature::attaquer(Creature & creature)
 {
 	//L'attaque est possible si votre créature a assez d'energie
@@ -142,8 +142,8 @@ void Creature::attaquer(Creature & creature)
 			<< " avec ce pouvoir." << endl;
 		return;
 	}
-
-	if (creature.obtenirPointDeVie <= 0) {
+	int pointDeVie = obtenirPointDeVie();
+	if (pointDeVie <= 0) {
 		cout << creature.obtenirNom() 
 			<< " n'a plus de vie. Inutile d'attaquer." << endl;
 		return;

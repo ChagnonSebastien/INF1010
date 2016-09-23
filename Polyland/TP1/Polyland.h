@@ -18,15 +18,15 @@ public:
 	~Polyland();
 
 	bool ajouterDresseur(Dresseur& dresseur);
-	bool retirerDresseur(Dresseur& dresseur);
+	bool retirerDresseur(string nom);
 	bool ajouterCreature(Creature& creature);
-	bool retirerCreature(Creature& creature);
+	bool retirerCreature(string nom);
 
 	Dresseur* choisirDresseurAleatoire();
 	Creature* choisirCreatureAleatoire();
 
-	bool attraperCreature(Dresseur* dresseur, Creature* Creature);
-	bool relacherCreature(Dresseur* dresseur, Creature* Creature);
+	bool attraperCreature(Dresseur* dresseur, Creature Creature);
+	bool relacherCreature(Dresseur* dresseur, Creature Creature);
 
 	void infoDresseur(string nom) const;
 

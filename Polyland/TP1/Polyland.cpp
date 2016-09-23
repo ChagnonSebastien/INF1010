@@ -40,22 +40,22 @@ bool Polyland::ajouterDresseur(Dresseur& dresseur) {
 	return true;
 
 }
-bool Polyland::retirerDresseur(Dresseur& dresseur) {
+bool Polyland::retirerDresseur(string nom) {
 
 	for (int i = 0; i < nombreDresseurs_; i++) {
-		if (dresseurs_[i]->obtenirNom() == dresseur.obtenirNom()) {
+		if (dresseurs_[i]->obtenirNom() == nom) {
 			dresseurs_[i] = nullptr;
-			nombreDresseurs_--;
-			for (int j = i + 1; j < 100; i++) {
-				dresseurs_[j] = dresseurs_[j - 1];
+			for (int j = i + 1; j < nombreDresseurs_; i++) {
+				dresseurs_[j - 1] = dresseurs_[j];
 				dresseurs_[j] = nullptr;
 			}
+			nombreDresseurs_--;
 			return true;
 		}
 	}
-
 	return false;
 }
+
 bool Polyland::ajouterCreature(Creature& creature) {
 	for (int i = 0; i < nombreCreatures_; i++) {
 		if (creatures_[i]->obtenirNom() == creature.obtenirNom()) {
@@ -67,15 +67,16 @@ bool Polyland::ajouterCreature(Creature& creature) {
 	nombreCreatures_++;
 	return true;
 }
-bool Polyland::retirerCreature(Creature& creature) {
+
+bool Polyland::retirerCreature(string nom) {
 	for (int i = 0; i < nombreCreatures_; i++) {
-		if (creatures_[i]->obtenirNom() == creature.obtenirNom()) {
+		if (creatures_[i]->obtenirNom() == nom) {
 			creatures_[i] = nullptr;
-			nombreCreatures_--;
-			for (int j = i + 1; j < 100; i++) {
-				creatures_[j] = creatures_[j - 1];
+			for (int j = i + 1; j < nombreCreatures_; i++) {
+				creatures_[j - 1] = creatures_[j];
 				creatures_[j] = nullptr;
 			}
+			nombreCreatures_--;
 			return true;
 		}
 	}
@@ -99,19 +100,19 @@ Creature* Polyland::choisirCreatureAleatoire() {
 	return creatures_[positionAleatoire];
 }
 
-bool Polyland::attraperCreature(Dresseur* dresseur, Creature* Creature) {
+bool Polyland::attraperCreature(Dresseur* dresseur, Creature Creature) {
 	srand((unsigned)time(NULL));
 	int tentative = rand() % 6;
 	
 	if (tentative != 3)
-		return dresseur->ajouterCreature(*Creature);
+		return dresseur->ajouterCreature(Creature);
 	else
 		return false;
 }
 
-bool Polyland::relacherCreature(Dresseur* dresseur, Creature* Creature) {
+bool Polyland::relacherCreature(Dresseur* dresseur, Creature Creature) {
 
-	return dresseur->retirerCreature(Creature->obtenirNom());
+	return dresseur->retirerCreature(Creature.obtenirNom());
 
 }
 
