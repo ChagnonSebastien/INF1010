@@ -71,6 +71,8 @@ void Dresseur::modifierObjetMagique(const ObjetMagique & objetMagique)
 bool Dresseur::ajouterCreature(const Creature & creature)
 {
 	bool possedeCreature = false;
+	Creature* ptr = new Creature();
+	*ptr = creature;
 
 	for (int i = 0; i < nombreCreatures_; i++) {
 		if (creatures_[i]->obtenirNom() == creature.obtenirNom()) {
@@ -84,7 +86,7 @@ bool Dresseur::ajouterCreature(const Creature & creature)
 
 	else {
 		nombreCreatures_++;
-		*creatures_[nombreCreatures_] = creature;
+		creatures_[nombreCreatures_] = ptr;
 		if (nombreCreatures_ == nombreCreaturesMax_) {
 			nombreCreaturesMax_ *= 2;
 		}
