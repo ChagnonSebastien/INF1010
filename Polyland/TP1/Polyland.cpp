@@ -40,6 +40,7 @@ bool Polyland::ajouterDresseur(Dresseur& dresseur) {
 	return true;
 
 }
+
 bool Polyland::retirerDresseur(Dresseur& dresseur) {
 
 	for (int i = 0; i < nombreDresseurs_; i++) {
@@ -56,6 +57,7 @@ bool Polyland::retirerDresseur(Dresseur& dresseur) {
 
 	return false;
 }
+
 bool Polyland::ajouterCreature(Creature& creature) {
 	for (int i = 0; i < nombreCreatures_; i++) {
 		if (creatures_[i]->obtenirNom() == creature.obtenirNom()) {
@@ -67,6 +69,7 @@ bool Polyland::ajouterCreature(Creature& creature) {
 	nombreCreatures_++;
 	return true;
 }
+
 bool Polyland::retirerCreature(Creature& creature) {
 	for (int i = 0; i < nombreCreatures_; i++) {
 		if (creatures_[i]->obtenirNom() == creature.obtenirNom()) {
@@ -79,7 +82,6 @@ bool Polyland::retirerCreature(Creature& creature) {
 			return true;
 		}
 	}
-
 }
 
 Dresseur* Polyland::choisirDresseurAleatoire() {
@@ -99,22 +101,33 @@ Creature* Polyland::choisirCreatureAleatoire() {
 	return creatures_[positionAleatoire];
 }
 
-bool Polyland::attraperCreature(Dresseur* dresseur, Creature* Creature) {
+bool Polyland::attraperCreature(Dresseur* dresseur, Creature Creature) {
 	srand((unsigned)time(NULL));
 	int tentative = rand() % 6;
 	
 	if (tentative != 3)
-		return dresseur->ajouterCreature(*Creature);
+		return dresseur->ajouterCreature(Creature);
 	else
 		return false;
 }
 
-bool Polyland::relacherCreature(Dresseur* dresseur, Creature* Creature) {
-
-
+bool Polyland::relacherCreature(Dresseur* dresseur, Creature& creature) {
+	return dresseur->retirerCreature(creature.obtenirNom());
 }
 
-void Polyland::infoDresseur() const {
+void Polyland::infoDresseur(string nom) const {
 
+	int i = 0;
+
+	while (i < nombreCreatures_ && dresseurs_[i]->obtenirNom() == nom) {
+		i++;
+	}
+	
+	cout << dresseurs_[i]->obtenirNom() << " possede " << dresseurs_[i]->obtenirNombreCreatures() << " creature(s)" << endl;
+	
+	for (unsigned int j = 0; j < dresseurs_[i]->obtenirNombreCreatures(); j++) {
+		cout << "- " << (j + 1) << " -"; 
+		dresseurs_[j]->affichage();
+		cout << endl;
+	}
 }
-

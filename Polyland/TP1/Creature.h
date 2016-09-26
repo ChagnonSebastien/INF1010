@@ -181,13 +181,12 @@ public:
 	*/
 	void modifierPouvoir(Pouvoir pouvoir);
 
-
 	/**
 	* @brief Pour attaquer une autre creature
 	* @param pouvoir Pouvoir utilise pour attaquer la creature ennemie
 	* @param creature La creature ennemie
 	*/
-	void attaquer(const Pouvoir & pouvoir, Creature & creature);
+	void attaquer(Creature & creature);
 
 	/**
 	* @brief Pour calculer le nombre d'experience que la creature gagne a la suite d'une victoire

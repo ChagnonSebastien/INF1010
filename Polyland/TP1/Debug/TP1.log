@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(20): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  TP1.vcxproj -> C:\Users\Audrey\Documents\polymtl\inf1010\git-tp\inf1010-lab\Polyland\Debug\TP1.exe
+  TP1.vcxproj -> C:\Users\Audrey\Documents\polymtl\inf1010\git-tp\inf1010-lab\Polyland\Debug\TP1.pdb (Full PDB)

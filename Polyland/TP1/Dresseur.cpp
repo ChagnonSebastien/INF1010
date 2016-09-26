@@ -1,7 +1,6 @@
 #include "Dresseur.h"
 
 
-// INITIALISER OBJET MAGIQUE
 Dresseur::Dresseur() :
 	nom_(""), creatures_(nullptr), nombreCreatures_(0),
 	nombreCreaturesMax_(MAX_NOMBRE_CREATURES)
@@ -33,8 +32,6 @@ Creature ** Dresseur::obtenirCreatures() const
 	return creatures_;
 }
 
-
-//AL: je la comprends pas celle la
 void Dresseur::modifierCreature(Creature ** creatures)
 {
 	creatures_ = creatures;
@@ -85,9 +82,9 @@ bool Dresseur::ajouterCreature(const Creature & creature)
 		return false;
 	}
 
-	//Utiliser modifierNombreCreaturesMax au lieu de nombreCreaturesMax_*=2 ???
 	else {
-		*creatures_[nombreCreatures_++] = creature;
+		nombreCreatures_++;
+		*creatures_[nombreCreatures_] = creature;
 		if (nombreCreatures_ == nombreCreaturesMax_) {
 			nombreCreaturesMax_ *= 2;
 		}
@@ -95,12 +92,15 @@ bool Dresseur::ajouterCreature(const Creature & creature)
 	}
 }
 
-//Utiliser modifierNombreCreatures() au lieu de nombreCreatures_-- ???
 bool Dresseur::retirerCreature(const std::string & nom)
 {	
 	for (int i = 0; i < nombreCreatures_; i++) {
 		if (creatures_[i]->obtenirNom() == nom) {
 			creatures_[i] = nullptr;
+			for (int j = i + 1; i < nombreCreatures_; j++) {
+				creatures_[j - 1] = creatures_[j];
+				creatures_[j] = nullptr;
+			}
 			nombreCreatures_--;
 			return true;
 		}
@@ -108,11 +108,24 @@ bool Dresseur::retirerCreature(const std::string & nom)
 	return false;
 }
 
-//L'attribut point de vie et energie de la créature ne doivent jamais dépasser le nombre des attributs maximaux correspondants (???)
+
 void Dresseur::utiliserObjetMagique(Creature * creature)
 {
-	creature->modifierPointDeVie(creature->obtenirPointDeVie() + this->objetMagique_.obtenirBonus());
-	creature->modifierEnergie(creature->obtenirEnergie() + this->objetMagique_.obtenirBonus());
+	if ((objetMagique_.obtenirBonus() + creature->obtenirPointDeVie()) >= creature->obtenirPointDeVieTotal()) {
+		creature->modifierPointDeVie(creature->obtenirPointDeVieTotal());
+	}
+
+	else if ((objetMagique_.obtenirBonus() + creature->obtenirPointDeVie()) < creature->obtenirPointDeVieTotal()) {
+		creature->modifierPointDeVie(creature->obtenirPointDeVie() + objetMagique_.obtenirBonus());
+	}
+
+	else if ((objetMagique_.obtenirBonus() + creature->obtenirEnergie()) >= creature->obtenirEnergieTotale()) {
+		creature->modifierEnergie(creature->obtenirEnergieTotale());
+	}
+
+	else if ((objetMagique_.obtenirBonus() + creature->obtenirEnergie()) < creature->obtenirEnergieTotale()) {
+		creature->modifierEnergie(creature->obtenirEnergie() + objetMagique_.obtenirBonus());
+	}
 }
 
 void Dresseur::affichage() const
