@@ -133,8 +133,16 @@ int main()
 
 	cout << "Vous avez rencontré un Salimouche sauvage qui vous attaque..." << endl;
 
-	Salimouche.attaquer(*(Vous.obtenirCreatures())[0]);
-	Vous.obtenirCreatures()[0]->attaquer(Salimouche);
+	cout << "=================" << endl;
+	Creature ** copie = Vous.obtenirCreatures();
+	copie[0]->information();
+	cout << "=================" << endl;
+
+
+	Salimouche.attaquer(*((Vous.obtenirCreatures())[0]));
+
+
+	((Vous.obtenirCreatures())[0])->attaquer(Salimouche);
 	//Vous gagnez obligatoirement le duel
 	while (Salimouche.obtenirPointDeVie() > 0) {
 		((Vous.obtenirCreatures())[0])->attaquer(Salimouche);

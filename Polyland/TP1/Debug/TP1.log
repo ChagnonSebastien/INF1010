@@ -1,15 +1,4 @@
-﻿  Pouvoir.cpp
-  Polyland.cpp
-  ObjetMagique.cpp
-  main.cpp
+﻿  main.cpp
 d:\ecole\universite\inf1010\inf1010-lab\polyland\tp1\main.cpp(20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Dresseur.cpp
-d:\ecole\universite\inf1010\inf1010-lab\polyland\tp1\dresseur.cpp(77): warning C4018: '<': signed/unsigned mismatch
-d:\ecole\universite\inf1010\inf1010-lab\polyland\tp1\dresseur.cpp(99): warning C4018: '<': signed/unsigned mismatch
-d:\ecole\universite\inf1010\inf1010-lab\polyland\tp1\dresseur.cpp(102): warning C4018: '<': signed/unsigned mismatch
-  Creature.cpp
-  Generating Code...
-d:\ecole\universite\inf1010\inf1010-lab\polyland\tp1\polyland.cpp(84): warning C4715: 'Polyland::retirerCreature': not all control paths return a value
-  LINK : D:\Ecole\Universite\INF1010\inf1010-lab\Polyland\Debug\TP1.exe not found or not built by the last incremental link; performing full link
   TP1.vcxproj -> D:\Ecole\Universite\INF1010\inf1010-lab\Polyland\Debug\TP1.exe
   TP1.vcxproj -> D:\Ecole\Universite\INF1010\inf1010-lab\Polyland\Debug\TP1.pdb (Full PDB)

@@ -46,7 +46,7 @@ public:
 
 	void attaquer(Creature & creature);
 	int experienceGagner(const Creature& creature);
-	void information();
+	void information() const;
 
 private:
 	string nom_;

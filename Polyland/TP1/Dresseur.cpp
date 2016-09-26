@@ -5,12 +5,14 @@ Dresseur::Dresseur() :
 	nom_(""), creatures_(nullptr), nombreCreatures_(0),
 	nombreCreaturesMax_(MAX_NOMBRE_CREATURES)
 {
+	creatures_ = new Creature*[nombreCreaturesMax_];
 }
 
 Dresseur::Dresseur(const std::string & nom) :
 	nom_(nom), creatures_(nullptr),nombreCreatures_(0),
 	nombreCreaturesMax_(MAX_NOMBRE_CREATURES)
 {
+	creatures_ = new Creature*[nombreCreaturesMax_];
 }
 
 Dresseur::~Dresseur()
@@ -68,30 +70,32 @@ void Dresseur::modifierObjetMagique(const ObjetMagique & objetMagique)
 	objetMagique_ = objetMagique;
 }
 
-bool Dresseur::ajouterCreature(const Creature & creature)
-{
+bool Dresseur::ajouterCreature(const Creature & creature) {
+
 	bool possedeCreature = false;
-	Creature* ptr = new Creature();
-	*ptr = creature;
+	Creature ptr = creature;
 
-	for (int i = 0; i < nombreCreatures_; i++) {
-		if (creatures_[i]->obtenirNom() == creature.obtenirNom()) {
-			possedeCreature = true;
-		}
+	for (int i = 0; i < nombreCreatures_; i++)
+		if (creatures_[i]->obtenirNom() == creature.obtenirNom())
+			return false;
+
+	if (nombreCreatures_ >= nombreCreaturesMax_) {
+		
+		nombreCreaturesMax_ *= 2;
+		Creature** creatures = new Creature*[nombreCreaturesMax_];
+		for (int i = 0; i < nombreCreatures_; i++)
+			creatures[i] = creatures_[i];
+		
+		delete creatures_;
+		creatures_ = creatures;
 	}
 
-	if (possedeCreature) {
-		return false;
-	}
+	creatures_[nombreCreatures_++] = &ptr;
 
-	else {
-		nombreCreatures_++;
-		creatures_[nombreCreatures_] = ptr;
-		if (nombreCreatures_ == nombreCreaturesMax_) {
-			nombreCreaturesMax_ *= 2;
-		}
-		return true;
-	}
+	cout << "==================" << endl;
+	creatures_[0]->information();
+
+	return true;
 }
 
 bool Dresseur::retirerCreature(const std::string & nom)

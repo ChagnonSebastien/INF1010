@@ -150,7 +150,7 @@ void Creature::attaquer(Creature & creature)
 	}
 
 	//Calcul du nombre de degat selon une formule
-	unsigned int degat = (pouvoir_.obtenirNombreDeDegat())* (attaque_ / 2 - creature.defense_);
+	unsigned int degat = (pouvoir_.obtenirNombreDeDegat())* (attaque_ / 2 - creature.obtenirDefense());
 	//On choisit un nombre aléatoire entre 1 et 6
 	int tentative = rand() % 6;
 	//l'attaque rate une fois sur 6
@@ -207,7 +207,7 @@ int Creature::experienceGagner(const Creature& creature)
 }
 
 
-void Creature::information()
+void Creature::information() const
 {
 	cout << nom_ << " a " << attaque_ << " en attaque et " << defense_ 
 		<< " en defense," << endl;
