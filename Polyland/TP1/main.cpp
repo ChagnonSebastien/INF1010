@@ -27,9 +27,9 @@ int main()
 	// ("Regis")
 	// A COMPLETER...
 
-	Dresseur* Sasha = new Dresseur("Sasha");
-	Dresseur* Pierre = new Dresseur("Pierre");
-	Dresseur* Regis = new Dresseur("Regis");
+	Dresseur Sasha("Sasha");
+	Dresseur Pierre("Pierre");
+	Dresseur Regis("Regis");
 
 	cout << endl << "CREATION ET AFFICHAGE DES CREATURES" << endl;
 	// Creer les Creatures suivantes (nom, attaque, defense, pointDeVie, energue, pouvoir):
@@ -53,7 +53,7 @@ int main()
 	cout << endl << "Ajout des creatures et dresseurs de Polyland" << endl;
 
 	Polyland polyland;
-	Dresseur* Vous = new Dresseur("Vous");
+	Dresseur Vous("Vous");
 
 	// Ajouter les dresseurs et les creatures à Polyland
 	// A COMPLETER...
@@ -82,25 +82,25 @@ int main()
 	else {
 		cout << "Balbazar n'a pas été ajouté !" << endl;
 	}
-	if (polyland.ajouterDresseur(*Sasha)) {
+	if (polyland.ajouterDresseur(Sasha)) {
 		cout << "Sasha a bien été ajouté !" << endl;
 	}
 	else {
 		cout << "Sasha n'a pas été ajouté !" << endl;
 	}
-	if (polyland.ajouterDresseur(*Pierre)) {
+	if (polyland.ajouterDresseur(Pierre)) {
 		cout << "Pierre a bien été ajouté !" << endl;
 	}
 	else {
 		cout << "Pierre n'a pas été ajouté !" << endl;
 	}
-	if (polyland.ajouterDresseur(*Regis)) {
+	if (polyland.ajouterDresseur(Regis)) {
 		cout << "Regis a bien été ajouté !" << endl;
 	}
 	else {
 		cout << "Regis n'a pas été ajouté !" << endl;
 	}
-	if (polyland.ajouterDresseur(*Vous)) {
+	if (polyland.ajouterDresseur(Vous)) {
 		cout << "Vous avez été bien ajouté !" << endl;
 	}
 	else {
@@ -115,9 +115,9 @@ int main()
 	cout << endl << "BIENVENUE A POLYLAND" << endl;
 
 	// -> ou . ?
-	Sasha->ajouterCreature(Salimouche);
-	Pierre->ajouterCreature(Balbazar);
-	Regis->ajouterCreature(Carapouce);
+	Sasha.ajouterCreature(Salimouche);
+	Pierre.ajouterCreature(Balbazar);
+	Regis.ajouterCreature(Carapouce);
 
 	cout << endl << "Choix de la premiere creature" << endl;
 

@@ -1,78 +1,15 @@
-﻿  main.cpp
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(20): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(124): error C2228: la partie gauche de '.ajouterCreature' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(124): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(124): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(136): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(136): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(136): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(137): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(137): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(137): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(137): error C2227: la partie gauche de '->attaquer' doit pointer vers un type class/struct/union/générique
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(140): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(140): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(140): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(140): error C2227: la partie gauche de '->attaquer' doit pointer vers un type class/struct/union/générique
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(145): error C2664: 'bool Polyland::attraperCreature(Dresseur *,Creature)' : impossible de convertir l'argument 1 de 'Dresseur **' en 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(145): note: Les types pointés n'ont aucun rapport entre eux ; conversion nécessitant reinterpret_cast, cast de style C ou cast de style fonction
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(159): error C2228: la partie gauche de '.modifierObjetMagique' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(159): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(159): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(161): error C2228: la partie gauche de '.obtenirObjetMagique' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(161): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(161): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(161): error C2228: la partie gauche de '.affichage' doit avoir un class/struct/union
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(162): error C2228: la partie gauche de '.utiliserObjetMagique' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(162): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(162): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(162): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(162): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(162): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(173): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(173): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(173): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(173): error C2227: la partie gauche de '->obtenirPointDeVie' doit pointer vers un type class/struct/union/générique
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(175): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(175): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(175): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(175): error C2227: la partie gauche de '->attaquer' doit pointer vers un type class/struct/union/générique
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(177): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(177): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(177): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(189): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(189): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(189): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(189): error C2227: la partie gauche de '->attaquer' doit pointer vers un type class/struct/union/générique
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(194): error C2664: 'bool Polyland::attraperCreature(Dresseur *,Creature)' : impossible de convertir l'argument 1 de 'Dresseur **' en 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(194): note: Les types pointés n'ont aucun rapport entre eux ; conversion nécessitant reinterpret_cast, cast de style C ou cast de style fonction
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(205): error C2664: 'bool Polyland::ajouterDresseur(Dresseur &)' : impossible de convertir l'argument 1 de 'Dresseur *' en 'Dresseur &'
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(211): error C2664: 'bool Polyland::relacherCreature(Dresseur *,std::string)' : impossible de convertir l'argument 1 de 'Dresseur **' en 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(211): note: Les types pointés n'ont aucun rapport entre eux ; conversion nécessitant reinterpret_cast, cast de style C ou cast de style fonction
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(220): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(220): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(220): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(220): error C2227: la partie gauche de '->modifierPointDeVie' doit pointer vers un type class/struct/union/générique
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(220): error C2227: la partie gauche de '->obtenirPointDeVieTotal' doit pointer vers un type class/struct/union/générique
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(221): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(221): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(221): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(221): error C2227: la partie gauche de '->modifierEnergie' doit pointer vers un type class/struct/union/générique
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(221): error C2227: la partie gauche de '->obtenirEnergieTotale' doit pointer vers un type class/struct/union/générique
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(231): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(231): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(231): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(231): error C2227: la partie gauche de '->obtenirPointDeVie' doit pointer vers un type class/struct/union/générique
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(232): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(232): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(232): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(232): error C2227: la partie gauche de '->attaquer' doit pointer vers un type class/struct/union/générique
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(234): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(234): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(234): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(239): error C2228: la partie gauche de '.utiliserObjetMagique' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(239): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(239): note: voulez-vous utiliser '->' à la place ?
-c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(239): error C2228: la partie gauche de '.obtenirCreatures' doit avoir un class/struct/union
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(239): note: le type est 'Dresseur *'
-  c:\users\audrey\documents\polymtl\inf1010\git-tp\inf1010-lab\polyland\tp1\main.cpp(239): note: voulez-vous utiliser '->' à la place ?
+﻿  Pouvoir.cpp
+  Polyland.cpp
+  ObjetMagique.cpp
+  main.cpp
+d:\ecole\universite\inf1010\inf1010-lab\polyland\tp1\main.cpp(20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Dresseur.cpp
+d:\ecole\universite\inf1010\inf1010-lab\polyland\tp1\dresseur.cpp(77): warning C4018: '<': signed/unsigned mismatch
+d:\ecole\universite\inf1010\inf1010-lab\polyland\tp1\dresseur.cpp(99): warning C4018: '<': signed/unsigned mismatch
+d:\ecole\universite\inf1010\inf1010-lab\polyland\tp1\dresseur.cpp(102): warning C4018: '<': signed/unsigned mismatch
+  Creature.cpp
+  Generating Code...
+d:\ecole\universite\inf1010\inf1010-lab\polyland\tp1\polyland.cpp(84): warning C4715: 'Polyland::retirerCreature': not all control paths return a value
+  LINK : D:\Ecole\Universite\INF1010\inf1010-lab\Polyland\Debug\TP1.exe not found or not built by the last incremental link; performing full link
+  TP1.vcxproj -> D:\Ecole\Universite\INF1010\inf1010-lab\Polyland\Debug\TP1.exe
+  TP1.vcxproj -> D:\Ecole\Universite\INF1010\inf1010-lab\Polyland\Debug\TP1.pdb (Full PDB)
