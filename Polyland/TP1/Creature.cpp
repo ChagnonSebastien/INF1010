@@ -1,12 +1,3 @@
-/*
-Fichier: Creature.cpp
-Auteur(s): Sébastien CHAGNON, Audrey LABRIE
-Date de creation: 13 septembre 2016
-Date de modification: 20 septembre 2016
-Description: Les creatures sont les etres qui hantent le monde de Polyland
-*/
-
-
 #include "Creature.h"
 
 Creature::Creature() :
