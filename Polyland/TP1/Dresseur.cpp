@@ -1,3 +1,10 @@
+/*
+Fichier: Dresseur.cpp
+Auteur(s): Alexandre MAO, Sebastien CHAGNON, Audrey LABRIE
+Date de creation: 31 aout 2016
+Date de modification: 26 septembre 2016
+Description: les dresseurs sont les etres capables d'attraper des creatures
+*/
 #include "Dresseur.h"
 
 

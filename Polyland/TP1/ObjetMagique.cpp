@@ -1,3 +1,11 @@
+/*
+Fichier: ObjetMagique.cpp
+Auteur(s): Sebastien CHAGNON, AudreyLABRIE
+Date de creation: 13 septembre 2016
+Date de modification: 26 septembre 2016
+Description: les objets magiques sont detenus par les dresseurs
+*/
+
 #include "ObjetMagique.h"
 
 ObjetMagique::ObjetMagique() :nom_(""), bonus_(0)

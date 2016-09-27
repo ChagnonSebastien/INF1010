@@ -1,8 +1,8 @@
 ﻿/*
 Fichier: main.cpp
-Auteur(s): Alexandre MAO
+Auteur(s): Alexandre MAO, Sebastien CHAGNON, Audrey LABRIE
 Date de creation: 31 aout 2016
-Date de modification: 4 septembre 2016
+Date de modification: 26 septembre 2016
 Description: Programme de test
 */
 

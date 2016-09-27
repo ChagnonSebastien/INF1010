@@ -1,0 +1,10 @@
+1. Quel est le lien (agrégation/composition) entre les dresseurs et Polyland? Justifiez votre choix de lien.
+	Composition car la classe Polyland est composée des dresseurs et ci elle n'existe pas ou est détruit, les dresseurs
+	n'existent pas non plus ou seront détruit parce qu'ils ne peuvent pas être dans le néant.
+2. Quel est le lien (agrégation/composition) entre les créatures et Polyland? Justifiez votre choix de lien.
+	Composition car la classe Polyland est composée des créatures et ci elle n'existe pas ou est détruit, les creatures
+	n'existent pas non plus ou seront détruites puisqu'elles ne peuvent pas être dans le néant.
+3. Quel est le lien (agrégation/composition) entre les dresseurs et créatures? Justifiez votre choix de lien.
+	Agrégation puisque les créatures peuvent exister sans les dresseurs et vice-versa. Si un dresseur est détruit, les créatures existent encore dans Polyland
+4. Quel est le lien (agrégation/composition) entre les créatures et les pouvoirs? Justifiez votre choix de lien.
+	Agrégation puisque le pouvoir peuvent encore exister même si la créature est détruite et peux être ajouter a une autre créature.

@@ -1,3 +1,10 @@
+/*
+Fichier: Pouvoir.cpp
+Auteur(s): Sébastien CHAGNON, Audrey LABRIE
+Date de creation: 13 septembre 2016
+Date de modification: 26 septembre 2016
+Description: les pouvoir sont détenus par les créatures
+*/
 #include "Pouvoir.h"
 
 Pouvoir::Pouvoir(): 

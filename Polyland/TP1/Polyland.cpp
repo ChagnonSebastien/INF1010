@@ -1,3 +1,10 @@
+/*
+Fichier: Polyland.cpp
+Auteur(s): Sebastien CHAGNON, Audrey LABRIE
+Date de creation: 31 aout 2016
+Date de modification: 26 septembre 2016
+Description: Polyland est le monde de notre jeu
+*/
 #include "Polyland.h"
 #include <ctime>
 #include <cstdlib>
