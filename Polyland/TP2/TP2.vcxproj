@@ -142,6 +142,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Creature.cpp" />
+    <ClCompile Include="Dresseur.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ObjetMagique.cpp" />
+    <ClCompile Include="PolyLand.cpp" />
+    <ClCompile Include="Pouvoir.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Creature.h" />
+    <ClInclude Include="Dresseur.h" />
+    <ClInclude Include="ObjetMagique.h" />
+    <ClInclude Include="PolyLand.h" />
+    <ClInclude Include="Pouvoir.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

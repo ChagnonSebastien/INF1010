@@ -1,23 +1,23 @@
 #include "Dresseur.h"
 #include <iostream>
 
-Dresseur::Dresseur() :nom_("") {}; // A MODIFIER... (si necessaire)
-
-Dresseur::Dresseur(const std::string& nom):	nom_(nom)
+Dresseur::Dresseur() : nom_(""), equipe_("")
 {
-	creatures_ = new Creature*[MAX_NOMBRE_CREATURES](); // A MODIFIER... (si necessaire)
+}
+
+
+Dresseur::Dresseur(const string & nom, const string & equipe) : nom_(nom), equipe_(equipe)
+{
 }
 
 
 Dresseur::~Dresseur() // A MODIFIER... (si necessaire)
 {
-	for (unsigned int i = 0; i < nombreCreatures_; i++)
+	for (unsigned int i = 0; i < creatures_.size(); i++)
 	{
 		delete creatures_[i];
 		creatures_[i] = nullptr;
 	}
-	delete[]creatures_;
-	creatures_ = nullptr;
 }
 
 std::string Dresseur::obtenirNom() const
@@ -25,24 +25,9 @@ std::string Dresseur::obtenirNom() const
 	return nom_;
 }
 
-void Dresseur::modifierNom(const std::string& nom)
+void Dresseur::modifierNom(const string& nom)
 {
 	nom_ = nom;
-}
-
-unsigned int Dresseur::obtenirNombreCreatures() const
-{
-	return nombreCreatures_;
-}
-
-Creature** Dresseur::obtenirCreatures() const // A MODIFIER... (si necessaire)
-{
-	return creatures_;
-}
-
-void Dresseur::modifierCreature(Creature** creatures) // A MODIFIER... (si necessaire)
-{
-	creatures_ = creatures;
 }
 
 ObjetMagique Dresseur::obtenirObjetMagique() const
@@ -53,6 +38,62 @@ ObjetMagique Dresseur::obtenirObjetMagique() const
 void Dresseur::modifierObjetMagique(const ObjetMagique & objetMagique)
 {
 	objetMagique_ = objetMagique;
+}
+
+unsigned int Dresseur::obtenirNombreCreatures() const
+{
+	return creatures_.size();
+}
+
+void Dresseur::modifierCreature(vector<Creature*> creatures)
+{
+	for (unsigned int i = 0; i < creatures_.size(); i++)
+	{
+		delete creatures_[i];
+		creatures_[i] = nullptr;
+	}
+
+	creatures_ = creatures;
+}
+
+string Dresseur::obtenirEquipe() const
+{
+	return equipe_;
+}
+
+void Dresseur::modifierEquipe(string equipe)
+{
+	equipe_ = equipe;
+}
+
+Creature Dresseur::obtenirCreature(string nom)
+{
+	for (unsigned int i = 0; i < creatures_.size(); i++)
+		if (creatures_[i] == nom)
+			return *creatures_[i];
+}
+
+bool Dresseur::operator==(const Dresseur & dresseur) const
+{
+	if (creatures_.size() != dresseur.obtenirNombreCreatures())
+		return false;
+
+	for (unsigned int i = 0; i < creatures_.size(); i++)
+	{
+		bool trouve = false;
+		for (unsigned int j = 0; j < dresseur.obtenirNombreCreatures() && !trouve; j++)
+			if (creatures_[i] == dresseur.obtenirCreatures()[j])
+				trouve = true;
+
+		if (!trouve)
+			return false;
+	}
+
+}
+
+bool Dresseur::operator==(const string nom) const
+{
+	return nom == nom_;
 }
 
 void Dresseur::utiliserObjetMagique(Creature* creature)
@@ -74,41 +115,30 @@ void Dresseur::utiliserObjetMagique(Creature* creature)
 
 bool Dresseur::ajouterCreature(const Creature& creature) // A MODIFIER... (si necessaire)
 {
-	if (nombreCreatures_ < MAX_NOMBRE_CREATURES) {
-		for (unsigned int i = 0; i < nombreCreatures_; i++)
-		{
-			if (creatures_[i]->obtenirNom() == creature.obtenirNom())
-				return false;
-		}
-		creatures_[nombreCreatures_] = new Creature();
-		*creatures_[nombreCreatures_] = creature;
-		nombreCreatures_++;
-	}
-	else {
-		return false;
-	}
+	creatures_.push_back(new Creature());
+	*creatures_[creatures_.size() - 1] = creature;
+	return true;
 }
 
 bool Dresseur::enleverCreature(const std::string& nom) // A MODIFIER... (si necessaire)
 {
-	for (unsigned int i = 0; i < nombreCreatures_; i++)
-	{
-		if (creatures_[i]->obtenirNom() == nom)
-		{
-			nombreCreatures_--;
-			creatures_[i] = creatures_[nombreCreatures_];
-			delete creatures_[nombreCreatures_];
-			creatures_[nombreCreatures_] = nullptr;
-
+	for (unsigned int i = 0; i < creatures_.size(); i++)
+		if (creatures_[i] == nom) {
+			creatures_.erase(creatures_.begin() + i);
 			return true;
 		}
-	}
+
 	return false;
 }
 
-void Dresseur::affichage() const // A MODIFIER... (si necessaire)
+ostream& operator<<(ostream& o, const Dresseur& dresseur) // A MODIFIER... (si necessaire)
 {
-	std::cout << nom_ << " possede " << nombreCreatures_  << " creature(s) "<< std::endl;
+	cout << dresseur.obtenirNom() << " possede " << dresseur.obtenirNombreCreatures()  << " creature(s) "<< endl;
+}
+
+bool operator==(const string nom, const Dresseur & dresseur)
+{
+	return dresseur == nom;
 }
 
 // ___TP2___
