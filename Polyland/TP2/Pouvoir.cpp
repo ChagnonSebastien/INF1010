@@ -6,12 +6,17 @@ Pouvoir::Pouvoir()
 {
 }
 
+Pouvoir::Pouvoir(const Pouvoir& pouvoir) : nom_(pouvoir.obtenirNom()), nombreDeDegat_(pouvoir.obtenirNombreDeDegat()),
+energieNecessaire_(pouvoir.obtenirEnergieNecessaire())
+{
+
+}
+
 Pouvoir::Pouvoir(const std::string& nom, 
 	unsigned int nombreDeDegat,	unsigned int energieNecessaire):
 	nom_(nom), nombreDeDegat_(nombreDeDegat), energieNecessaire_(energieNecessaire)
 {
 }
-
 
 Pouvoir::~Pouvoir()
 {
@@ -47,7 +52,22 @@ void Pouvoir::modifierNom(const std::string& nom)
 	nom_ = nom;
 }
 
-void Pouvoir::description() const // A MODIFIER... (si necessaire)
-{
-	std::cout << nom_ << " necessite " << energieNecessaire_ << " energie et inflige " << nombreDeDegat_ << " degats" << std::endl;
+void Pouvoir::operator=(const Pouvoir& pouvoir){
+
+	nom_ = pouvoir.obtenirNom();
+	nombreDeDegat_ = pouvoir.obtenirNombreDeDegat();
+	energieNecessaire_ = pouvoir.obtenirEnergieNecessaire();
+
+}
+
+bool Pouvoir::operator==(const Pouvoir& pouvoir) const {
+
+	return(nom_ == (pouvoir.obtenirNom()));
+
+}
+
+std::ostream & Pouvoir::operator<<(std::ostream& o) const {
+
+	return o << "Son pouvoir est : " << nom_ << " d'energie et inflige "
+		<< nombreDeDegat_ << " degats" << std::endl;
 }

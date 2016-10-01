@@ -16,7 +16,7 @@ public:
 	void modifierNom(const std::string& nom);
 	void modifierBonus(int bonus);
 
-	void affichage() const; // A MODIFIER... (si necessaire)
+	std::ostream& operator<<(std::ostream& o) const;
 
 private:
 	std::string nom_;

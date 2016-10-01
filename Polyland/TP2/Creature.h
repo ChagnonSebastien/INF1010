@@ -2,6 +2,8 @@
 #define CREATURE_H
 
 #include <string>
+#include <vector>
+#include <iostream>
 #include "ObjetMagique.h"
 #include "Pouvoir.h"
 
@@ -23,7 +25,7 @@ public:
 	unsigned int obtenirExperience() const;
 	unsigned int obtenirExperienceNecessaire() const;
 	unsigned int obtenirNiveau() const;
-	vector<Pouvoir*> obtenirPouvoirs() const; // A MODIFIER... (si necessaire) DONE
+	std::vector<Pouvoir*> obtenirPouvoir() const; // A MODIFIER... (si necessaire) DONE
 
 	void attaquer(Creature& creature);// A MODIFIER... (si necessaire)
 	int experienceGagnee(const Creature& creature);
@@ -34,15 +36,17 @@ public:
 	void modifierEnergie(unsigned int energie);
 	void modifierExperience(unsigned int experience);
 	void modifierNiveau(unsigned int niveau);
-	void modifierPouvoirs(vector<Pouvoir*>& pouvoirs); // A MODIFIER... (si necessaire) DONE
+	void modifierPouvoir(std::vector<Pouvoir*>& pouvoirs); // A MODIFIER... (si necessaire) DONE
 
 	void information() const; // A MODIFIER... (si necessaire)
 
 	void apprendrePouvoir(Pouvoir& pouvoir);
-	void oublierPouvoir(string nom);
+	void oublierPouvoir(std::string nom);
 
 	bool operator==(const Pouvoir& pouvoir) const;
-	bool operator==(const string& nom) const;
+	bool operator==(const std::string& nom) const;
+	bool operator==(const Creature& creature) const;
+	std::ostream& operator<<(std::ostream& o);
 	// _________TP2___________
 
 private:
@@ -57,7 +61,7 @@ private:
 	unsigned int experience_;
 	unsigned int experienceNecessaire_;
 	unsigned int niveau_;
-	vector<Pouvoir*> pouvoirs_;
+	std::vector<Pouvoir*> pouvoir_;
 
 	// _________TP2___________
 

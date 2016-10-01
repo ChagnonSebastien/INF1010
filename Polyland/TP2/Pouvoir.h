@@ -6,6 +6,7 @@ class Pouvoir
 {
 public:
 	Pouvoir();
+	Pouvoir(const Pouvoir& pouvoir);
 	Pouvoir(const std::string& nom, 
 		unsigned int nombreDeDegat, unsigned int energieNecessaire);
 	~Pouvoir();
@@ -18,9 +19,12 @@ public:
 	void modifierEnergieNecessarie(unsigned int energieNecessaire);
 	void modifierNom(const std::string& nom);
 
-	void description() const; // A MODIFIER... (si necessaire)
-
 	//________TP2________
+
+	void operator=(const Pouvoir& pouvoir);
+	bool operator==(const Pouvoir& pouvoir) const;
+	std::ostream& operator<<(std::ostream& o) const;
+
 
 private:
 	std::string nom_;

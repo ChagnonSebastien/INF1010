@@ -25,11 +25,11 @@ Creature::Creature(const std::string& nom, unsigned int attaque,
 
 Creature::~Creature() // A MODIFIER... (si necessaire)
 {
-	for (unsigned int i = 0; i < pouvoirs_.size(); i++) {
-		delete pouvoirs_[i];
+	for (unsigned int i = 0; i < pouvoir_.size(); i++) {
+		delete pouvoir_[i];
 	}
 
-	pouvoirs_.clear();
+	pouvoir_.clear();
 
 }
 
@@ -83,7 +83,7 @@ unsigned int Creature::obtenirNiveau() const
 	return niveau_;
 }
 
-vector<Pouvoir*> Creature::obtenirPouvoirs() const
+std::vector<Pouvoir*> Creature::obtenirPouvoir() const
 {
 	return pouvoir_;
 }
@@ -91,7 +91,7 @@ vector<Pouvoir*> Creature::obtenirPouvoirs() const
 
 void Creature::attaquer(Creature & creature)// A MODIFIER... (si necessaire)
 {
-	if (energie_ >= pouvoir_.obtenirManaNecessaire())
+	if (energie_ >= pouvoir_.obtenirEnergieNecessaire())
 	{
 		if (creature.obtenirPointDeVie() >= 0)
 		{
@@ -104,11 +104,11 @@ void Creature::attaquer(Creature & creature)// A MODIFIER... (si necessaire)
 				if (degat > creature.obtenirPointDeVie()) {
 					creature.modifierPointDeVie(0);
 					int xp = experienceGagnee(creature);
-					cout << nom_ << " a gagné " << xp << " XP" << endl;
+					std::cout << nom_ << " a gagné " << xp << " XP" << endl;
 				}
 				else
 					creature.modifierPointDeVie(creature.obtenirPointDeVie() - degat);
-				cout << creature.obtenirNom() << " a encore " << creature.obtenirPointDeVie() << " PV" << endl;
+				std::cout << creature.obtenirNom() << " a encore " << creature.obtenirPointDeVie() << " PV" << endl;
 				energie_ -= pouvoir_.obtenirManaNecessaire();
 			}
 			else {
@@ -251,9 +251,31 @@ bool Creature::operator==(const Pouvoir& pouvoir) const
 	return true;
 }
 
-bool Creature::operator==(const string& nom) const; {
+bool Creature::operator==(const std::string& nom) const {
 
 	return (nom_ == nom);
+}
+
+bool Creature::operator==(const Creature& creature) const {
+
+	return (nom_ == creature.obtenirNom());
+
+}
+
+std::ostream & Creature::operator<<(std::ostream & o)
+{
+	return o << nom_ << " a " << attaque_ << " en attaque et " << defense_ << " en defense," << endl
+		<< "Il a " << pointDeVie_ << "/" << pointDeVieTotal_ << " et "
+		<< energie_ << "/" << energieTotal_ << " Energie" << endl
+
+
+
+<< "Il est au niveau " << niveau_ << " avec " << experience_
+		<< "d'XP" << endl
+<< "Il lui manque " << experienceNecessaire_
+		<< " jusqu'au prochain niveau" << endl;
+	cout << "Son pouvoir est : " << pouvoir << ;
+
 }
 
 
