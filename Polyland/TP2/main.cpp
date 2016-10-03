@@ -52,38 +52,6 @@ int main()
 	// A COMPLETER...
 	cout << Pokachu << endl << Touflamme << endl << Pokachoum << endl;
 
-
-	std::cout << std::endl << "AJOUT DE CREATURES ET DE DRESSEURS A POLYLAND" << std::endl << std::endl;
-
-	PolyLand polyland;
-
-	// Ajouter les dresseurs et les creatures. Attention, vous devez utiliser l'operateur += pour ajouter un dresseur.
-	// A COMPLETER...
-	polyland += Salimouche;
-	polyland += Carapouce;
-	polyland += Balbazar;
-	polyland += Pokachu;
-	polyland += Touflamme;
-	polyland += Pokachoum;
-	polyland += Regis;
-	polyland += Pierre;
-	polyland += Sasha;
-
-	//Ce dresseur est deja present, il ne devrais pas s'ajouter.
-	// A COMPLETER...
-	polyland += Pierre;
-
-	std::cout << "TEST D'AFFICHAGE" << std::endl << std::endl;
-	// Tests d'affichage
-	std::cout << polyland << std::endl;
-	std::cout << *(polyland.choisirCreatureAleatoire()) << std::endl;
-	std::cout << *(polyland.choisirDresseurAleatoire()) << std::endl;
-
-	std::cout << std::endl << "COMPETITION" << std::endl;
-	// Debut de la competition
-	std::cout << std::endl << "Bienvenue a Polyland" << std::endl;
-	Dresseur Vous("Hey", "Team INF1010");
-
 	// Creer les pouvoirs suivants
 	// ("Boule de feu", 5, 5)
 	// pistoletAEau("Pistolet a eau", 6, 6)
@@ -126,6 +94,39 @@ int main()
 	Pokachu.apprendrePouvoir(tonerre);
 	Touflamme.apprendrePouvoir(tonerre);
 	Pokachoum.apprendrePouvoir(eclair);
+
+	std::cout << std::endl << "AJOUT DE CREATURES ET DE DRESSEURS A POLYLAND" << std::endl << std::endl;
+
+	PolyLand polyland;
+
+	// Ajouter les dresseurs et les creatures. Attention, vous devez utiliser l'operateur += pour ajouter un dresseur.
+	// A COMPLETER...
+	polyland += Salimouche;
+	polyland += Carapouce;
+	polyland += Balbazar;
+	polyland += Pokachu;
+	polyland += Touflamme;
+	polyland += Pokachoum;
+	polyland += Regis;
+	polyland += Pierre;
+	polyland += Sasha;
+
+	//Ce dresseur est deja present, il ne devrais pas s'ajouter.
+	// A COMPLETER...
+	polyland += Pierre;
+
+	std::cout << "TEST D'AFFICHAGE" << std::endl << std::endl;
+	// Tests d'affichage
+	std::cout << polyland << std::endl;
+	std::cout << *(polyland.choisirCreatureAleatoire()) << std::endl;
+	std::cout << *(polyland.choisirDresseurAleatoire()) << std::endl;
+
+	std::cout << std::endl << "COMPETITION" << std::endl;
+	// Debut de la competition
+	std::cout << std::endl << "Bienvenue a Polyland" << std::endl;
+	Dresseur Vous("Hey", "Team INF1010");
+
+	
 
 
 	// Cette commande ne devrait pas fonctionner
@@ -193,8 +194,7 @@ int main()
 			//... ou que votre créature est morte
 			(Vous.obtenirUneCreature("Pokachu"))->attaquer(eclair, *creatureAleatoire);
 			if (creatureAleatoire->obtenirPointDeVie() > 0) {
-				Creature* creatureAMoi = Vous.obtenirUneCreature("Pokachu");
-				creatureAleatoire->attaquer(*(creatureAleatoire->obtenirPouvoirs()[0]), *creatureAMoi);
+				creatureAleatoire->attaquer(*(creatureAleatoire->obtenirPouvoirs()[0]), *(Vous.obtenirUneCreature("Pokachu")));
 			}
 		}
 		else
