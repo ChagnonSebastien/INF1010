@@ -24,8 +24,15 @@ Creature::Creature(const std::string& nom, unsigned int attaque,
 }
 
 Creature::Creature(const Creature& creature): nom_(creature.obtenirNom()), attaque_(creature.obtenirAttaque()), defense_(creature.obtenirDefense()),
-pointDeVie_(creature)
+pointDeVie_(creature.obtenirPointDeVie), pointDeVieTotal_(creature.obtenirPointDeVieTotal), energie_(creature.obtenirEnergie), energieTotal_(creature.obtenirEnergieTotale),
+experience_(creature.obtenirExperience), experienceNecessaire_(creature.obtenirExperienceNecessaire), niveau_(creature.obtenirNiveau)
 {
+	unsigned int nbPouvoirs = creature.obtenirPouvoir().size();
+	for (unsigned int i = 0; i < nbPouvoirs; i++) {
+		Pouvoir* p = new Pouvoir;
+		*p = *(creature.obtenirPouvoir[i]);
+		pouvoir_.push_back(p);
+	}
 }
 
 Creature::~Creature() // A MODIFIER... (si necessaire)
@@ -33,9 +40,7 @@ Creature::~Creature() // A MODIFIER... (si necessaire)
 	for (unsigned int i = 0; i < pouvoir_.size(); i++) {
 		delete pouvoir_[i];
 	}
-
 	pouvoir_.clear();
-
 }
 
 std::string Creature::obtenirNom() const
@@ -94,34 +99,40 @@ std::vector<Pouvoir*> Creature::obtenirPouvoir() const
 }
 
 
-void Creature::attaquer(Creature & creature)// A MODIFIER... (si necessaire)
+void Creature::attaquer(Pouvoir & pouvoir, Creature & creature)// A MODIFIER... (si necessaire)
 {
-	if (energie_ >= pouvoir_.obtenirEnergieNecessaire())
+	int pouvoirUtiliser;
+	for (unsigned int i = 0; i < pouvoir_.size(); i++) {
+		if (*(pouvoir_[i]) == pouvoir) {
+			pouvoirUtiliser = i;
+		}
+	}
+	if (energie_ >= pouvoir_[pouvoirUtiliser]->obtenirEnergieNecessaire())
 	{
 		if (creature.obtenirPointDeVie() >= 0)
 		{
 			//Calcul du nombre de degat selon une formule 
-			unsigned int degat = (pouvoir_.obtenirNombreDeDegat())* (attaque_ / 2 - creature.defense_);
+			unsigned int degat = (pouvoir_[pouvoirUtiliser]->obtenirNombreDeDegat())* (attaque_ / 2 - creature.defense_);
 			int tentative = rand() % 6;
 			//l'attaque rate une fois sur 6
 			if (tentative != 3) {
-				std::cout << nom_ << " lance " << pouvoir_.obtenirNom() << " qui inflige " << degat << " degat a " << creature.obtenirNom() << endl;
+				std::cout << nom_ << " lance " << pouvoir_[pouvoirUtiliser]->obtenirNom() << " qui inflige " << degat << " degat a " << creature.obtenirNom() << std::endl;
 				if (degat > creature.obtenirPointDeVie()) {
 					creature.modifierPointDeVie(0);
 					int xp = experienceGagnee(creature);
-					std::cout << nom_ << " a gagné " << xp << " XP" << endl;
+					std::cout << nom_ << " a gagné " << xp << " XP" << std::endl;
 				}
 				else
 					creature.modifierPointDeVie(creature.obtenirPointDeVie() - degat);
-				std::cout << creature.obtenirNom() << " a encore " << creature.obtenirPointDeVie() << " PV" << endl;
-				energie_ -= pouvoir_.obtenirManaNecessaire();
+				std::cout << creature.obtenirNom() << " a encore " << creature.obtenirPointDeVie() << " PV" << std::endl;
+				energie_ -= pouvoir_[pouvoirUtiliser]->obtenirEnergieNecessaire();
 			}
 			else {
-				std::cout << "Attaque " << pouvoir_.obtenirNom() << " a échouée" << endl;
+				std::cout << "Attaque " << pouvoir_[pouvoirUtiliser]->obtenirNom() << " a échouée" << std::endl;
 			}
 		}
 		else
-			std::cout << "Vous deja avez vaincu " << creature.obtenirNom() << endl;
+			std::cout << "Vous deja avez vaincu " << creature.obtenirNom() << std::endl;
 	}
 
 }
@@ -186,70 +197,88 @@ void Creature::modifierNiveau(unsigned int niveau)
 	niveau_ = niveau;
 }
 
-void Creature::modifierPouvoirs(vector<Pouvoir*>& pouvoirs) // A MODIFIER... (si necessaire)
+void Creature::modifierPouvoirs(std::vector<Pouvoir*>& pouvoirs) // A MODIFIER... (si necessaire)
 {
-	pouvoir_ = pouvoirs;
+	unsigned int nbPouvoirs = pouvoirs.size();
+	for (unsigned int i = 0; i < nbPouvoirs; i++) {
+		Pouvoir* p = new Pouvoir;
+		*p = *(pouvoirs[i]);
+		pouvoir_.push_back(p);
+	}
 }
 
-void Creature::information() const // A MODIFIER... (si necessaire)
+
+Creature& Creature::operator=(const Creature& creature)
 {
-	std::cout << nom_ << " a " << attaque_ << " en attaque et " << defense_ << " en defense, " << std::endl
-		<< "Il a " << pointDeVie_ << "/" << pointDeVieTotal_ << " PV et " << energie_ << "/" << energieTotal_ << " Energie" << std::endl
-		<< "Il est au niveau " << niveau_ << " avec " << experience_ << "d'XP" << std::endl
-		<< "Il lui manque " << experienceNecessaire_ - experience_ << " jusqu'au prochain niveau " << std::endl;
-	std::cout << "Son pouvoir  est : ";
-	pouvoir_.description();
-	std::cout << std::endl;
+	nom_ = creature.obtenirNom;
+	attaque_ = creature.obtenirAttaque;
+	defense_ = creature.obtenirDefense;
+	pointDeVie_ = creature.obtenirPointDeVie;
+	pointDeVieTotal_ = creature.obtenirPointDeVieTotal;
+	energie_ = creature.obtenirEnergie;
+	energieTotal_ = creature.obtenirEnergieTotale;
+	experience_ = creature.obtenirExperience;
+	experienceNecessaire_ = creature.obtenirExperienceNecessaire;
+	niveau_ = creature.obtenirNiveau;
+
+
+	unsigned int nbPouvoirs = creature.obtenirPouvoir().size();
+
+	for (unsigned int i = 0; i < nbPouvoirs; i++) {
+		Pouvoir* p = new Pouvoir;
+		*p = *(creature.obtenirPouvoir()[i]);
+		pouvoir_.push_back(p);
+	}
+
+	return *this;
 }
 
 void Creature::apprendrePouvoir(Pouvoir& pouvoir)
 {
 	Pouvoir* p = new Pouvoir;
 	*p = pouvoir;
-	pouvoir_.push_back(p)
-
+	pouvoir_.push_back(p);
 }
-void Creature::oublierPouvoir(string nom)
+void Creature::oublierPouvoir(Pouvoir& pouvoir)
 {
-	for (int i = 0; i < pouvoirs_.size(); i++) {
-		if (pouvoirs_[i]->obtenirNom() == nom) {
-			pouvoirs_.erase(pouvoirs_.begin() + i); //// utiliser l'opérateur == surchagé pour un pouvoir
+	for (unsigned int i = 0; i < pouvoir_.size(); i++) {
+		if (*(pouvoir_[i]) == pouvoir) {
+			pouvoir_.erase(pouvoir_.begin() + i);
 		}
-
 	}
 
 }
 
-bool Creature::operator==(const Pouvoir& pouvoir) const
+bool Creature::operator==(const Creature& creature) const
 {
-	if (nom_ != pouvoir.obtenirNom) {
+	if (nom_ != creature.obtenirNom) {
 		return false;
 	}
-	if (attaque_ != pouvoir.obtenirAttaque) {
+	if (attaque_ != creature.obtenirAttaque) {
 		return false;
 	}
-	if (defense_ != pouvoir.obtenirDefense) {
+	if (defense_ != creature.obtenirDefense) {
 		return false;
 	}
-	if (pointDeVie != pouvoir.obtenirPointDeVie) {
+	if (pointDeVie_ != creature.obtenirPointDeVie) {
 		return false;
 	}
-	if (pointDeVieTotal_ != pouvoir.obtenirPointDeVieTotal) {
+	if (pointDeVieTotal_ != creature.obtenirPointDeVieTotal) {
 		return false;
 	}
-	if (energie_ != pouvoir.obtenirEnergie) {
+	if (energie_ != creature.obtenirEnergie) {
 		return false;
 	}
-	if (energieTotal_ != pourvoir.obtenirEnergieTotale) {
+	if (energieTotal_ != creature.obtenirEnergieTotale) {
 		return false;
 	}
-	if (experience_ != pouvoir.obtenirExperience) {
+	if (experience_ != creature.obtenirExperience) {
 		return false;
 	}
-	if (experienceNecessaire_ != pouvoir.obtenirExperienceNecessaire) {
+	if (experienceNecessaire_ != creature.obtenirExperienceNecessaire) {
 		return false;
 	}
-	if (niveau_ != pouvoir.obtenirNiveau) {
+	if (niveau_ != creature.obtenirNiveau) {
 		return false;
 	}
 
@@ -263,27 +292,26 @@ bool Creature::operator==(const std::string& nom) const {
 
 bool Creature::operator==(const Creature& creature) const {
 
-	return (nom_ == creature.obtenirNom());
-
+	return (creature.obtenirNom() == nom_);
 }
 
-std::ostream & Creature::operator<<(std::ostream & o)
+
+bool operator==(const std::string & nom, const Creature & creature) {
+
+	return (nom == creature.obtenirNom);
+}
+
+std::ostream & operator<<(std::ostream & o, const Creature& creature)
 {
-	return o << nom_ << " a " << attaque_ << " en attaque et " << defense_ << " en defense," << endl
-		<< "Il a " << pointDeVie_ << "/" << pointDeVieTotal_ << " et "
-		<< energie_ << "/" << energieTotal_ << " Energie" << endl
-
-
-
-<< "Il est au niveau " << niveau_ << " avec " << experience_
-		<< "d'XP" << endl
-<< "Il lui manque " << experienceNecessaire_
-		<< " jusqu'au prochain niveau" << endl;
-	cout << "Son pouvoir est : " << pouvoir << ;
+	o << creature.obtenirNom << " a " << creature.obtenirAttaque << " en attaque et " << creature.obtenirDefense << " en defense," << std::endl
+		<< "Il a " << creature.obtenirPointDeVie << "/" << creature.obtenirPointDeVieTotal << " et "
+		<< creature.obtenirEnergie << "/" << creature.obtenirEnergieTotale << " Energie" << std::endl
+		<< "Il est au niveau " << creature.obtenirNiveau << " avec " << creature.obtenirExperience
+		<< "d'XP" << std::endl << "Il lui manque " << creature.obtenirExperienceNecessaire
+		<< " jusqu'au prochain niveau" << std::endl << "Son pouvoir est : ";
+	
+	for (unsigned int i = 0; i < creature.obtenirPouvoir.size(); i++) {
+	  o << *(creature.obtenirPouvoir[i]) << std::endl;
+	}
 
 }
-
-
-
-
-// _______TP2________

@@ -28,7 +28,7 @@ public:
 	unsigned int obtenirNiveau() const;
 	std::vector<Pouvoir*> obtenirPouvoir() const; // A MODIFIER... (si necessaire) DONE
 
-	void attaquer(Creature& creature);// A MODIFIER... (si necessaire)
+	void attaquer(Pouvoir & pouvoir, Creature & creature);// A MODIFIER... (si necessaire)
 	int experienceGagnee(const Creature& creature);
 
 	void modifierAttaque(unsigned int attaque);
@@ -39,17 +39,16 @@ public:
 	void modifierNiveau(unsigned int niveau);
 	void modifierPouvoirs(std::vector<Pouvoir*>& pouvoirs); // A MODIFIER... (si necessaire)
 
-	void information() const; // A MODIFIER... (si necessaire)
-
 	// _________TP2___________
 
+	Creature& Creature::operator=(const Creature& creature);
 	void apprendrePouvoir(Pouvoir& pouvoir);
-	void oublierPouvoir(std::string nom);
+	void oublierPouvoir(Pouvoir& pouvoir);
 
-	bool operator==(const Pouvoir& pouvoir) const;
-	bool operator==(const std::string& nom) const;
 	bool operator==(const Creature& creature) const;
-	std::ostream& operator<<(std::ostream& o);
+	bool operator==(const std::string& nom) const;
+	friend bool operator==(const std::string& nom, const Creature& creature);
+	friend std::ostream& operator<<(std::ostream& o, const Creature& creature);
 
 private:
 
