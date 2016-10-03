@@ -5,6 +5,8 @@
 #include <vector>
 #include "Creature.h"
 
+#define MAX_NOMBRE_CREATURES 2
+
 using namespace std;
 
 class Dresseur

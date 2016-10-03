@@ -115,6 +115,9 @@ void Dresseur::utiliserObjetMagique(Creature* creature)
 
 bool Dresseur::ajouterCreature(const Creature& creature) // A MODIFIER... (si necessaire)
 {
+	if (creatures_.size() >= MAX_NOMBRE_CREATURES)
+		return false;
+
 	creatures_.push_back(new Creature());
 	*creatures_[creatures_.size() - 1] = creature;
 	return true;
