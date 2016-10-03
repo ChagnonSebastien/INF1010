@@ -23,6 +23,11 @@ Creature::Creature(const std::string& nom, unsigned int attaque,
 	pointDeVieTotal_ = pointDeVie;
 }
 
+Creature::Creature(const Creature& creature): nom_(creature.obtenirNom()), attaque_(creature.obtenirAttaque()), defense_(creature.obtenirDefense()),
+pointDeVie_(creature)
+{
+}
+
 Creature::~Creature() // A MODIFIER... (si necessaire)
 {
 	for (unsigned int i = 0; i < pouvoir_.size(); i++) {

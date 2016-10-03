@@ -13,6 +13,7 @@ public:
 	Creature(); // A MODIFIER... (si necessaire)
 	Creature(const std::string& nom, unsigned int attaque,
 		unsigned int defense, unsigned int pointDeVie, unsigned int energie); // A COMPLETER... (si necessaire)
+	Creature(const Creature& creature);
 	~Creature(); // A MODIFIER... (si necessaire) DONE
 
 	std::string obtenirNom() const;
@@ -36,9 +37,11 @@ public:
 	void modifierEnergie(unsigned int energie);
 	void modifierExperience(unsigned int experience);
 	void modifierNiveau(unsigned int niveau);
-	void modifierPouvoir(std::vector<Pouvoir*>& pouvoirs); // A MODIFIER... (si necessaire) DONE
+	void modifierPouvoirs(std::vector<Pouvoir*>& pouvoirs); // A MODIFIER... (si necessaire)
 
 	void information() const; // A MODIFIER... (si necessaire)
+
+	// _________TP2___________
 
 	void apprendrePouvoir(Pouvoir& pouvoir);
 	void oublierPouvoir(std::string nom);
@@ -47,7 +50,6 @@ public:
 	bool operator==(const std::string& nom) const;
 	bool operator==(const Creature& creature) const;
 	std::ostream& operator<<(std::ostream& o);
-	// _________TP2___________
 
 private:
 
@@ -61,9 +63,10 @@ private:
 	unsigned int experience_;
 	unsigned int experienceNecessaire_;
 	unsigned int niveau_;
-	std::vector<Pouvoir*> pouvoir_;
-
+	
 	// _________TP2___________
+
+	std::vector<Pouvoir*> pouvoir_;
 
 };
 

@@ -1,4 +1,0 @@
-﻿  main.cpp
-d:\ecole\universite\inf1010\inf1010-lab\polyland\tp1\main.cpp(20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  TP1.vcxproj -> D:\Ecole\Universite\INF1010\inf1010-lab\Polyland\Debug\TP1.exe
-  TP1.vcxproj -> D:\Ecole\Universite\INF1010\inf1010-lab\Polyland\Debug\TP1.pdb (Full PDB)
