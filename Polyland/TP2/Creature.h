@@ -31,6 +31,7 @@ public:
 	void attaquer(Creature& creature);// A MODIFIER... (si necessaire)
 	int experienceGagnee(const Creature& creature);
 
+	void modifierNom(std::string nom);
 	void modifierAttaque(unsigned int attaque);
 	void modifierDefense(unsigned int defense);
 	void modifierPointDeVie(unsigned int pointDeVie);

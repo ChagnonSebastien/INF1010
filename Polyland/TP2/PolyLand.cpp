@@ -28,8 +28,10 @@ bool PolyLand::ajouterDresseur(Dresseur* dresseur) // A MODIFIER... (si necessai
 		return false;
 
 	for (unsigned int i = 0; i < dresseurs_.size(); i++)
-		if (*dresseur == dresseurs_[i]->obtenirNom())
+		if (*dresseur == dresseurs_[i]->obtenirNom()) {
+			std::cout << dresseur->obtenirNom() << " n'a pas été ajouté" << std::endl;
 			return false;
+		}
 
 	dresseurs_.push_back(dresseur);
 	std::cout << dresseur->obtenirNom() << " a bien été ajouté !" << std::endl;
@@ -67,8 +69,10 @@ bool PolyLand::ajouterCreature(const Creature& creature) // A MODIFIER... (si ne
 		return false;
 
 	for (int i = 0; i < creatures_.size(); i++)
-		if (creature == creatures_[i]->obtenirNom())
+		if (creature == creatures_[i]->obtenirNom()) {
+			std::cout << creature.obtenirNom() << " n'a pas été ajouté" << std::endl;
 			return false;
+		}
 
 	creatures_.push_back(new Creature());
 	*creatures_[creatures_.size() - 1] = creature;

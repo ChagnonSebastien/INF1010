@@ -23,7 +23,7 @@ public:
 
 	void operator=(const Pouvoir& pouvoir);
 	bool operator==(const Pouvoir& pouvoir) const;
-	std::ostream& operator<<(std::ostream& o) const;
+	friend std::ostream& operator<<(std::ostream& o, const Pouvoir& pouvoir);
 
 
 private:

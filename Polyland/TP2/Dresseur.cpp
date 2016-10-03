@@ -136,7 +136,7 @@ bool Dresseur::enleverCreature(const std::string& nom) // A MODIFIER... (si nece
 
 ostream& operator<<(ostream& o, const Dresseur& dresseur) // A MODIFIER... (si necessaire)
 {
-	cout << dresseur.obtenirNom() << " possede " << dresseur.obtenirNombreCreatures()  << " creature(s) "<< endl;
+	return o << dresseur.obtenirNom() << " possede " << dresseur.obtenirNombreCreatures()  << " creature(s) "<< endl;
 }
 
 bool operator==(const string nom, const Dresseur & dresseur)

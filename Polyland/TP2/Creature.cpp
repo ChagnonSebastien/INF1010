@@ -156,6 +156,11 @@ int Creature::experienceGagnee(const Creature& creature)
 	return 0;
 }
 
+void Creature::modifierNom(std::string nom)
+{
+	nom_ = nom;
+}
+
 void Creature::modifierAttaque(unsigned int attaque)
 {
 	attaque_ = attaque;
