@@ -4,89 +4,108 @@
 #include <time.h>
 #include <iostream>
 
-PolyLand::PolyLand() // A MODIFIER... (si necessaire)
+PolyLand::PolyLand()
 {
-	dresseurs_ = new Dresseur*[MAX_DRESSEURS]();
-	creatures_ = new Creature*[MAX_CREATURES]();
 }
 
 
-PolyLand::~PolyLand() // A MODIFIER... (si necessaire)
+PolyLand::~PolyLand()
 {
-	delete[]dresseurs_;
-	dresseurs_ = nullptr;
-
-	for (unsigned int i = 0; i < nombreCreatures_; i++)
-	{
+	for (int i = 0; i < creatures_.size(); i++) {
 		delete creatures_[i];
 		creatures_[i] = nullptr;
 	}
-	delete[]creatures_;
-	creatures_ = nullptr;
 
+	for (int i = 0; i < dresseurs_.size(); i++) {
+		delete dresseurs_[i];
+		dresseurs_[i] = nullptr;
+	}
 }
 
 bool PolyLand::ajouterDresseur(Dresseur* dresseur) // A MODIFIER... (si necessaire)
 {
-	if (nombreDresseurs_ >= MAX_DRESSEURS)
+	if (dresseurs_.size() >= MAX_DRESSEURS)
 		return false;
-	for (unsigned int i = 0; i < nombreDresseurs_; i++)
-	{
-		if (dresseurs_[i]->obtenirNom() == dresseur->obtenirNom())
-			return false;
-	}
-	dresseurs_[nombreDresseurs_++] = dresseur;
-	std::cout << dresseur->obtenirNom() << " a bien été ajouté !" << std::endl;
-	return true;
-}
 
-bool PolyLand::ajouterCreature(const Creature& creature) // A MODIFIER... (si necessaire)
-{
-	if(nombreCreatures_ >= MAX_CREATURES)
-		return false;
-	creatures_[nombreCreatures_] = new Creature();
-	*creatures_[nombreCreatures_] = creature;
-	nombreCreatures_++;
-	std::cout << creature.obtenirNom() << " a bien été ajouté !" << std::endl;
+	for (unsigned int i = 0; i < dresseurs_.size(); i++)
+		if (*dresseur == dresseurs_[i]->obtenirNom())
+			return false;
+
+	dresseurs_.push_back(dresseur);
+	std::cout << dresseur->obtenirNom() << " a bien été ajouté !" << std::endl;
 	return true;
 }
 
 bool PolyLand::retirerDresseur(const std::string& nom) // A MODIFIER... (si necessaire)
 {
-	for (unsigned int i = 0; i < nombreDresseurs_; i++)
-	{
-		if (dresseurs_[i]->obtenirNom() == nom)
+	for (unsigned int i = 0; i < dresseurs_.size(); i++)
+		if (*dresseurs_[i] == nom)
 		{
-			dresseurs_[i] = dresseurs_[nombreDresseurs_ - 1];
-			dresseurs_[nombreDresseurs_ - 1] = nullptr;
-			nombreDresseurs_--;
+			delete dresseurs_[i];
+			dresseurs_.erase(dresseurs_.begin() + i);
 			return true;
 		}
-	}
+	
 	return false;
+}
+
+PolyLand PolyLand::operator+=(Dresseur * dresseurs_)
+{
+	ajouterDresseur(dresseurs_);
+	return *this;
+}
+
+PolyLand PolyLand::operator-=(Dresseur * dresseurs_)
+{
+	retirerDresseur(dresseurs_->obtenirNom());
+	return *this;
+}
+
+bool PolyLand::ajouterCreature(const Creature& creature) // A MODIFIER... (si necessaire)
+{
+	if(creatures_.size() >= MAX_CREATURES)
+		return false;
+
+	for (int i = 0; i < creatures_.size(); i++)
+		if (creature == creatures_[i]->obtenirNom())
+			return false;
+
+	creatures_.push_back(new Creature());
+	*creatures_[creatures_.size() - 1] = creature;
+	std::cout << creature.obtenirNom() << " a bien été ajouté !" << std::endl;
+	return true;
 }
 
 bool PolyLand::retirerCreature(const std::string& nom) // A MODIFIER... (si necessaire)
 {
-	for (unsigned int i = 0; i < nombreCreatures_; i++)
-	{
-		if (creatures_[i]->obtenirNom() == nom)
+	for (int i = 0; i < creatures_.size(); i++)
+		if (*creatures_[i] == nom)
 		{
 			delete creatures_[i];
-			creatures_[i] = creatures_[nombreCreatures_ - 1];
-			creatures_[nombreCreatures_ - 1] = nullptr;
-			nombreCreatures_--;
+			creatures_.erase(creatures_.begin() + i);
 			return true;
 		}
-	}
+
 	return false;
+}
+
+PolyLand PolyLand::operator+=(Creature & creature)
+{
+	ajouterCreature(creature);
+	return *this;
+}
+
+PolyLand PolyLand::operator-=(Creature & creature)
+{
+	retirerCreature(creature.obtenirNom());
+	return *this;
 }
 
 Dresseur* PolyLand::choisirDresseurAleatoire() // A MODIFIER... (si necessaire)
 {
-	if (nombreDresseurs_ > 0) 
+	if (dresseurs_.size() > 0) 
     {
-		unsigned int indice = rand() % nombreDresseurs_;
+		unsigned int indice = rand() % dresseurs_.size();
 		return dresseurs_[indice];
 	}
 	else 
@@ -97,9 +116,9 @@ Dresseur* PolyLand::choisirDresseurAleatoire() // A MODIFIER... (si necessaire)
 
 Creature* PolyLand::choisirCreatureAleatoire() // A MODIFIER... (si necessaire)
 {
-	if (nombreCreatures_ > 0) 
+	if (creatures_.size() > 0) 
     {
-		unsigned int indice = rand() % nombreCreatures_;
+		unsigned int indice = rand() % creatures_.size();
 		return creatures_[indice];
 	}
 	else {
@@ -117,29 +136,8 @@ bool PolyLand::relacherCreature(Dresseur* dresseur, const std::string& nomCreatu
 	return dresseur->enleverCreature(nomCreature);
 }
 
-void PolyLand::infoDresseur(const std::string& nom) const // A MODIFIER... (si necessaire)
+ostream& operator<<(ostream& o, const PolyLand& polyland)
 {
-	Dresseur* dresseur = nullptr;
-	for (unsigned int i = 0; i < nombreDresseurs_; i++)
-	{
-		if (dresseurs_[i]->obtenirNom() == nom)
-		{
-			dresseur = dresseurs_[i];
-			break;
-		}
-	}
-	if (dresseur != nullptr)
-	{
-		std::cout << "Informations sur le dresseur: " << std::endl;
-		dresseur->affichage();
-		for (unsigned int i = 0; i < dresseur->obtenirNombreCreatures(); i++)
-		{
-			std::cout << "- " << i + 1 << " - ";
-			dresseur->obtenirCreatures()[i]->information();
-		}
-	}
-	else
-	{
-		std::cout << "Dresseur introuvable!" << std::endl;
-	}
+	for (int i = 0; i < polyland.creatures_.size(); i++)
+		cout << *polyland.dresseurs_[i];
 }

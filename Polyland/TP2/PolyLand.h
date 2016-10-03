@@ -15,22 +15,29 @@ public:
 	~PolyLand(); // A MODIFIER... (si necessaire)
 	
 	bool ajouterDresseur(Dresseur* dresseur); // A MODIFIER... (si necessaire)
-	bool ajouterCreature(const Creature& creature); // A MODIFIER... (si necessaire)
-
 	bool retirerDresseur(const std::string& nom); // A MODIFIER... (si necessaire)
+	PolyLand operator+=(Dresseur* dresseur);
+	PolyLand operator-=(Dresseur* dresseur);
+
+	bool ajouterCreature(const Creature& creature); // A MODIFIER... (si necessaire)
 	bool retirerCreature(const std::string& nom); // A MODIFIER... (si necessaire)
+	PolyLand operator+=(Creature& creature);
+	PolyLand operator-=(Creature& creature);
 
 	Dresseur* choisirDresseurAleatoire(); // A MODIFIER... (si necessaire)
 	Creature* choisirCreatureAleatoire(); // A MODIFIER... (si necessaire)
 
 	bool attraperCreature(Dresseur* dresseur, const Creature& creature); // A MODIFIER... (si necessaire)
 	bool relacherCreature(Dresseur* dresseur, const std::string& nomCreature); // A MODIFIER... (si necessaire)
-	
-	void infoDresseur(const std::string& nom) const; // A MODIFIER... (si necessaire)
 
+	friend ostream& operator<<(ostream& o, const PolyLand& polyland);
+
+		
 	//________TP2_______
 
 private:
+	vector<Creature*> creatures_;
+	vector<Dresseur*> dresseurs_;
 	//________TP2_______
 
 };
