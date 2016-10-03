@@ -45,6 +45,11 @@ unsigned int Dresseur::obtenirNombreCreatures() const
 	return creatures_.size();
 }
 
+vector<Creature*> Dresseur::obtenirCreatures() const
+{
+	return creatures_;
+}
+
 void Dresseur::modifierCreature(vector<Creature*> creatures)
 {
 	for (unsigned int i = 0; i < creatures_.size(); i++)
@@ -66,17 +71,20 @@ void Dresseur::modifierEquipe(string equipe)
 	equipe_ = equipe;
 }
 
-Creature Dresseur::obtenirCreature(string nom)
+Creature* Dresseur::obtenirUneCreature(string nom)
 {
 	for (unsigned int i = 0; i < creatures_.size(); i++)
-		if (creatures_[i] == nom)
-			return *creatures_[i];
+		if (*creatures_[i] == nom)
+			return creatures_[i];
 }
 
 bool Dresseur::operator==(const Dresseur & dresseur) const
 {
 	if (creatures_.size() != dresseur.obtenirNombreCreatures())
 		return false;
+
+	if (creatures_.size() == 0)
+		return true;
 
 	for (unsigned int i = 0; i < creatures_.size(); i++)
 	{
@@ -88,6 +96,8 @@ bool Dresseur::operator==(const Dresseur & dresseur) const
 		if (!trouve)
 			return false;
 	}
+
+	return false;
 
 }
 
@@ -113,20 +123,20 @@ void Dresseur::utiliserObjetMagique(Creature* creature)
 	}
 }
 
-bool Dresseur::ajouterCreature(const Creature& creature) // A MODIFIER... (si necessaire)
+bool Dresseur::ajouterCreature(const Creature* creature) // A MODIFIER... (si necessaire)
 {
 	if (creatures_.size() >= MAX_NOMBRE_CREATURES)
 		return false;
 
 	creatures_.push_back(new Creature());
-	*creatures_[creatures_.size() - 1] = creature;
+	*creatures_[creatures_.size() - 1] = *creature;
 	return true;
 }
 
 bool Dresseur::enleverCreature(const std::string& nom) // A MODIFIER... (si necessaire)
 {
 	for (unsigned int i = 0; i < creatures_.size(); i++)
-		if (creatures_[i] == nom) {
+		if (*creatures_[i] == nom) {
 			creatures_.erase(creatures_.begin() + i);
 			return true;
 		}

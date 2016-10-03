@@ -17,9 +17,9 @@ int main()
 	// ("Pierre")
 	// ("Regis")
 	// A COMPLETER...
-	Dresseur* Sasha = new Dresseur();
-	Dresseur* Pierre = new Dresseur();
-	Dresseur* Regis = new Dresseur();
+	Dresseur* Sasha = new Dresseur("Sasha", "Team de feu");
+	Dresseur* Pierre = new Dresseur("Pierre", "Equipe De Poly");
+	Dresseur* Regis = new Dresseur("Regis", "Equipe De Poly");
 
 	std::cout << std::endl << "CREATION ET AFFICHAGE DES CREATURES" << std::endl;
 	// Creer les Creatures suivantes (nom, attaque, defense, pointDeVie, mana):
@@ -44,7 +44,7 @@ int main()
 	// Creer la Creature Pokachoum en utilisant le constructeur de copie et en utilisant la creature existante Pokachu.
 	// Le nom de Pokachoum devrai ensuite etre modifie pour "Pokachoum" et sa defense passera de 2 a 7.
 	// A COMPLETER...
-	Creature Pokachoum = Pokachu;
+	Creature Pokachoum(Pokachu);
 	Pokachoum.modifierNom("Pokachoum");
 	Pokachoum.modifierDefense(7);
 
@@ -137,13 +137,13 @@ int main()
 	// Pierre -> Balbazar
 	// Regis -> Carapouce
 	// A COMPLETER...
-	Sasha->ajouterCreature(Salimouche);
-	Pierre->ajouterCreature(Balbazar);
-	Regis->ajouterCreature(Carapouce);
+	Sasha->ajouterCreature(&Salimouche);
+	Pierre->ajouterCreature(&Balbazar);
+	Regis->ajouterCreature(&Carapouce);
 
 	// Assignez à vous-meme Pokachu
 	// A COMPLETER...
-	Vous.ajouterCreature(Pokachu);
+	Vous.ajouterCreature(&Pokachu);
 	
 	/*******************************************************************/
 	/*                       DEBUT DES TESTS                           */
@@ -192,8 +192,10 @@ int main()
 		if (Vous.obtenirUneCreature("Pokachu")->obtenirPointDeVie() > 0) {
 			//... ou que votre créature est morte
 			(Vous.obtenirUneCreature("Pokachu"))->attaquer(eclair, *creatureAleatoire);
-			if (creatureAleatoire->obtenirPointDeVie() > 0)
-				creatureAleatoire->attaquer(*(creatureAleatoire->obtenirPouvoirs()[0]), *(Vous.obtenirUneCreature("Pokachu")));
+			if (creatureAleatoire->obtenirPointDeVie() > 0) {
+				Creature* creatureAMoi = Vous.obtenirUneCreature("Pokachu");
+				creatureAleatoire->attaquer(*(creatureAleatoire->obtenirPouvoirs()[0]), *creatureAMoi);
+			}
 		}
 		else
 			break;

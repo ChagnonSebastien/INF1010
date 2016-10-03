@@ -21,9 +21,6 @@ public:
 	
 	unsigned int obtenirNombreCreatures() const;
 
-	string obtenirNom() const;
-	void modifierNom(const string& nom);
-
 	ObjetMagique obtenirObjetMagique() const;
 	void modifierObjetMagique(const ObjetMagique& objetMagique);
 
@@ -33,7 +30,7 @@ public:
 	string obtenirEquipe() const;
 	void modifierEquipe(string equipe);
 
-	Creature obtenirCreature(string nom);
+	Creature* obtenirUneCreature(string nom);
 
 	friend ostream& operator<<(ostream& o, const Dresseur& dresseur);
 	bool operator==(const Dresseur& dresseur) const;
@@ -42,7 +39,7 @@ public:
 
 	void utiliserObjetMagique(Creature* creature);
 	
-	bool ajouterCreature(const Creature& creature);
+	bool ajouterCreature(const Creature* creature);
 	bool enleverCreature(const string& nom);
 
 private:

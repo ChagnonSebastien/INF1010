@@ -26,7 +26,7 @@ public:
 	unsigned int obtenirExperience() const;
 	unsigned int obtenirExperienceNecessaire() const;
 	unsigned int obtenirNiveau() const;
-	std::vector<Pouvoir*> obtenirPouvoir() const; // A MODIFIER... (si necessaire) DONE
+	std::vector<Pouvoir*> obtenirPouvoirs() const; // A MODIFIER... (si necessaire) DONE
 
 	void attaquer(Pouvoir & pouvoir, Creature & creature);// A MODIFIER... (si necessaire)
 	int experienceGagnee(const Creature& creature);
@@ -44,7 +44,7 @@ public:
 
 	Creature& Creature::operator=(const Creature& creature);
 	void apprendrePouvoir(Pouvoir& pouvoir);
-	void oublierPouvoir(Pouvoir& pouvoir);
+	void oublierPouvoir(Pouvoir* pouvoir);
 
 	bool operator==(const Creature& creature) const;
 	bool operator==(const std::string& nom) const;
