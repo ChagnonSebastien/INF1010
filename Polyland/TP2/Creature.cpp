@@ -307,10 +307,16 @@ std::ostream & operator<<(std::ostream & o, const Creature& creature)
 		<< creature.obtenirEnergie() << "/" << creature.obtenirEnergieTotale() << " Energie" << std::endl
 		<< "Il est au niveau " << creature.obtenirNiveau() << " avec " << creature.obtenirExperience()
 		<< "d'XP" << std::endl << "Il lui manque " << creature.obtenirExperienceNecessaire()
-		<< " jusqu'au prochain niveau" << std::endl << "Son pouvoir est : ";
+		<< " jusqu'au prochain niveau" << std::endl << "Pouvoirs : " << std::endl;
+	if (creature.obtenirPouvoirs().size() == 0){
+		o << creature.obtenirNom() << " ne connait aucun pouvoir" << std::endl;
+	}
 	
-	for (unsigned int i = 0; i < creature.obtenirPouvoirs().size(); i++) {
-	  o << *(creature.obtenirPouvoirs()[i]) << std::endl;
+	else
+	{
+		for (unsigned int i = 0; i < creature.obtenirPouvoirs().size(); i++) {
+			o << *(creature.obtenirPouvoirs()[i]) << std::endl;
+		}
 	}
 
 

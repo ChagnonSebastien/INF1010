@@ -83,22 +83,23 @@ bool Dresseur::operator==(const Dresseur & dresseur) const
 	if (creatures_.size() != dresseur.obtenirNombreCreatures())
 		return false;
 
-	if (creatures_.size() == 0)
+	if (creatures_.empty() && dresseur.obtenirCreatures().empty())
 		return true;
-
-	for (unsigned int i = 0; i < creatures_.size(); i++)
+	
+	unsigned int compteur = 0;
+	
+	for (unsigned int i = 0; i < dresseur.obtenirNombreCreatures(); i++)
 	{
-		bool trouve = false;
-		for (unsigned int j = 0; j < dresseur.obtenirNombreCreatures() && !trouve; j++)
-			if (creatures_[i] == dresseur.obtenirCreatures()[j])
-				trouve = true;
-
-		if (!trouve)
-			return false;
+		for (unsigned int j = 0; j < creatures_.size(); j++)
+			if (*(creatures_[i]) == *(dresseur.obtenirCreatures()[j])) {
+				compteur++;
+			}
 	}
 
-	return false;
+	if (compteur == dresseur.obtenirNombreCreatures())
+		return true;
 
+	return false;
 }
 
 bool Dresseur::operator==(const string nom) const
@@ -146,12 +147,13 @@ bool Dresseur::enleverCreature(const std::string& nom) // A MODIFIER... (si nece
 
 ostream& operator<<(ostream& o, const Dresseur& dresseur) // A MODIFIER... (si necessaire)
 {
-	return o << dresseur.obtenirNom() << " possede " << dresseur.obtenirNombreCreatures()  << " creature(s) "<< endl;
+	return o << dresseur.obtenirNom() << " possede " << dresseur.obtenirNombreCreatures()  << " creature(s) "
+		<< "et appartient a l'equipe " << dresseur.obtenirEquipe() << endl;
 }
 
 bool operator==(const string nom, const Dresseur & dresseur)
 {
-	return dresseur == nom;
+	return (dresseur.obtenirNom() == nom);
 }
 
 // ___TP2___

@@ -75,10 +75,6 @@ int main()
 	tonerre.modifierNom("Tonerre");
 	tonerre.modifierNombreDeDegat(3);
 
-	// Faites afficher les informations des pouvoirs bouleDeFeu, lanceFeuille et tonnerre.
-	// A COMPLETER...
-	cout << bouleDeFeu << endl << lanceFeuille << endl << tonerre;
-
 	// Ajouter le pouvoir a la creature correspondante
 	// Salimouche -> bouleDeFeu
 	// Carapouce -> pistoletAEau
@@ -125,9 +121,10 @@ int main()
 	// Debut de la competition
 	std::cout << std::endl << "Bienvenue a Polyland" << std::endl;
 	Dresseur Vous("Hey", "Team INF1010");
-
 	
-
+	// Faites afficher les informations des pouvoirs bouleDeFeu, lanceFeuille et tonnerre.
+	// A COMPLETER...
+	cout << bouleDeFeu << endl << lanceFeuille << endl << tonerre;
 
 	// Cette commande ne devrait pas fonctionner
 	Carapouce.oublierPouvoir(&eclair);
