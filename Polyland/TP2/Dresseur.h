@@ -140,14 +140,14 @@ public:
 	bool operator==(const Dresseur& dresseur) const;
 
 	/**
-	* @brief Redefinition de l'operateur '==' avec un dresseur en parametre
+	* @brief Redefinition de l'operateur '==' avec une chaine de characteres en parametre
 	* @param nom Le nom a comparer avec celui du dresseur
 	* @return true s'ils ont le meme nom, false sinon
 	*/
 	bool operator==(const string nom) const;
 
 	/**
-	* @brief Redefinition de l'operateur '==' avec un dresseur en parametre
+	* @brief Redefinition de l'operateur '==' avec une chaine de caracteres et un dresseur en parametre
 	* @param nom Le nom a comparer avec celui du dresseur
 	* @param dresseur Le dresseur avec qui comparer le nom
 	* @return true s'ils ont le meme nom, false sinon
