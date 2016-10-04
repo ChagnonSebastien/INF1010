@@ -68,6 +68,7 @@ bool Pouvoir::operator==(const Pouvoir& pouvoir) const {
 
 std::ostream & operator<<(std::ostream& o, const Pouvoir& pouvoir) {
 
-	return o << "Son pouvoir est : " << pouvoir.nom_ << " d'energie et inflige "
-		<< pouvoir.nombreDeDegat_ << " degats" << std::endl;
+	return o << pouvoir.obtenirNom() << " possede un nombre de degats de "
+		<< pouvoir.obtenirNombreDeDegat() << " et une energie necessaire de " 
+		<< pouvoir.obtenirEnergieNecessaire() << std::endl;
 }
