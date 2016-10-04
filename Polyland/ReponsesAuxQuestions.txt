@@ -1,0 +1,13 @@
+Question 1: Quelle est l'utilité de l'opérateur = et du constructeur par copie?
+Le constructeur par copie et l'opérateur = empêchent que le compilateur copie tout les attributs (shallow copy)
+ce qui devient problématique si un attribut est un pointeur puisque dans ce cas, deux attributs 
+pointeront au même endroit.
+
+Question 2: Dans quel cas est-il absolument nécessaire de les implémenter?
+Comme mentionné ci-haut, il est absolument nécessaire de les implémenter lorsque un ou des attributs 
+sont des pointeurs cela va permettre que deux ou plusieurs pointeurs ne pointent pas au même endroit
+ce qui causerait des problèmes.
+
+Question 3: Qu'est ce qui différencie l'opérateur = du constructeur par copie?
+L'opérateur = peut être appelé en cascade contrairement au constructeur par copie qui ne peut 
+que copier un objet.
