@@ -6,7 +6,8 @@ Dresseur::Dresseur() : nom_(""), equipe_("")
 }
 
 
-Dresseur::Dresseur(const string & nom, const string & equipe) : nom_(nom), equipe_(equipe)
+Dresseur::Dresseur(const string & nom, const string & equipe) : nom_(nom),
+	equipe_(equipe)
 {
 }
 
@@ -79,10 +80,12 @@ Creature* Dresseur::obtenirUneCreature(string nom)
 }
 
 bool Dresseur::operator==(const Dresseur & dresseur) const
-{
+{	
+	//Si la les dresseurs n'ont pas le même nombre de créatures
 	if (creatures_.size() != dresseur.obtenirNombreCreatures())
 		return false;
 
+	//Si les dresseurs n'ont aucune créature
 	if (creatures_.empty() && dresseur.obtenirCreatures().empty())
 		return true;
 	
@@ -95,7 +98,7 @@ bool Dresseur::operator==(const Dresseur & dresseur) const
 				compteur++;
 			}
 	}
-
+	//Si il y a autant de créatures identiques que de nombre de créature
 	if (compteur == dresseur.obtenirNombreCreatures())
 		return true;
 
@@ -110,14 +113,18 @@ bool Dresseur::operator==(const string nom) const
 void Dresseur::utiliserObjetMagique(Creature* creature)
 {
 
-	if ((creature->obtenirPointDeVieTotal() - creature->obtenirPointDeVie()) >= objetMagique_.obtenirBonus()) {
-		creature->modifierPointDeVie(creature->obtenirPointDeVie() + objetMagique_.obtenirBonus());
+	if ((creature->obtenirPointDeVieTotal() - creature->obtenirPointDeVie())
+		>= objetMagique_.obtenirBonus()) {
+		creature->modifierPointDeVie(creature->obtenirPointDeVie() + 
+			objetMagique_.obtenirBonus());
 	}
 	else {
 		creature->modifierPointDeVie(creature->obtenirPointDeVieTotal());
 	}
-	if ((creature->obtenirEnergieTotale() - creature->obtenirEnergie()) > objetMagique_.obtenirBonus()) {
-		creature->modifierEnergie(creature->obtenirEnergie() + objetMagique_.obtenirBonus());
+	if ((creature->obtenirEnergieTotale() - creature->obtenirEnergie()) >
+		objetMagique_.obtenirBonus()) {
+		creature->modifierEnergie(creature->obtenirEnergie() +
+			objetMagique_.obtenirBonus());
 	}
 	else {
 		creature->modifierEnergie(creature->obtenirEnergieTotale());
@@ -126,6 +133,7 @@ void Dresseur::utiliserObjetMagique(Creature* creature)
 
 bool Dresseur::ajouterCreature(const Creature* creature) // A MODIFIER... (si necessaire)
 {
+	//ne peut pas avoir plus de créatures que le nombre maximum
 	if (creatures_.size() >= MAX_NOMBRE_CREATURES)
 		return false;
 
@@ -147,7 +155,8 @@ bool Dresseur::enleverCreature(const std::string& nom) // A MODIFIER... (si nece
 
 ostream& operator<<(ostream& o, const Dresseur& dresseur) // A MODIFIER... (si necessaire)
 {
-	return o << dresseur.obtenirNom() << " possede " << dresseur.obtenirNombreCreatures()  << " creature(s) "
+	return o << dresseur.obtenirNom() << " possede " 
+		<< dresseur.obtenirNombreCreatures()  << " creature(s) "
 		<< "et appartient a l'equipe " << dresseur.obtenirEquipe() << endl;
 }
 
