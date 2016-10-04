@@ -37,5 +37,6 @@ void ObjetMagique::modifierBonus(int bonus)
 
 std::ostream& ObjetMagique::operator<<(std::ostream& o) const {
 
-	return o << "l'objet " << nom_ << "fournit un bonus de " << bonus_ << std::endl;
+	return o << "l'objet " << nom_ << "fournit un bonus de " 
+		<< bonus_ << std::endl;
 }

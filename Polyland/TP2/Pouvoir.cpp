@@ -6,15 +6,17 @@ Pouvoir::Pouvoir()
 {
 }
 
-Pouvoir::Pouvoir(const Pouvoir& pouvoir) : nom_(pouvoir.obtenirNom()), nombreDeDegat_(pouvoir.obtenirNombreDeDegat()),
-energieNecessaire_(pouvoir.obtenirEnergieNecessaire())
+Pouvoir::Pouvoir(const Pouvoir& pouvoir) : nom_(pouvoir.obtenirNom()), 
+	nombreDeDegat_(pouvoir.obtenirNombreDeDegat()),
+	energieNecessaire_(pouvoir.obtenirEnergieNecessaire())
 {
 
 }
 
 Pouvoir::Pouvoir(const std::string& nom, 
 	unsigned int nombreDeDegat,	unsigned int energieNecessaire):
-	nom_(nom), nombreDeDegat_(nombreDeDegat), energieNecessaire_(energieNecessaire)
+	nom_(nom), nombreDeDegat_(nombreDeDegat), 
+	energieNecessaire_(energieNecessaire)
 {
 }
 

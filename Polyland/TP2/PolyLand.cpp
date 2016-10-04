@@ -24,12 +24,15 @@ PolyLand::~PolyLand()
 
 bool PolyLand::ajouterDresseur(Dresseur* dresseur) // A MODIFIER... (si necessaire)
 {
+	//ne peut pas dépaser le nombre max de dresseurs
 	if (dresseurs_.size() >= MAX_DRESSEURS)
 		return false;
 
 	for (unsigned int i = 0; i < dresseurs_.size(); i++)
+		// n'ajoute pas le dresseur si PolyLand l'a déja
 		if (*dresseur == dresseurs_[i]->obtenirNom()) {
-			std::cout << dresseur->obtenirNom() << " n'a pas été ajouté" << std::endl;
+			std::cout << dresseur->obtenirNom() << " n'a pas été ajouté" 
+				<< std::endl;
 			return false;
 		}
 
@@ -65,18 +68,22 @@ PolyLand& PolyLand::operator-=(Dresseur * dresseurs_)
 
 bool PolyLand::ajouterCreature(const Creature& creature) // A MODIFIER... (si necessaire)
 {
+	//ne peut pas dépasser le nombre max de créatures
 	if(creatures_.size() >= MAX_CREATURES)
 		return false;
 
 	for (unsigned int i = 0; i < creatures_.size(); i++)
+		//n'ajoute pas la créature si PolyLand l'a déja
 		if (creature == creatures_[i]->obtenirNom()) {
-			std::cout << creature.obtenirNom() << " n'a pas été ajouté" << std::endl;
+			std::cout << creature.obtenirNom() << " n'a pas été ajouté" 
+				<< std::endl;
 			return false;
 		}
 
 	creatures_.push_back(new Creature());
 	*creatures_[creatures_.size() - 1] = creature;
-	std::cout << creature.obtenirNom() << " a bien été ajouté !" << std::endl;
+	std::cout << creature.obtenirNom() << " a bien été ajouté !" 
+		<< std::endl;
 	return true;
 }
 
@@ -135,7 +142,8 @@ bool PolyLand::attraperCreature(Dresseur* dresseur,const Creature* creature) // 
 	return dresseur->ajouterCreature(creature);
 }
 
-bool PolyLand::relacherCreature(Dresseur* dresseur, const std::string& nomCreature)
+bool PolyLand::relacherCreature(Dresseur* dresseur, 
+								const std::string& nomCreature)
 {
 	return dresseur->enleverCreature(nomCreature);
 }
