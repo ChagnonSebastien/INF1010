@@ -253,8 +253,19 @@ int main()
 	std::cout << "dresseur == nom : \t" << (test1 == test2.obtenirNom()) << " --- Reponse attendue : 1" << std::endl;
 	std::cout << "nom == dresseur : \t" << (test1.obtenirNom() == test2) << " --- Reponse attendue : 1" << std::endl;
 
+	
+	std::cout << "VOIR LE COMMENTAIRE DANS LA SECTION DES TESTS" << std::endl;
+	/*
+	 * ATTENTION
+	 * Ici, la creature ne peut pas être ajoutee parce qu'un dresseur ne peut pas avoir plus de 2 creatures
+	 * (Voir la constante NOMBRE_MAX_CREATURES définie dans le fichier Dresseur.h)
+	 * La méthode ajouterCreature vérifie le nombre actuel de créatures du dresseur et refuse d'en ajouter
+	 * une autre si le maximum est atteint.
+	 * Merci
+	 */
 	test1.ajouterCreature(&Carapouce);
 	std::cout << "dresseur == dresseur : \t" << (test1 == test2) << " --- Reponse attendue : 0" << std::endl;
+
 
 	test1.modifierNom("testNouveau");
 	std::cout << "dresseur == nom : \t" << (test1 == test2.obtenirNom()) << " --- Reponse attendue : 0" << std::endl;
@@ -264,7 +275,6 @@ int main()
 	// Liberer les ressources s'il le faut
 	// A COMPLETER...
 	
-
 	system("pause");
 	return 0;
 }
