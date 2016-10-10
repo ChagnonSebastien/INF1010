@@ -4,7 +4,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>429</x>
+      <x>440</x>
       <y>308</y>
       <w>220</w>
       <h>33</h>
@@ -15,7 +15,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>528</x>
+      <x>539</x>
       <y>418</y>
       <w>22</w>
       <h>341</h>
@@ -26,7 +26,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
+      <x>539</x>
       <y>330</y>
       <w>33</w>
       <h>110</h>
@@ -37,7 +37,7 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>715</x>
+      <x>726</x>
       <y>308</y>
       <w>242</w>
       <h>33</h>
@@ -48,7 +48,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>319</x>
+      <x>330</x>
       <y>396</y>
       <w>231</w>
       <h>44</h>
@@ -60,7 +60,7 @@ creerProfil(c:courrielClient)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>814</x>
+      <x>825</x>
       <y>407</y>
       <w>22</w>
       <h>77</h>
@@ -71,7 +71,7 @@ creerProfil(c:courrielClient)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>814</x>
+      <x>825</x>
       <y>330</y>
       <w>33</w>
       <h>99</h>
@@ -82,7 +82,7 @@ creerProfil(c:courrielClient)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>539</x>
+      <x>550</x>
       <y>407</y>
       <w>297</w>
       <h>44</h>
@@ -94,7 +94,7 @@ verifierCourriel(c)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>363</x>
+      <x>374</x>
       <y>506</y>
       <w>1309</w>
       <h>286</h>
@@ -106,7 +106,7 @@ verifierCourriel(c)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1023</x>
+      <x>1034</x>
       <y>308</y>
       <w>231</w>
       <h>33</h>
@@ -117,7 +117,7 @@ verifierCourriel(c)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1122</x>
+      <x>1133</x>
       <y>517</y>
       <w>22</w>
       <h>77</h>
@@ -128,7 +128,7 @@ verifierCourriel(c)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1122</x>
+      <x>1133</x>
       <y>330</y>
       <w>33</w>
       <h>209</h>
@@ -139,7 +139,7 @@ verifierCourriel(c)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>539</x>
+      <x>550</x>
       <y>506</y>
       <w>605</w>
       <h>44</h>
@@ -151,7 +151,7 @@ enregistrerProfil(nomUtilisateur, numTelephone, poste, entreprise)</panel_attrib
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1309</x>
+      <x>1320</x>
       <y>308</y>
       <w>330</w>
       <h>33</h>
@@ -162,7 +162,7 @@ enregistrerProfil(nomUtilisateur, numTelephone, poste, entreprise)</panel_attrib
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>407</x>
+      <x>418</x>
       <y>583</y>
       <w>1243</w>
       <h>198</h>
@@ -174,7 +174,7 @@ enregistrerProfil(nomUtilisateur, numTelephone, poste, entreprise)</panel_attrib
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1441</x>
+      <x>1452</x>
       <y>638</y>
       <w>22</w>
       <h>66</h>
@@ -185,7 +185,7 @@ enregistrerProfil(nomUtilisateur, numTelephone, poste, entreprise)</panel_attrib
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1441</x>
+      <x>1452</x>
       <y>330</y>
       <w>33</w>
       <h>330</h>
@@ -196,7 +196,7 @@ enregistrerProfil(nomUtilisateur, numTelephone, poste, entreprise)</panel_attrib
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
+      <x>407</x>
       <y>737</y>
       <w>154</w>
       <h>44</h>
@@ -208,7 +208,7 @@ unProfil</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>539</x>
+      <x>550</x>
       <y>638</y>
       <w>924</w>
       <h>44</h>
@@ -220,12 +220,45 @@ EnvoieNotification(unProfil)</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>253</x>
+      <x>264</x>
       <y>363</y>
       <w>88</w>
       <h>121</h>
     </coordinates>
     <panel_attributes>Utilisateur</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>825</x>
+      <y>473</y>
+      <w>33</w>
+      <h>341</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;290.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1133</x>
+      <y>583</y>
+      <w>33</w>
+      <h>231</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1452</x>
+      <y>693</y>
+      <w>33</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
 </diagram>
