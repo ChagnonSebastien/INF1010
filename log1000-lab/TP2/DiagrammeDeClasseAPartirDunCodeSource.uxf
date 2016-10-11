@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>540</y>
+      <w>230</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>*PluginManager*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>650</y>
+      <w>230</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>*Manager*
+--
+-pluginManager_:PluginManager
++callFactory: CallFactory</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>560</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;&gt;&gt;
+m2=1</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>250</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>*Account*
+--
++newOutgoingCall(string&amp; toURL)
++getCalls()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>400</y>
+      <w>230</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>*Serializble*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>310</y>
+      <w>90</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>190</y>
+      <w>260</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>*Conference*
+--
+-participants: set&lt;string&gt;
+--
++add(string &amp;participant_id)
++remove(string &amp;participant_id)
++blindParticipant(string &amp;participant_id)
++getParticipantList()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1020</x>
+      <y>300</y>
+      <w>90</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>350</y>
+      <w>230</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>*Recordable*
+--
+#recording_: bool
+--
++toggleRecording()
++stopRecording()
++isRecording()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>500</y>
+      <w>230</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>*Call*
+--
+-type_: CallType
+-id_: string
+--
++answer()
++getCallId()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1020</x>
+      <y>450</y>
+      <w>90</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>900</x>
+      <y>670</y>
+      <w>340</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>*Call Factory*
+--
+-callMaps_:map&lt;string, CallMap&lt;Call&gt;&gt;
+--
++newCall(A&amp; account, string&amp; id, Call:CallType type)
++hasCall(string&amp; id)
++removeCall(Call&amp; call)
++removeCall(string&amp; id)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1020</x>
+      <y>590</y>
+      <w>50</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;&gt;&gt;
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>290</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;
+m2=0..n</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>700</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>310</y>
+      <w>180</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+creates</panel_attributes>
+    <additional_attributes>160.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
