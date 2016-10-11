@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>803</x>
-      <y>495</y>
+      <x>858</x>
+      <y>616</y>
       <w>231</w>
       <h>77</h>
     </coordinates>
@@ -18,36 +18,40 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>803</x>
-      <y>880</y>
+      <x>858</x>
+      <y>1001</y>
       <w>231</w>
       <h>77</h>
     </coordinates>
     <panel_attributes>*MessagerieInstantanée*
 --
--msg: Messagerie</panel_attributes>
+- discussion_: liste de Messagerie</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>803</x>
-      <y>319</y>
-      <w>231</w>
-      <h>77</h>
+      <x>814</x>
+      <y>407</y>
+      <w>319</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes>*GroupeUtilisateur*
 --
--users: Liste de Contacts
+-listeUtilisateurs_ = liste de ProfilUtilisateur
 --
-+ajouterContact(ProfilUtilisateur)</panel_attributes>
++ajouterContact(ProfilUtilisateur): void
++supprimerContact(ProfilUtilisateur): void
++accepterInvitation(ProfilUtilisateur): void
++refuserInvitation(ProfilUtilisateur): void
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>770</x>
-      <y>704</y>
+      <x>825</x>
+      <y>825</y>
       <w>330</w>
       <h>77</h>
     </coordinates>
@@ -61,8 +65,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1243</x>
-      <y>506</y>
+      <x>1298</x>
+      <y>627</y>
       <w>231</w>
       <h>110</h>
     </coordinates>
@@ -77,8 +81,8 @@ r, String, String)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1617</x>
-      <y>891</y>
+      <x>1672</x>
+      <y>1012</y>
       <w>231</w>
       <h>77</h>
     </coordinates>
@@ -90,27 +94,34 @@ r, String, String)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1133</x>
-      <y>286</y>
-      <w>231</w>
-      <h>143</h>
+      <x>1188</x>
+      <y>308</y>
+      <w>352</w>
+      <h>231</h>
     </coordinates>
     <panel_attributes>*ProfilUtilisateur*
 --
--nom: nom
--adresse: Adresse
--tel: No. de telephone
--ent: Entreprise
+-nom_: string
+-adresse_: string
+-numTelephone_: string
+-entrepise_: string
+-position_: string
+-groupeDeContacts_ = liste de GroupeUtilisateur
+-listeDeContacts_ = GroupeUtilisateur
+-listeInvitations_ = GroupeUtilisateur
+-boiteDeMessages = BoiteDeMessage
 --
-+initierAppelDeGroupe()
-+modifierProfil(string, Int, String, String)</panel_attributes>
++initierAppelDeGroupe() void
++modifierProfil(string, Int, String, String): void
++creerGroupeContact(GroupeUtilisateur)
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1617</x>
-      <y>737</y>
+      <x>1672</x>
+      <y>858</y>
       <w>231</w>
       <h>88</h>
     </coordinates>
@@ -124,8 +135,8 @@ eur)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1144</x>
-      <y>704</y>
+      <x>1199</x>
+      <y>825</y>
       <w>231</w>
       <h>132</h>
     </coordinates>
@@ -142,8 +153,8 @@ sateur)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1144</x>
-      <y>902</y>
+      <x>1199</x>
+      <y>1023</y>
       <w>231</w>
       <h>132</h>
     </coordinates>
@@ -160,8 +171,8 @@ isateur, String)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1144</x>
-      <y>1100</y>
+      <x>1199</x>
+      <y>1221</y>
       <w>231</w>
       <h>66</h>
     </coordinates>
@@ -174,8 +185,8 @@ isateur, String)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1254</x>
-      <y>825</y>
+      <x>1309</x>
+      <y>946</y>
       <w>77</w>
       <h>99</h>
     </coordinates>
@@ -186,8 +197,8 @@ creates</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1254</x>
-      <y>1023</y>
+      <x>1309</x>
+      <y>1144</y>
       <w>77</w>
       <h>99</h>
     </coordinates>
@@ -198,8 +209,8 @@ creates</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1672</x>
-      <y>1034</y>
+      <x>1727</x>
+      <y>1155</y>
       <w>121</w>
       <h>44</h>
     </coordinates>
@@ -211,8 +222,8 @@ halign=center
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1529</x>
-      <y>1034</y>
+      <x>1584</x>
+      <y>1155</y>
       <w>121</w>
       <h>44</h>
     </coordinates>
@@ -224,8 +235,8 @@ halign=center
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1815</x>
-      <y>1034</y>
+      <x>1870</x>
+      <y>1155</y>
       <w>110</w>
       <h>44</h>
     </coordinates>
@@ -237,8 +248,8 @@ halign=center
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1815</x>
-      <y>957</y>
+      <x>1870</x>
+      <y>1078</y>
       <w>33</w>
       <h>99</h>
     </coordinates>
@@ -248,8 +259,8 @@ halign=center
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1628</x>
-      <y>957</y>
+      <x>1683</x>
+      <y>1078</y>
       <w>33</w>
       <h>99</h>
     </coordinates>
@@ -259,8 +270,8 @@ halign=center
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1716</x>
-      <y>957</y>
+      <x>1771</x>
+      <y>1078</y>
       <w>33</w>
       <h>99</h>
     </coordinates>
@@ -270,8 +281,8 @@ halign=center
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1716</x>
-      <y>814</y>
+      <x>1771</x>
+      <y>935</y>
       <w>77</w>
       <h>99</h>
     </coordinates>
@@ -282,20 +293,20 @@ creates</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1320</x>
-      <y>418</y>
+      <x>1375</x>
+      <y>528</y>
       <w>77</w>
-      <h>110</h>
+      <h>121</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 creates</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1364</x>
-      <y>770</y>
+      <x>1419</x>
+      <y>891</y>
       <w>275</w>
       <h>44</h>
     </coordinates>
@@ -306,8 +317,8 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1694</x>
-      <y>528</y>
+      <x>1749</x>
+      <y>649</y>
       <w>33</w>
       <h>231</h>
     </coordinates>
@@ -318,32 +329,32 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1023</x>
-      <y>352</y>
-      <w>132</w>
+      <x>1122</x>
+      <y>473</y>
+      <w>88</w>
       <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
 m2=0..8</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1265</x>
-      <y>418</y>
+      <x>1320</x>
+      <y>528</y>
       <w>55</w>
-      <h>110</h>
+      <h>121</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
 m2=0..n</panel_attributes>
-    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1463</x>
-      <y>528</y>
+      <x>1518</x>
+      <y>649</y>
       <w>264</w>
       <h>44</h>
     </coordinates>
@@ -354,31 +365,31 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1188</x>
-      <y>418</y>
+      <x>1243</x>
+      <y>528</y>
       <w>33</w>
-      <h>308</h>
+      <h>319</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1</panel_attributes>
-    <additional_attributes>10.0;260.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;270.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>913</x>
-      <y>385</y>
+      <x>968</x>
+      <y>550</y>
       <w>33</w>
-      <h>132</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;</panel_attributes>
-    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>913</x>
-      <y>770</y>
+      <x>968</x>
+      <y>891</y>
       <w>33</w>
       <h>132</h>
     </coordinates>
@@ -388,8 +399,8 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>913</x>
-      <y>561</y>
+      <x>968</x>
+      <y>682</y>
       <w>33</w>
       <h>165</h>
     </coordinates>
@@ -399,8 +410,8 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1199</x>
-      <y>825</y>
+      <x>1254</x>
+      <y>946</y>
       <w>55</w>
       <h>99</h>
     </coordinates>
@@ -411,8 +422,8 @@ m2=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1199</x>
-      <y>1023</y>
+      <x>1254</x>
+      <y>1144</y>
       <w>55</w>
       <h>99</h>
     </coordinates>
@@ -423,43 +434,68 @@ m2=0..n</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1749</x>
-      <y>308</y>
-      <w>352</w>
-      <h>187</h>
+      <x>1870</x>
+      <y>319</y>
+      <w>308</w>
+      <h>165</h>
     </coordinates>
-    <panel_attributes>*Contacts*
+    <panel_attributes>*BoiteDeMessage*
 --
--contacts_: string[]
--groupes_: string[]
--invitation_:liste de ProfilUtilisateur
+-messagesRecus_: liste de Message
+-messageLu_: liste de Message
 --
-+ajouterContact(ProfilUtilisateur)
-+supprimerContact(ProfilUtilisateur)
-+creerGroupeContact(GroupeUtilisateur)
-+accepterInvitation(ProfilUtilisateur)
-+refuserInvitation(ProfilUtilisateur)</panel_attributes>
++supprimerMessage(Message): void
++lireMessage(Message) : string
++envoyerMessage(Message): void
++creerMessage(): Message</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>198</x>
-      <y>1177</y>
-      <w>352</w>
-      <h>187</h>
+      <x>1859</x>
+      <y>627</y>
+      <w>319</w>
+      <h>77</h>
     </coordinates>
-    <panel_attributes>*Contacts*
+    <panel_attributes>*Messagerie*
 --
--contacts_: string[]
--groupes_: string[]
--invitation_:liste de ProfilUtilisateur
---
-+ajouterContact(ProfilUtilisateur)
-+supprimerContact(ProfilUtilisateur)
-+creerGroupeContact(GroupeUtilisateur)
-+accepterInvitation(ProfilUtilisateur)
-+refuserInvitation(ProfilUtilisateur)</panel_attributes>
+-message_ = string
+-destinataires_ = GroupeUtlisateur</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>22</x>
+      <y>22</y>
+      <w>33</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2002</x>
+      <y>473</y>
+      <w>33</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1529</x>
+      <y>396</y>
+      <w>363</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+creates</panel_attributes>
+    <additional_attributes>310.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>
