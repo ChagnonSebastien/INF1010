@@ -12,13 +12,13 @@ public:
 	Professeur(Professeur& professeur);
 	~Professeur();
 
-	OutilScientifique& getOutilScientifique();
+	OutilScientifique& getOutilScientifique() const;
 	void setOutilScientifique(OutilScientifique outilScientifique);
 
 	void soignerCreature(Creature& creature);
 	void utiliserOutil(Creature& creature);
 
-	Professeur& operator=(const Professeur& professeur) const;
+	Professeur& operator=(const Professeur& professeur);
 
 private:
 	OutilScientifique* outilScientifique_;

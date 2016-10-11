@@ -18,7 +18,7 @@ void EtatCreature::appliquerEtat(Creature & creature)
 
 bool EtatCreature::peutAttaquer() const
 {
-    return rand() % 6 != 0;
+    return true;
 }
 
 bool EtatCreature::estFini() const
