@@ -4,15 +4,15 @@
 
 #include "Pouvoir.h"
 
-class PouvoirSporifique : public Pouvoir
+class PouvoirSoporifique : public Pouvoir
 {
 public:
-	PouvoirSporifique(const std::string& nom,
+	PouvoirSoporifique(const std::string& nom,
 		unsigned int nombreDeDegat, unsigned int energieNecessaire);
-	PouvoirSporifique(const std::string& nom,
+	PouvoirSoporifique(const std::string& nom,
 		unsigned int nombreDeDegat, unsigned int energieNecessaire, int duree);
 
-	friend std::ostream& operator<<(std::ostream& os, const PouvoirSporifique& pouvoirSporifique);
+	friend std::ostream& operator<<(std::ostream& os, const PouvoirSoporifique& pouvoirSporifique);
 
 private:
 	int duree_;

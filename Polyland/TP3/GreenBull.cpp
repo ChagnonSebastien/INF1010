@@ -1,14 +1,20 @@
 #include "GreenBull.h"
 
-GreenBull::GreenBull()
+GreenBull::GreenBull() : ObjetMagique()
 {
 }
 
-GreenBull::GreenBull(const std::string & nom, int bonus)
+GreenBull::GreenBull(const std::string & nom, int bonus) : ObjetMagique(nom, bonus)
 {
 }
 
 std::ostream & operator<<(std::ostream & os, const GreenBull & greenBull)
 {
-	// TODO: insert return statement here
+	os << "L'objet " << greenBull.obtenirNom() << " fournit " << greenBull.obtenirBonus() << " point(s) d'énergie";
+}
+
+void ObjetMagique::utiliserSur(Creature & creature) const
+{
+	int energiePlusBonus = creature.obtenirEnergie() + bonus_;
+	creature.modifierPointDeVie(energiePlusBonus > creature.obtenirEnergieTotale() ? creature.obtenirEnergieTotale() : energiePlusBonus);
 }
