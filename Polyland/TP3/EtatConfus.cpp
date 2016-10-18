@@ -16,13 +16,13 @@ std::ostream & operator<<(std::ostream & o, const EtatConfus & etatConfu)
 	o << "etat confu :" << etatConfu.obtenirNom() << " durera " << etatConfu.duree_;
 }
 
-bool EtatCreature::peutAttaquer() const
+bool EtatConfus::peutAttaquer() const
 {
 	srand(time(NULL));
 	return rand() % 2;
 }
 
-void EtatCreature::appliquerEtat(Creature & creature)
+void EtatConfus::appliquerEtat(Creature & creature)
 {
 	srand(time(NULL));
 	if (rand() % 3)
@@ -34,7 +34,7 @@ void EtatCreature::appliquerEtat(Creature & creature)
 	duree_--;
 }
 
-bool EtatCreature::estFini() const
+bool EtatConfus::estFini() const
 {
 	srand(time(NULL));
 	return rand() % 3 || duree_ <= 0;

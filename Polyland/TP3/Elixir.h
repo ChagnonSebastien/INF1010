@@ -10,6 +10,8 @@ public:
 	Elixir();
 	Elixir(const std::string &nom, int bonus);
 
+	void utiliserSur(Creature & creature) const;
+
 	friend std::ostream& operator<<(std::ostream& os, const Elixir& elixir);
 
 };

@@ -10,6 +10,10 @@ public:
 	EtatEmpoisonne(const std::string& nom);
 	EtatEmpoisonne(const std::string& nom, unsigned int duree);
 
+	void appliquerEtat(Creature & creature);
+
+	bool estFini() const;
+
 	friend std::ostream& operator<<(std::ostream& o, const EtatEmpoisonne& etatEmpoisonne);
 
 };

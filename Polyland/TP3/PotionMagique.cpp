@@ -13,8 +13,8 @@ std::ostream & operator<<(std::ostream & os, const PotionMagique & potionMagique
 	os << "L'objet " << potionMagique.obtenirNom() << " soigne de " << potionMagique.obtenirBonus() << " points de vie";
 }
 
-void ObjetMagique::utiliserSur(Creature & creature) const
+void PotionMagique::utiliserSur(Creature & creature) const
 {
-	int pointDeViePlusBonus = creature.obtenirPointDeVie + bonus_;
+	int pointDeViePlusBonus = creature.obtenirPointDeVie + obtenirBonus();
 	creature.modifierPointDeVie(pointDeViePlusBonus > creature.obtenirPointDeVieTotal() ? creature.obtenirPointDeVieTotal : pointDeViePlusBonus);
 }

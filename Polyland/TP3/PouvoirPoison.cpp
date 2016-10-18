@@ -1,6 +1,6 @@
 #include "PouvoirPoison.h"
 
-PouvoirPoison::PouvoirPoison(const std::string & nom, unsigned int nombreDeDegat, unsigned int energieNecessaire) : Pouvoir(nom, nombreDeDegat, energieNecessaire)
+PouvoirPoison::PouvoirPoison(const std::string & nom, unsigned int nombreDeDegat, unsigned int energieNecessaire) : Pouvoir(nom, nombreDeDegat, energieNecessaire), duree_(0)
 {
 	type_ = TypeEtat::TypeEtat_empoisonne;
 }
@@ -16,7 +16,7 @@ std::ostream & operator<<(std::ostream & os, const PouvoirPoison & pouvoirPoison
 	os << "  il peut empoisonner la cible" << std::endl;
 }
 
-void Pouvoir::appliquerEffetOffensif(Creature & creatureEnnemie)
+void PouvoirPoison::appliquerEffetOffensif(Creature & creatureEnnemie)
 {
-	creatureEnnemie.modifierEtat(type_);
+	creatureEnnemie.modifierEtat(new EtatEmpoisonne("Arsenic", duree_));
 }

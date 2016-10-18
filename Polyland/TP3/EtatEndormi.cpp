@@ -15,18 +15,18 @@ std::ostream & operator<<(std::ostream & o, const EtatEndormi & etatEndormi)
 	o << "etat endormi :" << etatEndormi.obtenirNom() << " durera " << etatEndormi.duree_;
 }
 
-bool EtatCreature::peutAttaquer() const
+bool EtatEndormi::peutAttaquer() const
 {
 	return false;
 }
 
-void EtatCreature::appliquerEtat(Creature & creature)
+void EtatEndormi::appliquerEtat(Creature & creature)
 {
 	if (duree_ <= 0)
 		duree_--;
 }
 
-bool EtatCreature::estFini() const
+bool EtatEndormi::estFini() const
 {
 	return duree_ <= 0;
 }

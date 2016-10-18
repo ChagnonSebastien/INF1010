@@ -8,9 +8,11 @@ class CreatureMagique : public Creature
 public:
 	CreatureMagique(const std::string& nom, unsigned int attaque,
 		unsigned int defense, unsigned int pointDeVie, unsigned int energie, unsigned int bonus);
-	CreatureMagique(CreatureMagique& creatureMagique);
+	CreatureMagique(const CreatureMagique& creatureMagique);
 
-	CreatureMagique& operator=(const CreatureMagique& creatureMagique) const;
+	CreatureMagique& operator=(const CreatureMagique& creatureMagique);
+
+	void attaquer(const Pouvoir & pouvoir, Creature & creature);
 
 	friend std::ostream& operator<<(std::ostream& o, const CreatureMagique& creatureMagique);
 

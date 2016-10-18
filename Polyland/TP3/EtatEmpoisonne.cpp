@@ -15,13 +15,13 @@ std::ostream & operator<<(std::ostream & o, const EtatEmpoisonne & etatEmpoisonn
 	o << "etat empoisonne :" << etatEmpoisonne.obtenirNom() << " durera " << etatEmpoisonne.duree_;
 }
 
-void EtatCreature::appliquerEtat(Creature & creature)
+void EtatEmpoisonne::appliquerEtat(Creature & creature)
 {
 	creature.modifierPointDeVie(creature.obtenirPointDeVie() - 5);
 	duree_--;
 }
 
-bool EtatCreature::estFini() const
+bool EtatEmpoisonne::estFini() const
 {
 	return duree_ <= 0;
 }

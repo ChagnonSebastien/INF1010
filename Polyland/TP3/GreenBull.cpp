@@ -13,8 +13,8 @@ std::ostream & operator<<(std::ostream & os, const GreenBull & greenBull)
 	os << "L'objet " << greenBull.obtenirNom() << " fournit " << greenBull.obtenirBonus() << " point(s) d'énergie";
 }
 
-void ObjetMagique::utiliserSur(Creature & creature) const
+void GreenBull::utiliserSur(Creature & creature) const
 {
-	int energiePlusBonus = creature.obtenirEnergie() + bonus_;
+	int energiePlusBonus = creature.obtenirEnergie() + obtenirBonus();
 	creature.modifierPointDeVie(energiePlusBonus > creature.obtenirEnergieTotale() ? creature.obtenirEnergieTotale() : energiePlusBonus);
 }
