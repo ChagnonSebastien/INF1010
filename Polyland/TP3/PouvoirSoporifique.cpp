@@ -10,10 +10,10 @@ PouvoirSoporifique::PouvoirSoporifique(const std::string & nom, unsigned int nom
 	type_ = TypeEtat::TypeEtat_endormi;
 }
 
-std::ostream & operator<<(std::ostream & os, const PouvoirSoporifique & pouvoirSporifique)
+std::ostream & operator<<(std::ostream & o, const PouvoirSoporifique & pouvoirSporifique)
 {
-	os << pouvoirSporifique.obtenirNom() << " possede un nombre de dégat de " << pouvoirSporifique.obtenirNombreDeDegat() << " et une energie necessaire de " << pouvoirSporifique.obtenirEnergieNecessaire() << std::endl;
-	os << "  il peut endormir la cible" << std::endl;
+	return o << pouvoirSporifique.obtenirNom() << " possede un nombre de dégat de " << pouvoirSporifique.obtenirNombreDeDegat() << " et une energie necessaire de " << pouvoirSporifique.obtenirEnergieNecessaire() << std::endl
+	 << "  il peut endormir la cible" << std::endl;
 }
 
 void PouvoirSoporifique::appliquerEffetOffensif(Creature & creatureEnnemie)

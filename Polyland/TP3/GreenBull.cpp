@@ -8,9 +8,9 @@ GreenBull::GreenBull(const std::string & nom, int bonus) : ObjetMagique(nom, bon
 {
 }
 
-std::ostream & operator<<(std::ostream & os, const GreenBull & greenBull)
+std::ostream & operator<<(std::ostream & o, const GreenBull & greenBull)
 {
-	os << "L'objet " << greenBull.obtenirNom() << " fournit " << greenBull.obtenirBonus() << " point(s) d'énergie";
+	 return o << "L'objet " << greenBull.obtenirNom() << " fournit " << greenBull.obtenirBonus() << " point(s) d'énergie";
 }
 
 void GreenBull::utiliserSur(Creature & creature) const

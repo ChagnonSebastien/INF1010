@@ -5,8 +5,8 @@ Professeur::Professeur(const std::string & nom, const std::string & equipe) : Dr
 }
 
 Professeur::Professeur(Professeur & professeur) : Dresseur(professeur), outilScientifique_(
-	new OutilScientifique(professeur.getOutilScientifique().obtenirNom(),
-	professeur.getOutilScientifique().obtenirDesciption()))
+	new OutilScientifique(professeur.obtenirOutilScientifique().obtenirNom(),
+	professeur.obtenirOutilScientifique().obtenirDesciption()))
 {
 }
 
@@ -16,12 +16,12 @@ Professeur::~Professeur()
 	outilScientifique_ = nullptr;
 }
 
-OutilScientifique & Professeur::getOutilScientifique() const
+OutilScientifique & Professeur::obtenirOutilScientifique() const
 {
 	return *outilScientifique_;
 }
 
-void Professeur::setOutilScientifique(OutilScientifique outilScientifique)
+void Professeur::modifierOutilScientifique(OutilScientifique outilScientifique)
 {
 	outilScientifique_ = new OutilScientifique(outilScientifique.obtenirNom(), 
 		outilScientifique.obtenirDesciption());
@@ -29,8 +29,8 @@ void Professeur::setOutilScientifique(OutilScientifique outilScientifique)
 
 void Professeur::soignerCreature(Creature & creature)
 {
-	creature.modifierEnergie(creature.obtenirEnergieTotale);
-	creature.modifierPointDeVie(creature.obtenirPointDeVieTotal);
+	creature.modifierEnergie(creature.obtenirEnergieTotale());
+	creature.modifierPointDeVie(creature.obtenirPointDeVieTotal());
 }
 
 void Professeur::utiliserOutil(Creature & creature)
@@ -47,8 +47,8 @@ Professeur& Professeur::operator=(const Professeur& professeur)
 		modifierEquipe(professeur.obtenirEquipe());
 		modifierObjetMagique(professeur.obtenirObjetMagique());
 
-		outilScientifique_ = new OutilScientifique(professeur.getOutilScientifique().obtenirNom(),
-			professeur.getOutilScientifique().obtenirDesciption());
+		outilScientifique_ = new OutilScientifique(professeur.obtenirOutilScientifique().obtenirNom(),
+			professeur.obtenirOutilScientifique().obtenirDesciption());
 	}
 
 	return *this;

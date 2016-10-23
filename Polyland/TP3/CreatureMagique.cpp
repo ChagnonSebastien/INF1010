@@ -19,8 +19,10 @@ CreatureMagique & CreatureMagique::operator=(const CreatureMagique & creatureMag
 
 std::ostream & operator<<(std::ostream & o, const CreatureMagique & creatureMagique)
 {
-	o << static_cast<Creature>(creatureMagique);
-	o << "Elle a un bonus de " + creatureMagique.bonus_;
+	return o << static_cast<Creature>(creatureMagique)
+	 << "Elle a un bonus de " + creatureMagique.bonus_;
+
+
 }
 
 void CreatureMagique::attaquer(const Pouvoir & pouvoir, Creature & creature)

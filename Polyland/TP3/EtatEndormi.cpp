@@ -12,7 +12,7 @@ EtatEndormi::EtatEndormi(const std::string & nom, unsigned int duree) : EtatCrea
 
 std::ostream & operator<<(std::ostream & o, const EtatEndormi & etatEndormi)
 {
-	o << "etat endormi :" << etatEndormi.obtenirNom() << " durera " << etatEndormi.duree_;
+	return o << "etat endormi :" << etatEndormi.obtenirNom() << " durera " << etatEndormi.duree_;
 }
 
 bool EtatEndormi::peutAttaquer() const
@@ -22,7 +22,7 @@ bool EtatEndormi::peutAttaquer() const
 
 void EtatEndormi::appliquerEtat(Creature & creature)
 {
-	if (duree_ <= 0)
+	if (duree_ > 0)
 		duree_--;
 }
 

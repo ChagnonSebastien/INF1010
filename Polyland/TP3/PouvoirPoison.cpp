@@ -10,10 +10,10 @@ PouvoirPoison::PouvoirPoison(const std::string & nom, unsigned int nombreDeDegat
 	type_ = TypeEtat::TypeEtat_empoisonne;
 }
 
-std::ostream & operator<<(std::ostream & os, const PouvoirPoison & pouvoirPoison)
+std::ostream & operator<<(std::ostream & o, const PouvoirPoison & pouvoirPoison)
 {
-	os << pouvoirPoison.obtenirNom() << " possede un nombre de dégat de " << pouvoirPoison.obtenirNombreDeDegat() << " et une energie necessaire de " << pouvoirPoison.obtenirEnergieNecessaire() << std::endl;
-	os << "  il peut empoisonner la cible" << std::endl;
+	return o << pouvoirPoison.obtenirNom() << " possede un nombre de dégat de " << pouvoirPoison.obtenirNombreDeDegat() << " et une energie necessaire de " << pouvoirPoison.obtenirEnergieNecessaire() << std::endl
+	 << "  il peut empoisonner la cible" << std::endl;
 }
 
 void PouvoirPoison::appliquerEffetOffensif(Creature & creatureEnnemie)

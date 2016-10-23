@@ -10,10 +10,10 @@ PouvoirHallucinogene::PouvoirHallucinogene(const std::string & nom, unsigned int
 	type_ = TypeEtat::TypeEtat_endormi;
 }
 
-std::ostream & operator<<(std::ostream & os, const PouvoirHallucinogene & pouvoirHallucinogene)
+std::ostream & operator<<(std::ostream & o, const PouvoirHallucinogene & pouvoirHallucinogene)
 {
-	os << pouvoirHallucinogene.obtenirNom() << " possede un nombre de dégat de " << pouvoirHallucinogene.obtenirNombreDeDegat() << " et une energie necessaire de " << pouvoirHallucinogene.obtenirEnergieNecessaire() << std::endl;
-	os << "  il peut endormir la cible" << std::endl;
+	return o << pouvoirHallucinogene.obtenirNom() << " possede un nombre de dégat de " << pouvoirHallucinogene.obtenirNombreDeDegat() << " et une energie necessaire de " << pouvoirHallucinogene.obtenirEnergieNecessaire() << std::endl
+	 << "  il peut endormir la cible" << std::endl;
 }
 
 void PouvoirHallucinogene::appliquerEffetOffensif(Creature & creatureEnnemie)

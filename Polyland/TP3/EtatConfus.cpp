@@ -13,7 +13,7 @@ EtatConfus::EtatConfus(const std::string & nom, unsigned int duree) : EtatCreatu
 
 std::ostream & operator<<(std::ostream & o, const EtatConfus & etatConfu)
 {
-	o << "etat confu :" << etatConfu.obtenirNom() << " durera " << etatConfu.duree_;
+	return o << "etat confu :" << etatConfu.obtenirNom() << " durera " << etatConfu.duree_;
 }
 
 bool EtatConfus::peutAttaquer() const
@@ -25,9 +25,9 @@ bool EtatConfus::peutAttaquer() const
 void EtatConfus::appliquerEtat(Creature & creature)
 {
 	srand(time(NULL));
-	if (rand() % 3)
+	if (!(rand() % 3))
 	{
-		int dommage = creature.obtenirPointDeVie / 20;
+		unsigned int dommage = creature.obtenirPointDeVie() / 20;
 		creature.modifierPointDeVie(dommage < 5 ? 5 : dommage);
 	}
 
@@ -37,5 +37,5 @@ void EtatConfus::appliquerEtat(Creature & creature)
 bool EtatConfus::estFini() const
 {
 	srand(time(NULL));
-	return rand() % 3 || duree_ <= 0;
+	return (!(rand() % 3) || duree_ <= 0);
 }

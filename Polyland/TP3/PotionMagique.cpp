@@ -8,13 +8,13 @@ PotionMagique::PotionMagique(const std::string & nom, int bonus) : ObjetMagique(
 {
 }
 
-std::ostream & operator<<(std::ostream & os, const PotionMagique & potionMagique)
+std::ostream & operator<<(std::ostream & o, const PotionMagique & potionMagique)
 {
-	os << "L'objet " << potionMagique.obtenirNom() << " soigne de " << potionMagique.obtenirBonus() << " points de vie";
+	return o << "L'objet " << potionMagique.obtenirNom() << " soigne de " << potionMagique.obtenirBonus() << " points de vie";
 }
 
 void PotionMagique::utiliserSur(Creature & creature) const
 {
-	int pointDeViePlusBonus = creature.obtenirPointDeVie + obtenirBonus();
-	creature.modifierPointDeVie(pointDeViePlusBonus > creature.obtenirPointDeVieTotal() ? creature.obtenirPointDeVieTotal : pointDeViePlusBonus);
+	unsigned int pointDeViePlusBonus = creature.obtenirPointDeVie() + obtenirBonus();
+	creature.modifierPointDeVie(pointDeViePlusBonus > creature.obtenirPointDeVieTotal() ? creature.obtenirPointDeVieTotal() : pointDeViePlusBonus);
 }

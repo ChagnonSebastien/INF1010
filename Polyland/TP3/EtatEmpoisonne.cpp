@@ -12,7 +12,7 @@ EtatEmpoisonne::EtatEmpoisonne(const std::string & nom, unsigned int duree) : Et
 
 std::ostream & operator<<(std::ostream & o, const EtatEmpoisonne & etatEmpoisonne)
 {
-	o << "etat empoisonne :" << etatEmpoisonne.obtenirNom() << " durera " << etatEmpoisonne.duree_;
+	return o << "etat empoisonne :" << etatEmpoisonne.obtenirNom() << " durera " << etatEmpoisonne.duree_;
 }
 
 void EtatEmpoisonne::appliquerEtat(Creature & creature)

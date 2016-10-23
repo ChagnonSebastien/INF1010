@@ -12,8 +12,8 @@ public:
 	Professeur(Professeur& professeur);
 	~Professeur();
 
-	OutilScientifique& getOutilScientifique() const;
-	void setOutilScientifique(OutilScientifique outilScientifique);
+	OutilScientifique& obtenirOutilScientifique() const;
+	void modifierOutilScientifique(OutilScientifique outilScientifique);
 
 	void soignerCreature(Creature& creature);
 	void utiliserOutil(Creature& creature);
