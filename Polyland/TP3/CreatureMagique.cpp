@@ -16,18 +16,23 @@ CreatureMagique & CreatureMagique::operator=(const CreatureMagique & creatureMag
 	bonus_ = creatureMagique.bonus_;
 	return *this;
 }
-
-std::ostream & operator<<(std::ostream & o, const CreatureMagique & creatureMagique)
+unsigned int CreatureMagique::obtenirBonus() const
 {
-	return o << static_cast<Creature>(creatureMagique)
-	 << "Elle a un bonus de " + creatureMagique.bonus_;
 
+
+	return bonus_;
+}
+std::ostream & operator<<(std::ostream & o, CreatureMagique& creatureMagique)
+{
+	o << dynamic_cast<Creature&>(creatureMagique)
+		<< "Elle a un bonus de " << creatureMagique.obtenirBonus();
+	return o;
 
 }
 
 void CreatureMagique::attaquer(const Pouvoir & pouvoir, Creature & creature)
 {
 	Creature::attaquer(pouvoir, creature);
-	int nouveauPdV = obtenirPointDeVie() + bonus_;
+	unsigned int nouveauPdV = obtenirPointDeVie() + bonus_;
 	modifierPointDeVie(nouveauPdV > obtenirPointDeVieTotal() ? obtenirPointDeVieTotal() : nouveauPdV);
 }

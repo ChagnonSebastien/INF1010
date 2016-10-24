@@ -10,11 +10,13 @@ public:
 		unsigned int defense, unsigned int pointDeVie, unsigned int energie, unsigned int bonus);
 	CreatureMagique(const CreatureMagique& creatureMagique);
 
+	unsigned int obtenirBonus() const;
+
 	CreatureMagique& operator=(const CreatureMagique& creatureMagique);
 
 	void attaquer(const Pouvoir & pouvoir, Creature & creature);
 
-	friend std::ostream& operator<<(std::ostream& o, const CreatureMagique& creatureMagique);
+	friend std::ostream& operator<<(std::ostream& o, CreatureMagique& creatureMagique);
 
 private:
 	unsigned int bonus_;
