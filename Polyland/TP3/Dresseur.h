@@ -18,6 +18,7 @@ class Dresseur
 public:
 	Dresseur();
 	Dresseur(const std::string& nom, const std::string& equipe);
+	Dresseur(const Dresseur & dresseur);
 	~Dresseur();
 
 	std::string obtenirNom() const;
@@ -32,7 +33,7 @@ public:
 	bool ajouterCreature(Creature* creature);
 	bool enleverCreature(const std::string& nom);
 
-	ObjetMagique obtenirObjetMagique() const;
+	ObjetMagique* obtenirObjetMagique() const;
 	void modifierObjetMagique(const ObjetMagique& objetMagique);
 
 	void utiliserObjetMagique(Creature* creature);

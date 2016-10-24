@@ -2,12 +2,12 @@
 
 Professeur::Professeur(const std::string & nom, const std::string & equipe) : Dresseur(nom, equipe)
 {
+	outilScientifique_ = nullptr;
 }
 
-Professeur::Professeur(Professeur & professeur) : Dresseur(professeur), outilScientifique_(
-	new OutilScientifique(professeur.obtenirOutilScientifique().obtenirNom(),
-	professeur.obtenirOutilScientifique().obtenirDesciption()))
+Professeur::Professeur(const Professeur & professeur) : Dresseur(professeur)
 {
+	outilScientifique_ = professeur.obtenirOutilScientifique();
 }
 
 Professeur::~Professeur()
@@ -16,15 +16,14 @@ Professeur::~Professeur()
 	outilScientifique_ = nullptr;
 }
 
-OutilScientifique & Professeur::obtenirOutilScientifique() const
+OutilScientifique* Professeur::obtenirOutilScientifique() const
 {
-	return *outilScientifique_;
+	return outilScientifique_;
 }
 
-void Professeur::modifierOutilScientifique(OutilScientifique outilScientifique)
+void Professeur::modifierOutilScientifique(OutilScientifique* outilScientifique)
 {
-	outilScientifique_ = new OutilScientifique(outilScientifique.obtenirNom(), 
-		outilScientifique.obtenirDesciption());
+	outilScientifique_ = outilScientifique;
 }
 
 void Professeur::soignerCreature(Creature & creature)
@@ -38,22 +37,15 @@ void Professeur::utiliserOutil(Creature & creature)
 	outilScientifique_->utiliser(creature);
 }
 
-Professeur& Professeur::operator=(const Professeur& professeur)
+Professeur& Professeur::operator=(const Professeur & professeur)
 {
-	if (this != &professeur)
-	{
-		delete outilScientifique_;
-		outilScientifique_ = new OutilScientifique(*(professeur.outilScientifique_));
-		modifierNom(professeur.obtenirNom());
-		modifierCreature(professeur.obtenirCreatures());
-		modifierEquipe(professeur.obtenirEquipe());
-		modifierObjetMagique(professeur.obtenirObjetMagique());
-		//delete outilScientifique_;
-		//outilScientifique_ = nullptr;
-		//std::cout << obtenirOutilScientifique();
-		//outilScientifique_ = new OutilScientifique(professeur.obtenirOutilScientifique().obtenirNom(),
-			//professeur.obtenirOutilScientifique().obtenirDesciption());
-	}
+		this->modifierNom(professeur.obtenirNom());
+		this->modifierEquipe(professeur.obtenirEquipe());
+		this->modifierOutilScientifique(professeur.obtenirOutilScientifique());
+		this->modifierCreature(professeur.obtenirCreatures());
+
+		if (professeur.obtenirObjetMagique() != nullptr)
+			this->modifierObjetMagique(*professeur.obtenirObjetMagique());
 
 	return *this;
 }

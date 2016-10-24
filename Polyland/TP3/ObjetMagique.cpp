@@ -53,5 +53,5 @@ void ObjetMagique::utiliserSur(Creature & creature) const
 
 std::ostream& operator<<(std::ostream& os, const ObjetMagique& objet)
 {
-	return os << "l'objet " << objet.nom_ << "fournit un bonus de " << objet.bonus_ << std::endl;
+	return os << "l'objet " << objet.obtenirNom() << "fournit un bonus de " << objet.obtenirBonus() << std::endl;
 }

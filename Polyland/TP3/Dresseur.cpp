@@ -12,6 +12,16 @@ Dresseur::Dresseur() :nom_(""), equipe_("") {};
 
 Dresseur::Dresseur(const std::string& nom, const std::string& equipe) : nom_(nom), equipe_(equipe) {};
 
+Dresseur::Dresseur(const Dresseur & dresseur)
+{
+	nom_ = dresseur.obtenirNom();
+	equipe_ = dresseur.obtenirEquipe();
+	creatures_ = dresseur.obtenirCreatures();
+	objetMagique_ = dresseur.obtenirObjetMagique();
+
+
+}
+
 Dresseur::~Dresseur()
 {
     delete objetMagique_;
@@ -83,9 +93,9 @@ bool Dresseur::enleverCreature(const std::string& nom)
 	return false;
 }
 
-ObjetMagique Dresseur::obtenirObjetMagique() const
+ObjetMagique* Dresseur::obtenirObjetMagique() const
 {
-	return *objetMagique_;
+	return objetMagique_;
 }
 
 void Dresseur::modifierObjetMagique(const ObjetMagique & objetMagique)

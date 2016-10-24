@@ -13,7 +13,7 @@ EtatConfus::EtatConfus(const std::string & nom, unsigned int duree) : EtatCreatu
 
 std::ostream & operator<<(std::ostream & o, const EtatConfus & etatConfu)
 {
-	return o << "etat confu :" << etatConfu.obtenirNom() << " durera " << etatConfu.duree_;
+	return o << "etat confu :" << etatConfu.obtenirNom() << " durera " << etatConfu.obtenirDuree();
 }
 
 bool EtatConfus::peutAttaquer() const

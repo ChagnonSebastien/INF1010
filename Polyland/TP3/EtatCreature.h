@@ -29,6 +29,7 @@ public:
 
     std::string obtenirNom() const;
     TypeEtat obtenirType() const;
+	unsigned int obtenirDuree() const;
 
     friend std::ostream& operator<<(std::ostream& o, const EtatCreature& etatCreature);
 private:

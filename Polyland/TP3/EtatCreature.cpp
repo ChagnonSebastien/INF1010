@@ -36,6 +36,11 @@ TypeEtat EtatCreature::obtenirType() const
     return type_;
 }
 
+unsigned int EtatCreature::obtenirDuree() const
+{
+	return duree_;
+
+}
 std::ostream & operator<<(std::ostream & o, const EtatCreature & etatCreature)
 {
     o << "etat" << etatCreature.nom_ << std::endl;

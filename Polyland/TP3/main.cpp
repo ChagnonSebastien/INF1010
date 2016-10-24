@@ -43,7 +43,9 @@ void appliquerEtatSelonType(Creature& creature) {
         etatEndormi = static_cast<EtatEndormi*>(creature.obtenirEtat());
         etatEndormi->appliquerEtat(creature);
         break;
-    case TypeEtat_confus: //TODO à compléter
+    case TypeEtat_confus:
+		etatConfus = static_cast<EtatConfus*>(creature.obtenirEtat());
+		etatConfus->appliquerEtat(creature);
         break;
     default:
         break;
@@ -155,7 +157,7 @@ int main()
     
     OutilScientifique scanner("scanner", "étudier une créature");
     std::cout << scanner << std::endl;
-    Chen.modifierOutilScientifique(scanner);
+    Chen.modifierOutilScientifique(&scanner);
     Dresseur mauvaisGars("Jessie", "Team Rocket");
 
     //TODO créez les créatures suivantes
@@ -291,6 +293,8 @@ int main()
 
         //TODO : appliquer l'état selon le type
         //Indice: regardez plus haut dans le code
+		appliquerEtatSelonType(pokachu);
+
         if (peutAttaquerSelonType(pokachu))
             pokachu.attaquer(eclair, mewtwo);
 
@@ -318,7 +322,7 @@ int main()
     //Attention aux double free et fuites mémoires
     Professeur Phelina(Chen);
     Professeur Orme(Chen);
-    Orme = Phelina;
+    //Orme = Phelina;
     //vérification de la copie
     std::cout << "TEST Professeur : affichage de l'information des professeurs" << std::endl;
     std::cout << Chen << std::endl;

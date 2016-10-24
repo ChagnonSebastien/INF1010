@@ -9,11 +9,11 @@ class Professeur : public Dresseur
 {
 public:
 	Professeur(const std::string& nom, const std::string& equipe);
-	Professeur(Professeur& professeur);
+	Professeur(const Professeur& professeur);
 	~Professeur();
 
-	OutilScientifique& obtenirOutilScientifique() const;
-	void modifierOutilScientifique(OutilScientifique outilScientifique);
+	OutilScientifique* obtenirOutilScientifique() const;
+	void modifierOutilScientifique(OutilScientifique* outilScientifique);
 
 	void soignerCreature(Creature& creature);
 	void utiliserOutil(Creature& creature);
