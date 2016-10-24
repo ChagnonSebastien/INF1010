@@ -42,13 +42,17 @@ Professeur& Professeur::operator=(const Professeur& professeur)
 {
 	if (this != &professeur)
 	{
+		delete outilScientifique_;
+		outilScientifique_ = new OutilScientifique(*(professeur.outilScientifique_));
 		modifierNom(professeur.obtenirNom());
 		modifierCreature(professeur.obtenirCreatures());
 		modifierEquipe(professeur.obtenirEquipe());
 		modifierObjetMagique(professeur.obtenirObjetMagique());
-
-		outilScientifique_ = new OutilScientifique(professeur.obtenirOutilScientifique().obtenirNom(),
-			professeur.obtenirOutilScientifique().obtenirDesciption());
+		//delete outilScientifique_;
+		//outilScientifique_ = nullptr;
+		//std::cout << obtenirOutilScientifique();
+		//outilScientifique_ = new OutilScientifique(professeur.obtenirOutilScientifique().obtenirNom(),
+			//professeur.obtenirOutilScientifique().obtenirDesciption());
 	}
 
 	return *this;
