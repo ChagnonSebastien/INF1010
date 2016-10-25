@@ -1,0 +1,33 @@
+Compilation: Le progamme compile points = 3
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Précompilation: OK points = 2
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Execution: beucoup d'erreurs points = 1
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+const: Utilisez des références constantes pour les string en parametres -0.5 De maniere générale,
+privilégiez les références aux objets. points = 1.5
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Comportement exacte des méthodes: Dresseur.cpp ajouterCreature: ptr est alloué sur la pile et n'a donc plus
+de sens en-dehors de la fonction. -0.5 retirerCreature : "j < nombreCreature" et non "i < nombrecreature" =>
+boucle infinie. -0.5 affichage : il fallait appeler la méthode d'affichage de chaque créature du dresseur
+-0.5 Creature.cpp la méthode attaquer ne diminue pas les points de vie. ni l'energie. -0.5 Polyland.cpp
+retirerDresseur "j++" et non "i++" dans le second for, attention au copier coller! -0.5
+choisirDresseurAleatoire ne jamais initialiser une seed plusieur fois dans un programme!!!! idem pour
+choisirCreatureAleatoire idem pour attraperCreature infoDresseur "!=" et non "=" dans le while, cela vous
+empêche d'afficher autre chose que la première créature et sortir de la fonction si le i est trop grand.
+-0.5 Points = 1
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Documentation du code et norme de codage: Jamais de using namespace dans les .h Utilisation de nombres
+magiques pout les tailles de tableau -0.25 Points = 1.75
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Allocation et désallocation: Dresseur.cpp le destructeur ne désalloue pas le tableau de créatures -0.5
+Polyland.cpp le destructeur ne doit pas libérer les créatures, car il ne les possede pas -0.5. Points = 1
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Questions: 1 Polyland ne possède que un pointeur les objets peuvent vivres sans polyland (c'est d'ailleurs
+le cas dans le main), la justification se tient -0.25 2 de même pour les pointeurs, -0.5 3 Ce que vous
+vouliez faire ressemble plus a de la composition, de plus voulez-vous vraiment que la créature d'un dresseur
+soit partagée et donc puisse être modifiée par un autre dresseur? Toutefois, c'est cohérent avec vos
+réponses précédentes -0.25 4 Non, la créature possède un objet pouvoir => composition, on peut toutefois
+imaginer les partager -0.25 Points = 0.75
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Total = 12 Commentaires: Mettez vos numéros étudiants dans l'archive du zip pour le prochain TP.
