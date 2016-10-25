@@ -1,0 +1,69 @@
+﻿Compilation:
+Le progamme compile
+points = 3
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Execution:
+OK
+points = 3
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Comportement exact des méthodes:
+ObjetMagique.cpp
+Vous n'avez pas implémenté le bon opérateur <<, vous ne pouvez pas écrire cout<<objet; -0.5
+
+Dresseur.cpp
+Vous ne libérez pas la mémoire dans enleverCreature -0.5
+AjouterCreature ne vérifie pas que la créature est déjà présente. -0.5
+
+main.cpp
+Vous libérez pas les dresseurs -0.5 (vous le faites dans polyland, mais ce n'est pas une bonne pratique)
+
+Creature.cpp
+oublierPouvoir ne libère pas la mémoire -0.5
+Points = 2
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Surcharge Correcte des opérateurs:
+ObjetMagique.cpp
+vous n'avez pas implémentez l'opérateur friend << -0.5
+
+Creature.cpp
+operator=
+vous ne vérifiez pas this != &creature -0.5
+(voir les questions pour la raison de cette vérification)
+Points = 2
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Utilisation de vecteur:
+OK
+
+points = 2
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Documentation du code et norme de codage:
+OK
+Points = 1.5
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Utilisation correcte de this
+Vous ne vérifiez pas le this dans les operateur= -0.5
+Points = 0.5
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+const:
+Creature.h
+attaquer
+Le pouvoir n'est pas constant -0.25
+
+Dresseur.h
+modifierEquipe et obtenir une créature les arguments devraient être passés par références constantes -0.5
+points = 0.25
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Questions:
+OK
+Points = 1.5
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Total = 15.75
+Commentaires:
