@@ -1,3 +1,10 @@
+/*
+Fichier: PouvoirHallucinogene.cpp
+Auteur(s): Audrey Labrie (1827808) et Sebastien Chagnon (1804702)
+Date de modification: 24 octobre 2016
+Description: La classe Pouvoir hallucinogene correspond a un pouvoir hallucinogene de creature
+*/
+
 #include "PouvoirHallucinogene.h"
 
 PouvoirHallucinogene::PouvoirHallucinogene(const std::string & nom, unsigned int nombreDeDegat, unsigned int energieNecessaire) : Pouvoir(nom, nombreDeDegat, energieNecessaire), duree_(0)

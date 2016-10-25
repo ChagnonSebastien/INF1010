@@ -1,10 +1,11 @@
 /*
-Fichier: Dresseur.cpp
-Auteur(s): Alexandre MAO
-Date de creation: 31 aout 2016
-Date de modification:  6 septembre 2016 par Maude Carrier
-Description:
+Fichier: PolyLand.cpp
+Auteur(s): Audrey Labrie (1827808) et Sebastien Chagnon (1804702)
+Date de modification: 24 octobre 2016
+Description: Polyland represente le pays que l'on va explorer, il va contenir
+les differents elements de jeu
 */
+
 #include "PolyLand.h"
 #include <stdio.h>
 #include <stdlib.h>

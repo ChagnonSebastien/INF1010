@@ -1,3 +1,11 @@
+/*
+Fichier: GreenBull.cpp
+Auteur(s): Audrey Labrie (1827808) et Sebastien Chagnon (1804702)
+Date de modification: 24 octobre 2016
+Description: La classe GreenBull correspond a un objet magique qui redonne de l'energie
+a la creature
+*/
+
 #include "GreenBull.h"
 
 GreenBull::GreenBull() : ObjetMagique()
