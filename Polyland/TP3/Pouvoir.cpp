@@ -1,3 +1,10 @@
+/*
+Fichier: Pouvoir.cpp
+Auteur(s): Audrey Labrie (1827808) et Sebastien Chagnon (1804702)
+Date de modification: 24 octobre 2016
+Description: La classe Pouvoir correspond a un pouvoir de creature
+*/
+
 #include "Pouvoir.h"
 #include <iostream>
 

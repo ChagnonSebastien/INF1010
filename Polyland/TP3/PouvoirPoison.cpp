@@ -1,3 +1,10 @@
+/*
+Fichier: PouvoirPoison.cpp
+Auteur(s): Audrey Labrie (1827808) et Sebastien Chagnon (1804702)
+Date de modification: 24 octobre 2016
+Description: La classe Pouvoir poison correspond a un pouvoir poison de creature
+*/
+
 #include "PouvoirPoison.h"
 
 PouvoirPoison::PouvoirPoison(const std::string & nom, unsigned int nombreDeDegat, unsigned int energieNecessaire) : Pouvoir(nom, nombreDeDegat, energieNecessaire), duree_(0)

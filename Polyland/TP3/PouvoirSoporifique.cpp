@@ -1,3 +1,10 @@
+/*
+Fichier: PouvoirSoporifique.cpp
+Auteur(s): Audrey Labrie (1827808) et Sebastien Chagnon (1804702)
+Date de modification: 24 octobre 2016
+Description: La classe Pouvoir Soporifique correspond a un pouvoir soporifique de creature
+*/
+
 #include "PouvoirSoporifique.h"
 
 PouvoirSoporifique::PouvoirSoporifique(const std::string & nom, unsigned int nombreDeDegat, unsigned int energieNecessaire) : Pouvoir(nom, nombreDeDegat, energieNecessaire), duree_(0)
