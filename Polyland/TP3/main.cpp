@@ -304,6 +304,7 @@ int main()
         //TODO : afficher l'etat en prenant en compte le type
         //Indice: regardez plus haut dans le code
         //et répondre à la question relative à l'affichage
+		afficherEtatSelonType(pokachu);
     }
     Chen.soignerCreature(pokachu);
     std::cout << "Votre Pokachu surprend un rondodu, terrifié celui-ci lui chante une berceuse" << std::endl;
