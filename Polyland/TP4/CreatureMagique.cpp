@@ -1,26 +1,63 @@
 
 #include "Creature.h"
-#include "..\TP4\CreatureMagique.h"
+#include "CreatureMagique.h"
+#include "AttaqueMagiqueConfusion.h"
+#include "AttaqueMagiquePoison.h"
 
-CreatureMagique::CreatureMagique(unsigned int bonus, const Creature& creature) :Creature(creature), bonus_(bonus)
+CreatureMagique::CreatureMagique() : Creature(), bonus_(0), attaqueMagique_(nullptr)
 {
-};
+}
 
-CreatureMagique::CreatureMagique(const CreatureMagique& creatureMagique):Creature(creatureMagique), bonus_(creatureMagique.obtenirBonus()), attaqueMagique_(creatureMagique.obtenirAttaqueMagique())
+CreatureMagique::CreatureMagique(unsigned int bonus, const Creature& creature) :Creature(creature), bonus_(bonus), attaqueMagique_(nullptr)
 {
-};
+}
+
+CreatureMagique::CreatureMagique(const Creature& creature):Creature(creature), bonus_(0), attaqueMagique_(nullptr)
+{
+	if (creature.obtenirTypeCreature() == typeid(CreatureMagique).name())
+	{
+		bonus_ = ((CreatureMagique)creature).obtenirBonus();
+
+		if (((CreatureMagique)creature).obtenirAttaqueMagique() != nullptr) {
+			if (((CreatureMagique)creature).obtenirAttaqueMagique()->obtenirTypeAttaque() == typeid(AttaqueMagiqueConfusion).name()) {
+				attaqueMagique_ = new AttaqueMagiqueConfusion(((CreatureMagique)creature).obtenirAttaqueMagique()->obtenirDuree());
+			}
+			else if (((CreatureMagique)creature).obtenirAttaqueMagique()->obtenirTypeAttaque() == typeid(AttaqueMagiquePoison).name())
+			{
+				attaqueMagique_ = new AttaqueMagiquePoison(((CreatureMagique)creature).obtenirAttaqueMagique()->obtenirDuree());
+			}
+		}
+	}
+}
 
 CreatureMagique::~CreatureMagique()
 {
 	delete attaqueMagique_;
 	attaqueMagique_ = nullptr;
-};
+}
 
-CreatureMagique& CreatureMagique::operator=(const CreatureMagique& creatureMagique)
+CreatureMagique& CreatureMagique::operator=(const Creature& creature)
 {
-	Creature::operator=(creatureMagique);
-	bonus_ = creatureMagique.obtenirBonus();
-	attaqueMagique_ = new AttaqueMagique(creatureMagique.obtenirAttaqueMagique);
+	Creature::operator=(creature);
+	if (creature.obtenirTypeCreature() == typeid(CreatureMagique).name())
+	{
+		bonus_ = ((CreatureMagique) creature).obtenirBonus();
+
+		if (((CreatureMagique)creature).obtenirAttaqueMagique() != nullptr) {
+			if (((CreatureMagique)creature).obtenirAttaqueMagique()->obtenirTypeAttaque() == typeid(AttaqueMagiqueConfusion).name()) {
+				attaqueMagique_ = new AttaqueMagiqueConfusion(((CreatureMagique)creature).obtenirAttaqueMagique()->obtenirDuree());
+			}
+			else if (((CreatureMagique)creature).obtenirAttaqueMagique()->obtenirTypeAttaque() == typeid(AttaqueMagiquePoison).name())
+			{
+				attaqueMagique_ = new AttaqueMagiquePoison(((CreatureMagique)creature).obtenirAttaqueMagique()->obtenirDuree());
+			}
+		}
+	}
+	else
+	{
+		bonus_ = 0;
+		attaqueMagique_ = nullptr;
+	}
 	return *this;
 
 }
@@ -56,7 +93,7 @@ void CreatureMagique::modifierAttaqueMagique(AttaqueMagique* attaqueMagique)
 void CreatureMagique::attaquer(Pouvoir& pouvoir, Creature& creature) 
 {
 	if (attaqueMagique_->obtenirDuree() > 0) {
-		attaqueMagique_->appliquerAttaque();
+		attaqueMagique_->appliquerAttaque(creature);
 	}
 
 	Creature::attaquer(pouvoir, creature);

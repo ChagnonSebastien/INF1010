@@ -8,14 +8,17 @@ Description: Les creatures magiques sont des etres destines au combat
 #ifndef CREATUREMAGIQUE_H
 #define CREATUREMAGIQUE_H
 
+#include "AttaqueMagique.h"
+#include "Creature.h"
 
 class CreatureMagique : public Creature
 {
 public:
 
+	CreatureMagique();
 	CreatureMagique(unsigned int bonus, const Creature& creature);
 
-	CreatureMagique(const CreatureMagique& creatureMagique);
+	CreatureMagique(const Creature& creature);
 
 	~CreatureMagique();
 
@@ -25,7 +28,7 @@ public:
 	void modifierBonus(unsigned int bonus);
 	void modifierAttaqueMagique(AttaqueMagique* attaqueMagique);
 
-	CreatureMagique& operator=(const CreatureMagique& creatureMagique);
+	CreatureMagique& operator=(const Creature& creature);
 
 	virtual std::string obtenirTypeCreature() const;
 	

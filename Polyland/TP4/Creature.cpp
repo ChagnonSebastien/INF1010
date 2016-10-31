@@ -88,6 +88,11 @@ std::vector<Pouvoir*> Creature::obtenirPouvoirs() const
 	return pouvoirs_;
 }
 
+std::string Creature::obtenirTypeCreature() const
+{
+	return typeid(Creature).name();
+}
+
 
 void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
 {

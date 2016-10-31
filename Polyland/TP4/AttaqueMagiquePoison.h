@@ -5,6 +5,7 @@
 
 class AttaqueMagiquePoison : public AttaqueMagique
 {
+public:
 	AttaqueMagiquePoison();
 	AttaqueMagiquePoison(unsigned int duree);
 	~AttaqueMagiquePoison();

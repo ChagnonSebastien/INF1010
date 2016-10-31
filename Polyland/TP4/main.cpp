@@ -8,8 +8,12 @@ Description: Programme de test
 
 #include <iostream>
 #include "Creature.h"
+#include "CreatureMagique.h"
 #include "Dresseur.h"
 #include "PolyLand.h"
+#include "Pouvoir.h"
+#include "AttaqueMagiquePoison.h"
+#include "AttaqueMagiqueConfusion.h"
 #include "Pouvoir.h"
 #include <time.h>
 
@@ -66,19 +70,30 @@ int main()
 	// Le nom de Touflamme devrai ensuite etre modifie pour "Touflamme" et son attaque passera de 12 a 15.
 	// A COMPLETER...
 
+	CreatureMagique Touflamme = Salimouche;
+	Touflamme.modifierBonus(2);
+	Touflamme.modifierNom("Touflamme");
+	Touflamme.modifierAttaque(15);
 
 	// Creer la CREATURE MAGIQUE Pokachoum en utilisant la creature existante Pokachu et un bonus de 3.
 	// Le nom de Pokachoum devrai ensuite etre modifie pour "Pokachoum" et sa defense passera de 2 a 7.
 	// A COMPLETER...
 
+	CreatureMagique Pokachoum = Pokachu;
+	Pokachoum.modifierBonus(3);
+	Pokachoum.modifierNom("Pokachoum");
+	Pokachoum.modifierDefense(7);
 
 	std::cout << "CRÉATION DES ATTAQUES MAGIQUES" << std::endl;
 	//Creer une attaque magique de poison avec le constructeur par défaut
 	// A COMPLETER...
 
+	AttaqueMagiquePoison attaqueMagiquePoison;
+
 	//Creer une attaque magique de confusion qui a une durée de 4
 	// A COMPLETER...
 
+	AttaqueMagiqueConfusion attaqueMagiqueConfusion(4);
 
 	std::cout << "APPRENTISSAGE DES POUVOIRS" << std::endl;
 	// Ajouter le pouvoir a la creature correspondante
@@ -102,6 +117,8 @@ int main()
 	// Touflamme -> Poison
 	// A COMPLETER...
 
+	Pokachoum.apprendreAttaqueMagique(&attaqueMagiqueConfusion);
+	Touflamme.apprendreAttaqueMagique(&attaqueMagiquePoison);
 
 	std::cout << std::endl << "AJOUT DE CREATURES ET DE DRESSEURS A POLYLAND" << std::endl << std::endl;
 
