@@ -22,7 +22,7 @@ Creature::Creature(const std::string& nom, unsigned int attaque,
 	pointDeVieTotal_ = pointDeVie;
 }
 
-Creature::~Creature()
+virtual Creature::~Creature()
 {
 	while (pouvoirs_.size() != 0)
 	{

@@ -46,7 +46,7 @@ public:
 	/**
 	* @brief Destructeur de la classe
 	*/
-	~Creature();
+	virtual ~Creature();
 	
 	// Getters
 	/**

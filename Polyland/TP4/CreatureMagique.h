@@ -36,7 +36,7 @@ public:
 	/**
 	* @brief Destructeur de la classe
 	*/
-	~CreatureMagique();
+	virtual ~CreatureMagique();
 
 	/**
 	* @brief Pour obtenir lle bonus d'une creature magique
