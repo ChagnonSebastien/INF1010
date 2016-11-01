@@ -70,16 +70,19 @@ int main()
 	// Le nom de Touflamme devrai ensuite etre modifie pour "Touflamme" et son attaque passera de 12 a 15.
 	// A COMPLETER...
 
-	CreatureMagique Touflamme = Salimouche;
+	CreatureMagique Touflamme;
+	Touflamme = Salimouche;
 	Touflamme.modifierBonus(2);
 	Touflamme.modifierNom("Touflamme");
 	Touflamme.modifierAttaque(15);
+
 
 	// Creer la CREATURE MAGIQUE Pokachoum en utilisant la creature existante Pokachu et un bonus de 3.
 	// Le nom de Pokachoum devrai ensuite etre modifie pour "Pokachoum" et sa defense passera de 2 a 7.
 	// A COMPLETER...
 
-	CreatureMagique Pokachoum = Pokachu;
+	CreatureMagique Pokachoum;
+	Pokachoum = Pokachu;
 	Pokachoum.modifierBonus(3);
 	Pokachoum.modifierNom("Pokachoum");
 	Pokachoum.modifierDefense(7);

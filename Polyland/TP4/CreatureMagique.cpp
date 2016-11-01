@@ -120,7 +120,7 @@ std::ostream& operator<<(std::ostream & o, CreatureMagique & creatureMagique)
 	o << "Cette creature de la class CreatureMagique ";
 
 	if (creatureMagique.obtenirAttaqueMagique() != nullptr)
-		o << creatureMagique.obtenirAttaqueMagique();
+		o << *(creatureMagique.obtenirAttaqueMagique());
 	
 	return o;
 

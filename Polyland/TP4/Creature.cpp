@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
- ;
 
 Creature::Creature() :nom_(""), attaque_(0), defense_(0), pointDeVie_(0),
 energie_(0), experience_(0), niveau_(1)
@@ -240,7 +239,8 @@ void Creature::modifierPouvoirs(std::vector<Pouvoir*> pouvoirs)
 
 Creature::Creature(const Creature& creature)
 	: nom_(creature.nom_), attaque_(creature.attaque_), defense_(creature.defense_), pointDeVie_(creature.pointDeVie_),
-	energie_(creature.energie_), experience_(creature.experience_), niveau_(creature.niveau_)
+	pointDeVieTotal_(creature.pointDeVieTotal_), energie_(creature.energie_), energieTotal_(creature.energieTotal_),
+	experience_(creature.experience_), experienceNecessaire_(creature.experienceNecessaire_), niveau_(creature.niveau_)
 {
 	for (unsigned int i = 0; i < creature.pouvoirs_.size(); i++)
 	{
@@ -256,8 +256,11 @@ Creature& Creature::operator=(const Creature& creature)
 		attaque_ = creature.attaque_;
 		defense_ = creature.defense_;
 		pointDeVie_ = creature.pointDeVie_;
+		pointDeVieTotal_ = creature.pointDeVieTotal_;
 		energie_ = creature.energie_;
+		energieTotal_ = creature.energieTotal_;
 		experience_ = creature.experience_;
+		experienceNecessaire_ = creature.experienceNecessaire_;
 		niveau_ = creature.niveau_;
 		for (unsigned int i = 0; i < creature.pouvoirs_.size(); i++)
 		{

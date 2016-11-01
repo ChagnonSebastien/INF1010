@@ -36,6 +36,6 @@ bool AttaqueMagique::estFini()
 
 std::ostream & operator<<(std::ostream & o, AttaqueMagique attaqueMagique)
 {
-	o << "aussi une attaque magique de type class " << attaqueMagique.obtenirTypeAttaque() << " qui a une durée de " << attaqueMagique.obtenirDuree();
+	o << "aussi une attaque magique de type " << attaqueMagique.obtenirTypeAttaque() << " qui a une durée de " << attaqueMagique.obtenirDuree();
 	return o;
 }
