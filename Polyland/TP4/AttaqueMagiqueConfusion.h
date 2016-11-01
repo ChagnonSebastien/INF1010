@@ -44,13 +44,13 @@ public:
 	* @brief Applique une attaque sur une creature
 	* @param creature Creature
 	*/
-	void appliquerAttaque(Creature & creature);
+	virtual void appliquerAttaque(Creature & creature);
 
 	/**
 	* @brief Retourne si la duree de l'attaque magique confusion est termine
 	* @return bool
 	*/
-	bool estFini();
+	virtual bool estFini();
 };
 
 #endif
