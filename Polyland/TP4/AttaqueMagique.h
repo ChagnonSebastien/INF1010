@@ -34,7 +34,7 @@ public:
 	* @brief Pour obtenir la duree d'une attaque magique
 	* @return la duree de l'attaque magique
 	*/
-	unsigned int obtenirDuree();
+	unsigned int obtenirDuree() const;
 
 	/**
 	* @brief Pour definir la duree d'une attaque magique
@@ -47,19 +47,19 @@ public:
 	* @brief Pour obtenir le type de l'attaque magique
 	* @return type
 	*/
-	virtual std::string obtenirTypeAttaque();
+	virtual std::string obtenirTypeAttaque() const = 0;
 
 	/**
 	* @brief Applique une attaque sur une creature
 	* @param creature Creature
 	*/
-	virtual void appliquerAttaque(Creature & creature);
+	virtual void appliquerAttaque(Creature & creature) const = 0;
 
 	/**
 	* @brief Methode redefinie dans les classes filles
 	* @return bool
 	*/
-	virtual bool estFini();
+	virtual bool estFini() const;
 
 	/**
 	* @brief Redefinition de l'operateur '<<' avec une attaque magique en parametre
@@ -67,7 +67,7 @@ public:
 	* @param attaqueMagique L'attaque magique a afficher
 	* @return L'output stream recu en parametre
 	*/
-	friend std::ostream& operator<<(std::ostream& o, AttaqueMagique attaqueMagique);
+	friend std::ostream& operator<<(std::ostream& o, const AttaqueMagique& attaqueMagique);
 
 protected:
 	unsigned int duree_;

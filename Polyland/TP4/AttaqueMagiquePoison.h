@@ -39,19 +39,19 @@ public:
 	* @brief Pour obtenir le type de l'attaque magique
 	* @return type
 	*/
-	virtual std::string obtenirTypeAttaque();
+	virtual std::string obtenirTypeAttaque() const;
 
 	/**
 	* @brief Applique une attaque sur une creature
 	* @param creature Creature
 	*/
-	virtual void appliquerAttaque(Creature & creature);
+	virtual void appliquerAttaque(Creature & creature) const;
 
 	/**
 	* @brief Retourne si la duree de l'attaque magique confusion est termine
 	* @return bool
 	*/
-	virtual bool estFini();
+	virtual bool estFini() const;
 };
 
 #endif

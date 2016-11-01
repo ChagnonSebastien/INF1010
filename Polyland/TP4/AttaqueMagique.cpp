@@ -8,7 +8,7 @@ AttaqueMagique::~AttaqueMagique()
 {
 }
 
-unsigned int AttaqueMagique::obtenirDuree()
+unsigned int AttaqueMagique::obtenirDuree() const
 {
 	return duree_;
 }
@@ -18,23 +18,18 @@ void AttaqueMagique::definirDuree(unsigned int duree)
 	duree_ = duree;
 }
 
-std::string AttaqueMagique::obtenirTypeAttaque()
-{
-	return typeid(AttaqueMagique).name();
-}
-
-void AttaqueMagique::appliquerAttaque(Creature & creature)
+void AttaqueMagique::appliquerAttaque(Creature & creature) const
 {
 	//Virtual : Cette methode est redéfinie dans les classes filles
 }
 
-bool AttaqueMagique::estFini()
+bool AttaqueMagique::estFini() const
 {
 	//Virtual : Cette methode est redéfinie dans les classes filles
 	return true;
 }
 
-std::ostream & operator<<(std::ostream & o, AttaqueMagique attaqueMagique)
+std::ostream & operator<<(std::ostream & o, const AttaqueMagique& attaqueMagique)
 {
 	o << "aussi une attaque magique de type " << attaqueMagique.obtenirTypeAttaque() << " qui a une durée de " << attaqueMagique.obtenirDuree();
 	return o;

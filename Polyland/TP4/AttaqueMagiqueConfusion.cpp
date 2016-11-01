@@ -13,12 +13,12 @@ AttaqueMagiqueConfusion::~AttaqueMagiqueConfusion()
 {
 }
 
-std::string AttaqueMagiqueConfusion::obtenirTypeAttaque()
+std::string AttaqueMagiqueConfusion::obtenirTypeAttaque() const
 {
 	return typeid(AttaqueMagiqueConfusion).name();
 }
 
-void AttaqueMagiqueConfusion::appliquerAttaque(Creature & creature)
+void AttaqueMagiqueConfusion::appliquerAttaque(Creature & creature) const
 {
 	srand(time(NULL));
 	if (rand() % 3 == 0 && creature.obtenirPointDeVie() >= 5 && !estFini())
@@ -27,7 +27,7 @@ void AttaqueMagiqueConfusion::appliquerAttaque(Creature & creature)
 	}
 }
 
-bool AttaqueMagiqueConfusion::estFini()
+bool AttaqueMagiqueConfusion::estFini() const
 {
 	return duree_ == 0;
 }
