@@ -30,7 +30,7 @@ CreatureMagique::CreatureMagique(const Creature& creature):Creature(creature), b
 	}
 }
 
-virtual CreatureMagique::~CreatureMagique()
+CreatureMagique::~CreatureMagique()
 {
 	delete attaqueMagique_;
 	attaqueMagique_ = nullptr;
