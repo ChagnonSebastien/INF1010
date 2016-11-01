@@ -6,15 +6,15 @@
 #include "Dresseur.h"
 #include "Creature.h"
 
-template<Dresseur T, Creature S>
+template<typename T, typename S>
 class MondeMagique
 {
 public:
 	MondeMagique();
 	~MondeMagique();
 
-	list<T> getListeMaitre();
-	list<T> getListeCompgnon();
+	std::list<T*> getListeMaitre();
+	std::list<S*> getListeCompgnon();
 
 	void ajouter(T* maitre);
 	void ajouter(S* compagnon);
@@ -32,9 +32,35 @@ public:
 	MondeMagique& operator-=(S* compagnon);
 
 private:
-	list<T*> listMaitre_;
-	list<S*> listCompagnon_;
+	std::list<T*> listMaitre_;
+	std::list<S*> listCompagnon_;
 };
 
 #endif // !MONDE_MAGIQUE_H
 
+template<Dresseur T, Creature S>
+inline MondeMagique<T, S>::MondeMagique()
+{
+}
+
+template<Dresseur T, Creature S>
+inline MondeMagique<T, S>::~MondeMagique()
+{
+}
+
+template<Dresseur T, Creature S>
+inline std::list<T> MondeMagique<T, S>::getListeMaitre()
+{
+	return std::list<T>();
+}
+
+template<Dresseur T, Creature S>
+inline std::list<T> MondeMagique<T, S>::getListeCompgnon()
+{
+	return std::list<T>();
+}
+
+template<Dresseur T, Creature S>
+inline void MondeMagique<T, S>::ajouter(T * maitre)
+{
+}
