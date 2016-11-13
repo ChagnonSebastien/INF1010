@@ -1,10 +1,10 @@
 #include "AttaqueMagiqueConfusion.h"
 
 
-AttaqueMagiqueConfusion::AttaqueMagiqueConfusion() :AttaqueMagique(MIN_DUREE_CONFUSION) // À MODIFIER
+AttaqueMagiqueConfusion::AttaqueMagiqueConfusion() :AttaqueMagique(MIN_DUREE_CONFUSION), foncteur_(FoncteurGenerateurNombresAlea(1,6)) // À MODIFIER
 {}
 
-AttaqueMagiqueConfusion::AttaqueMagiqueConfusion(unsigned int duree) :AttaqueMagique(duree) // À MODIFIER
+AttaqueMagiqueConfusion::AttaqueMagiqueConfusion(unsigned int duree) :AttaqueMagique(duree), foncteur_(FoncteurGenerateurNombresAlea(1, 6)) // À MODIFIER
 {}
 
 AttaqueMagiqueConfusion::~AttaqueMagiqueConfusion()
@@ -16,7 +16,7 @@ void AttaqueMagiqueConfusion::appliquerAttaque(Creature & creature) //A modifier
     if (duree_ > 0 && creature.obtenirPointDeVie() >= 5) 
 	{
         unsigned int pointDeVie = creature.obtenirPointDeVie();
-        if (generateurAleatoire() == 0) 
+        if (foncteur_() == 0) 
 		{
             creature.modifierPointDeVie(pointDeVie - 2);
         }

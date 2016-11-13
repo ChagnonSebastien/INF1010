@@ -7,7 +7,6 @@ Date de modification: 6 septembre 2016 par Maude Carrier
 
 #include "Dresseur.h"
 
-
 Dresseur::Dresseur() :nom_(""), equipe_("") {};
 
 Dresseur::Dresseur(const std::string& nom, const std::string& equipe) : nom_(nom), equipe_(equipe) {};
@@ -39,7 +38,9 @@ auto Dresseur::obtenirCreatures() const
 Creature* Dresseur::obtenirUneCreature(const std::string& nom) const //À MODIFIFIER !!
 {
     /*complétez moi*/
-	return;
+	FoncteurCreaturesDeMemeNom foncteur(nom);
+	auto it = find_if(creatures_.begin(), creatures_.end(), foncteur);
+	return *it;
 }
 
 void Dresseur::modifierCreature(std::list<Creature*> creatures) //A Compléter
@@ -116,6 +117,12 @@ bool Dresseur::operator==(const Dresseur& dresseur) const //A compléter
 
     /*Complétez moi! Vérifiez l'égalité entre les créatures via
     find_if*/
+	FoncteurComparerCreatures comparaison;
+	for (std::list<Creature*>::iterator it = dresseur.obtenirCreatures().begin(); it != dresseur.obtenirCreatures().end(); it++) {
+		auto position = find_if(creatures_.begin(), creatures_.end(), comparaison);
+		if (position == creatures_.end())
+			return false;
+	}
 
 	return true;
 }
@@ -135,3 +142,26 @@ std::ostream& operator<<(std::ostream& os, const Dresseur& dresseur)
     return os << dresseur.nom_ << " possede " << dresseur.creatures_.size() 
         << " creature(s) et appartient a l'equipe " << dresseur.equipe_ << std::endl;
 }
+
+template<typename T>
+void Dresseur::appliquerFoncteurUnaire(T& foncteur) {
+	
+	for (std::list<Creature*>::iterator it = creatures_.begin(); it != creatures_.end(); it++)
+		foncteur(*it);
+};
+
+template<typename T>
+bool Dresseur::supprimerElements(T& foncteur) {
+	
+	remove_if(creatures_.begin(), creature_.end(), foncteur());
+
+};
+
+template<typename T>
+Creature* Dresseur::obtenirCreatureMax(T& foncteur) {
+	
+	std::sort(creature_.begin(), creature_.end(), foncteur());
+
+	return creature_.last();
+
+};

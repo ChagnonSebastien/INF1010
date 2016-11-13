@@ -8,6 +8,7 @@ Description: La créature qui reçoit cette attaque perd de l'énergie due au poiso
 #define ETAT_EMPOISONNE_H
 
 #include "AttaqueMagique.h"
+#include "Foncteur.h"
 
 #define MIN_DUREE_POISON 2
 
@@ -23,6 +24,9 @@ public:
     virtual bool estFini() const;
 	
 	virtual std::string obtenirTypeAttaque() const;
+
+private:
+	FoncteurGenerateurNombresAlea foncteur_;
 
 };
 #endif // !ETAT_EMPOISONNE_H

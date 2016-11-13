@@ -11,6 +11,7 @@ Description: Les creatures sont des etres destines au combat
 #include <string>
 #include <vector>
 #include <typeinfo>
+#include <algorithm>
 
 #include "Pouvoir.h"
 
@@ -59,6 +60,10 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Creature& creature); 
 
 	virtual std::string obtenirTypeCreature() const;
+
+	template<typename P>
+	void trierPouvoir(P);
+
 
 protected:
 

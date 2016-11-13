@@ -10,6 +10,7 @@ Description: Cette attaque magique rend la créature qui la reçoit tellement conf
 #include <stdlib.h>
 
 #include "AttaqueMagique.h"
+#include "Foncteur.h"
 
 #define MIN_DUREE_CONFUSION 3
 
@@ -25,6 +26,9 @@ public:
     virtual bool estFini() const;
 
 	virtual std::string obtenirTypeAttaque() const;
+
+private:
+	FoncteurGenerateurNombresAlea foncteur_;
 
 };
 #endif 

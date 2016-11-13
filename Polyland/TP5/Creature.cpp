@@ -319,3 +319,10 @@ std::string Creature::obtenirTypeCreature() const
 {
 	return (typeid(*this).name());
 }
+
+
+template<typename P>
+void Creature::trierPouvoir(P)
+{
+	std::sort(pouvoirs_.begin(), pouvoirs_.end(), P());
+}
