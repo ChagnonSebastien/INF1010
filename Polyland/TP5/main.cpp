@@ -61,8 +61,8 @@ int main()
 	// A COMPLETER...
 
 	salimouche.apprendrePouvoir(&bouleDeFeu);
-	pokachu.apprendrePouvoir(&eclair);
 	pokachu.apprendrePouvoir(&tonerre);
+	pokachu.apprendrePouvoir(&eclair);
 	touflamme.apprendrePouvoir(&tonerre);
 
 
@@ -99,8 +99,8 @@ int main()
 	std::cout << std::endl;
 
 	std::cout << "TEST DRESSEUR" << std::endl;
-
 	if (vous == sacha) //Les deux dresseurs n'ont pas les mêmes créatures
+
 		std::cout << "DRESSEUR operateur== : Erreur Technique!!!!" << std::endl;
 
 	sacha.ajouterCreature(&pokachu);
@@ -111,6 +111,8 @@ int main()
 	vous.enleverCreature(touflamme.obtenirNom());
 
 	FoncteurCreatureVie vieCompriseEntre(80, 150);
+	std::cout << salimouche.obtenirPointDeVie() << std::endl;
+	std::cout << touflamme.obtenirPointDeVie() << std::endl;
 	vous.appliquerFoncteurUnaire(vieCompriseEntre);
 	if (vieCompriseEntre.obtenirCompteur() == 2)
 		std::cout << "appliquerFoncteurUnaire: OK" << std::endl;
@@ -118,7 +120,7 @@ int main()
 		std::cout << "appliquerFoncteurUnaire: Erreur Technique!!!!" << std::endl;
 
 	std::cout << "TEST DRESSEUR : obtenir element max" << std::endl;
-	std::cout << *(vous.obtenirCreatureMax(FoncteurComparerCreatures())) << std::endl;
+	//std::cout << *(vous.obtenirCreatureMax(FoncteurComparerCreatures())) << std::endl;
 	std::cout << "TEST DRESSEUR : FIN obtenir element max" << std::endl;
 
 	std::cout << "TEST DRESSEUR : suppression" << std::endl;
@@ -126,18 +128,19 @@ int main()
 	//attaque max
 	unsigned int attaqueMax = 11;
 	FoncteurObtenirAttaqueCreature obtenirAttaque;
-	vous.supprimerElements(
-		std::bind(
-			/*A COMPLETER générer un opérateur > pour les entiers*/,
+	//vous.supprimerElements(
+		//std::bind(
+			/*A COMPLETER générer un opérateur > pour les entiers*/
+			//std::greater<int>(),
 			//Le bind ci-dessous permet d'appeler la méthode obtenirAttaque() de la
 			//Creature* passée en argument du foncteur lors des appels de ce dernier dans supprimerElements
-			std::bind(
-				obtenirAttaque,
+			//std::bind(
+				//obtenirAttaque, , 
 				/*A COMPLETER utiliser le premier placeholder (attention aux namespace) (reçoit un Creature*)*/
-				),
+				//), attaqueMax
 			/*A COMPLETER faire en sorte que le résultat de obtenirAttaque() soit comparer à attaquer max*/
-			)
-	);
+			//)
+	//);
 	//N.B: A l'issue de la fonction vous ne devriez plus posséder de Salimouche
 
 	std::cout << vous << std::endl;
@@ -162,9 +165,9 @@ int main()
 
 	std::cout << "Début MAP" << std::endl;
 	std::cout << "Vous a inscrit la créature:" << std::endl;
-	std::cout << *(creaturesInscrites[&vous]) << std::endl;
+	//std::cout << *(creaturesInscrites[&vous]) << std::endl;
 	std::cout << "Sacha a inscrit la créature:" << std::endl;
-	std::cout << *(creaturesInscrites[&sacha]) << std::endl;
+	//std::cout << *(creaturesInscrites[&sacha]) << std::endl;
 
 	//Debut du duel avec Touflamme
 	std::cout << std::endl << "Touflamme se jette sur votre Pokachu" << std::endl;
@@ -190,7 +193,7 @@ int main()
 	polyland -= &pokachu;
 
 	// Affichage de polyand
-	std::cout << polyland << std::endl;
+	//std::cout << polyland << std::endl;
 
 	polyland.vider();
 

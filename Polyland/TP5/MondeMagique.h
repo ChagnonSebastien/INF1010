@@ -1,9 +1,6 @@
 #ifndef MONDE_MAGIQUE_H
 #define MONDE_MAGIQUE_H
 
-
-#include "Dresseur.h"
-#include "Creature.h"
 #include <list>
 #include <algorithm>
 
@@ -13,7 +10,7 @@ class MondeMagique
 {
 public:
 	MondeMagique(); //a verifier
-	~MondeMagique(); //a verifier
+	~MondeMagique(); //a verifie
 
 	std::list<T*> obtenirListeMaitre() const;
 	std::list<S*> obtenirListeCompagnon() const;
@@ -37,6 +34,7 @@ public:
 	MondeMagique<T, S>& operator+=(S* compagnon);
 	MondeMagique<T, S>& operator-=(S* compagnon);
 
+
 private:
 	std::list<T*> listMaitre_;
 	std::list<S*> listCompagnon_;
@@ -48,119 +46,124 @@ private:
 template<typename T, typename S>
 inline MondeMagique<T, S>::MondeMagique()
 {
-};
+
+}
 
 template<typename T, typename S>
 inline MondeMagique<T, S>::~MondeMagique()
 {
 
-	while (!listeMaitre_.empty())
+	while (!listMaitre_.empty())
 	{
-		delete listeMaitre_.back();
-		listeMaitre_.back() = nullptr;
-		listeMaitre_.pop_back();
+		delete listMaitre_.back();
+		listMaitre_.back() = nullptr;
+		listMaitre_.pop_back();
 	}
 	while (!listCompagnon_.empty())
 	{
-		delete listeCompagnon_.back();
-		dresseurs_.back() = nullptr;
-		dresseurs_.pop_back();
+		delete listCompagnon_.back();
+		listCompagnon_.back() = nullptr;
+		listCompagnon_.pop_back();
 	}
-};
+}
 
 template<typename T, typename S>
 std::list<T*> MondeMagique<T, S>::obtenirListeMaitre() const
 {
-	return listeMaitre_;
-};
+	return listMaitre_;
+}
 
 template<typename T, typename S>
 std::list<S*> MondeMagique<T, S>::obtenirListeCompagnon() const
 {
-	return listeCompagnon_;
-};
+	return listCompagnon_;
+}
 
 template<typename T, typename S>
 void MondeMagique<T, S>::ajouter(T* maitre)
 {
 	listMaitre_.push_back(maitre);
-};
+}
 
 template<typename T, typename S>
 inline void MondeMagique<T, S>::ajouter(S* compagnon)
 {
-	listMaitre_.push_back(compagnon);
-};
+	listCompagnon_.push_back(compagnon);
+}
+
 
 template<typename T, typename S>
 void MondeMagique<T, S>::supprimer(T* maitre) 
 {
-	std::list<S*>::iterator it = std::find(listMaitre_.begin(), listMaitre_.end(), maitre);
+	FoncteurEgalDresseurs comp(maitre);
+	std::list<T*>::iterator it = std::find_if(listMaitre_.begin(), listMaitre_.end(), comp);
 	listMaitre_.erase(it);
-};
+}
 
 template<typename T, typename S>
 void MondeMagique<T, S>::supprimer(S* compagnon) 
 {
-	std::list<S*>::iterator it = std::find(listCompagnon_.begin(), listCompagnon_.end(), compagnon);
+	FoncteurEgalCreatures comp(compagnon);
+	std::list<S*>::iterator it = std::find_if(listCompagnon_.begin(), listCompagnon_.end(), comp);
 	listCompagnon_.erase(it);
-};
+}
 
 template<typename T, typename S>
 void MondeMagique<T, S>::vider()
 {
-	for(std::list<T*>::iterator it = listeMaitre_.begin(); it != listeMaitre_.end(); it++) {
+	for(std::list<T*>::iterator it = listMaitre_.begin(); it != listMaitre_.end(); it++) {
 		delete *it;
 	}
-	listeMaitre_.clear();
+	listMaitre_.clear();
 
-	for (std::list<S*>::iterator it = listeCompagnon_.begin(); it != listeCompagnon_.end(); it++) {
+	for (std::list<S*>::iterator it = listCompagnon_.begin(); it != listCompagnon_.end(); it++) {
 		delete *it;
 	}
-	listeCompagnon_.clear();
+	listCompagnon_.clear();
 
-};
+}
 
 template<typename T, typename S>
 MondeMagique<T, S>& MondeMagique<T, S>::operator+=(T* maitre) 
 {
-	listeMaitre_.ajouter(maitre);
+	ajouter(maitre);
 	return *this;
-};
+}
 
 template<typename T, typename S>
 MondeMagique<T, S>& MondeMagique<T, S>::operator-=(T* maitre)
 {
-	listeMaitre_.supprimer(maitre);
+	supprimer(maitre);
 	return *this;
-};
+}
 
 template<typename T, typename S>
 MondeMagique<T, S>& MondeMagique<T, S>::operator+=(S* compagnon) {
 
-	listeCompagnon_.ajouter(compagnon);
+	ajouter(compagnon);
 	return *this;
 
-};
+}
 
 template<typename T, typename S>
 MondeMagique<T, S>& MondeMagique<T, S>::operator-=(S* compagnon) {
 
-	listeCompagnon_.supprimer(compagnon);
+	supprimer(compagnon);
 	return *this;
 
-};
+}
 
 template<typename T, typename S>
 template<typename A>
 void MondeMagique<T, S>::supprimerMaitre(const A& pred) 
 {
-	remove_if(listeMaitre_.begin(), listeMaitre_.end(), pred());
-};
+	remove_if(listMaitre_.begin(), listMaitre_.end(), pred);
+}
 
 template<typename T, typename S>
 template<typename B>
 void MondeMagique<T, S>::supprimerCompagnon(const B& pred) 
 {
-	remove_if(listeCompagnon_.begin(), listeCompagnon_.end(), pred());
-};
+	remove_if(listCompagnon_.begin(), listCompagnon_.end(), pred);
+}
+

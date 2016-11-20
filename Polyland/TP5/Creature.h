@@ -15,6 +15,7 @@ Description: Les creatures sont des etres destines au combat
 
 #include "Pouvoir.h"
 
+
 class Creature
 {
 public:
@@ -80,5 +81,13 @@ protected:
 	std::vector<Pouvoir*> pouvoirs_;
 	
 };
+
+
+
+template<typename P>
+void Creature::trierPouvoir(P foncteur)
+{
+	sort(pouvoirs_.begin(), pouvoirs_.end(), foncteur);
+}
 
 #endif

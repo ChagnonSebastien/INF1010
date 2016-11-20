@@ -1,9 +1,8 @@
 #ifndef  FRONTEUR
 #define  FRONTEUR
 
-#include "Dresseur.h"
-#include "Creature.h"
 #include "Pouvoir.h"
+#include "Dresseur.h"
 #include <string>
 #include <stdlib.h>
 #include <cstdlib>
@@ -31,7 +30,10 @@ public:
 	~FoncteurComparerCreatures() {}
 
 	bool operator() (Creature* a, Creature* b) const {
-		return a->obtenirAttaque() < b->obtenirAttaque();
+		if (a->obtenirAttaque() < b->obtenirAttaque())
+			return true;
+		else
+			return false;
 	}
 
 };
@@ -43,7 +45,11 @@ public:
 	~FoncteurComparerDresseurs() {}
 
 	bool operator() (Dresseur* a, Dresseur* b) const {
-		return a->obtenirNom() < b->obtenirNom();
+
+		if (a->obtenirNom() < b->obtenirNom())
+			return true;
+		else
+			return false;
 	}
 
 
@@ -92,7 +98,22 @@ private:
 
 };
 
-/// questoin au chargé: qu'est ce que l'operator() est supposé retourné?
+class FoncteurEgalDresseurs
+{
+public:
+	FoncteurEgalDresseurs(Dresseur* dresseur):dresseur_(dresseur) {}
+	~FoncteurEgalDresseurs() {}
+
+	bool operator() (Dresseur* d) {
+		return dresseur_ == d;
+	}
+
+private:
+	Dresseur* dresseur_;
+
+
+};
+
 class FoncteurCreatureVie
 {
 public:
@@ -100,7 +121,9 @@ public:
 	~FoncteurCreatureVie() {}
 
 	void operator() (Creature* creature) {
-		// à compléter!!
+		if ((vieMinimale_ <= creature->obtenirPointDeVie()) && (creature->obtenirPointDeVie()<= vieMaximale_)) {
+			compteur_++;
+		}
 	}
 	int obtenirCompteur() const { return compteur_; }
 

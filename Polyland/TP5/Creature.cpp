@@ -3,6 +3,7 @@
 #include <stdlib.h>
  
 #include "Creature.h"
+#include "Foncteur.h"
 
 
 #define EXPERIENCE_NECESSAIRE_DEFAUT 100
@@ -114,7 +115,7 @@ void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
 				if (degat > creature.obtenirPointDeVie()) {
 					creature.modifierPointDeVie(0);
 					int xp = experienceGagnee(creature);
-					std::cout << nom_ << " a gagné " << xp << " XP" << std::endl;
+					std::cout<< nom_ << " a gagné " << xp << " XP" << std::endl;
 				}
 				else
 					creature.modifierPointDeVie(creature.obtenirPointDeVie() - degat);
@@ -320,9 +321,9 @@ std::string Creature::obtenirTypeCreature() const
 	return (typeid(*this).name());
 }
 
-
+/*
 template<typename P>
 void Creature::trierPouvoir(P)
 {
-	std::sort(pouvoirs_.begin(), pouvoirs_.end(), P());
-}
+	sort(pouvoirs_.begin(), pouvoirs_.end(), P);
+}*/
