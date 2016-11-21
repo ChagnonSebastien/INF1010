@@ -116,13 +116,15 @@ void Dresseur::modifierEquipe(const std::string& equipe)
 
 bool Dresseur::operator==(Dresseur& dresseur) const //A compléter
 {
+	/*
     if (creatures_.size() == 0 && dresseur.creatures_.size() == 0)
         return true;
     else if (creatures_.size() != dresseur.creatures_.size())
         return false;
-
+		*/
     /*Complétez moi! Vérifiez l'égalité entre les créatures via
     find_if*/
+	/*
 	std::list<Creature*>::const_iterator end = dresseur.creatures_.end();
 	for (std::list<Creature*>::iterator it = dresseur.creatures_.begin(); it != end; it++) {
 		FoncteurEgalCreatures comparaison(*it);
@@ -130,7 +132,7 @@ bool Dresseur::operator==(Dresseur& dresseur) const //A compléter
 		if (position == creatures_.end())
 			return false;
 	}
-
+	*/
 	return true;
 }
 

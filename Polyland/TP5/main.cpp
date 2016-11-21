@@ -24,7 +24,7 @@ int main()
 {
 	srand(time(NULL));
 	setlocale(LC_ALL, "");
-
+	/*
 	// Dresseurs
 	Dresseur vous("Vous", "PolyMtl");
 	Dresseur sacha("Sacha", "UDEM");
@@ -65,9 +65,7 @@ int main()
 	pokachu.apprendrePouvoir(&eclair);
 	touflamme.apprendrePouvoir(&tonerre);
 
-
-
-	PolyLand<Dresseur, Creature> polyland;
+	PolyLand polyland;
 
 	// Ajouter les dresseurs vous et sacha ainsi que les créatures pokachu, salimouche,
 	// pokachoum et touflamme à polyland avec l'opérateur +=
@@ -118,7 +116,7 @@ int main()
 		std::cout << "appliquerFoncteurUnaire: OK" << std::endl;
 	else
 		std::cout << "appliquerFoncteurUnaire: Erreur Technique!!!!" << std::endl;
-
+		
 	std::cout << "TEST DRESSEUR : obtenir element max" << std::endl;
 	//std::cout << *(vous.obtenirCreatureMax(FoncteurComparerCreatures())) << std::endl;
 	std::cout << "TEST DRESSEUR : FIN obtenir element max" << std::endl;
@@ -128,6 +126,9 @@ int main()
 	//attaque max
 	unsigned int attaqueMax = 11;
 	FoncteurObtenirAttaqueCreature obtenirAttaque;
+	
+	*/
+
 	//vous.supprimerElements(
 		//std::bind(
 			/*A COMPLETER générer un opérateur > pour les entiers*/
@@ -142,7 +143,9 @@ int main()
 			//)
 	//);
 	//N.B: A l'issue de la fonction vous ne devriez plus posséder de Salimouche
-
+	
+	/*
+	
 	std::cout << vous << std::endl;
 	std::cout << "FIN TEST DRESSEUR" << std::endl;
 	std::cout << std::endl;
@@ -197,6 +200,8 @@ int main()
 
 	polyland.vider();
 
+	*/
+	
 	system("pause");
 	return 0;
 }

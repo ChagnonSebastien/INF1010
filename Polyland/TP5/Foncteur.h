@@ -117,7 +117,7 @@ private:
 class FoncteurCreatureVie
 {
 public:
-	FoncteurCreatureVie(int vieMinimale, int vieMaximale):vieMinimale_(vieMinimale), vieMaximale_(vieMaximale), compteur_(0) {}
+	FoncteurCreatureVie(unsigned int vieMinimale, unsigned int vieMaximale):vieMinimale_(vieMinimale), vieMaximale_(vieMaximale), compteur_(0) {}
 	~FoncteurCreatureVie() {}
 
 	void operator() (Creature* creature) {
@@ -129,8 +129,8 @@ public:
 
 
 private:
-	int vieMinimale_;
-	int vieMaximale_;
+	unsigned int vieMinimale_;
+	unsigned int vieMaximale_;
 	int compteur_;
 
 };
