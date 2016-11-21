@@ -98,7 +98,6 @@ int main()
 
 	std::cout << "TEST DRESSEUR" << std::endl;
 	if (vous == sacha) //Les deux dresseurs n'ont pas les mêmes créatures
-
 		std::cout << "DRESSEUR operateur== : Erreur Technique!!!!" << std::endl;
 
 	sacha.ajouterCreature(&pokachu);
@@ -109,7 +108,7 @@ int main()
 	vous.enleverCreature(touflamme.obtenirNom());
 
 	FoncteurCreatureVie vieCompriseEntre(80, 150);
-	vieCompriseEntre = vous.appliquerFoncteurUnaire(vieCompriseEntre);
+	vous.appliquerFoncteurUnaire(vieCompriseEntre);
 	if (vieCompriseEntre.obtenirCompteur() == 2)
 		std::cout << "appliquerFoncteurUnaire: OK" << std::endl;
 	else
@@ -127,7 +126,7 @@ int main()
 
 	vous.supprimerElements(
 		std::bind(
-			std::greater<bool>(),
+			std::greater<int>(),
 			std::bind(
 				obtenirAttaque,
 				std::placeholders::_1
@@ -189,7 +188,7 @@ int main()
 	polyland -= &pokachu;
 
 	// Affichage de polyand
-	//std::cout << polyland << std::endl;
+	std::cout << polyland << std::endl;
 
 	polyland.vider();
 

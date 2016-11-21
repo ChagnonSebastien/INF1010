@@ -111,16 +111,24 @@ void MondeMagique<T, S>::supprimer(S* compagnon)
 template<typename T, typename S>
 void MondeMagique<T, S>::vider()
 {
-	for(std::list<T*>::iterator it = listMaitre_.begin(); it != listMaitre_.end(); it++) {
-		delete *it;
+	
+	for(auto it = listMaitre_.begin(); it != listMaitre_.end(); it++) {
+		supprimer(*it);
 	}
 	listMaitre_.clear();
 
-	for (std::list<S*>::iterator it = listCompagnon_.begin(); it != listCompagnon_.end(); it++) {
-		delete *it;
+	for (auto it = listCompagnon_.begin(); it != listCompagnon_.end(); it++) {
+		supprimer(*it);
 	}
 	listCompagnon_.clear();
+	
+	/*
+	for_each(listMaitre_.begin(), listMaitre_.end(), supprimer);
+	listMaitre_.clear();
 
+	for_each(listCompagnon_.begin(), listCompagnon_.end(), supprimer);
+	listCompagnon_.clear();
+	*/
 }
 
 template<typename T, typename S>

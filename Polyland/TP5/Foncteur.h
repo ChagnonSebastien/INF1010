@@ -120,9 +120,7 @@ public:
 
 	void operator() (Creature* creature) {
 		if ((vieMinimale_ <= creature->obtenirPointDeVie()) && (creature->obtenirPointDeVie()<= vieMaximale_)) {
-			std::cout << "re" << std::endl;
 			compteur_++;
-			std::cout << compteur_ << std::endl;
 		}
 	}
 	int obtenirCompteur() const { return compteur_; }

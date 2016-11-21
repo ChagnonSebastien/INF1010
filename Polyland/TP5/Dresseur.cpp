@@ -41,7 +41,7 @@ Creature* Dresseur::obtenirUneCreature(const std::string& nom) const //À MODIFIF
 {
     /*complétez moi*/
 	FoncteurCreaturesDeMemeNom foncteur(nom);
-	std::list<Creature*>::const_iterator it = std::find_if(creatures_.begin(), creatures_.end(), foncteur);
+	auto it = std::find_if(creatures_.begin(), creatures_.end(), std::ref(foncteur));
 
 	if (creatures_.end() == it)
 		return nullptr;
@@ -67,12 +67,13 @@ bool Dresseur::ajouterCreature(Creature* creature)
 
 bool Dresseur::enleverCreature(const std::string& nom) 
 {
+	int avant = creatures_.size();
 	FoncteurCreaturesDeMemeNom foncteurComparaison(nom);
-	std::list<Creature*>::const_iterator position = find_if(creatures_.begin(), creatures_.end(), foncteurComparaison);
-	if (position == creatures_.end())
-		return false;
+	creatures_.remove_if(foncteurComparaison);
+	int apres = creatures_.size();
 
-	creatures_.erase(position);
+	if (avant == apres)
+		return false;
 
 	return true;
 }

@@ -73,13 +73,14 @@ private:
 template<typename T>
 void Dresseur::appliquerFoncteurUnaire(T& foncteur)
 { 
-	for_each(creatures_.begin(), creatures_.end(), foncteur);
+	for_each(creatures_.begin(), creatures_.end(), std::ref(foncteur));
 }
 
 template<typename T>
 void Dresseur::supprimerElements(T& foncteur) 
 {
-	std::remove_if(creatures_.begin(), creatures_.end(), foncteur);
+	//std::remove_if(creatures_.begin(), creatures_.end(), std::ref(foncteur));
+	creatures_.remove_if(foncteur);
 }
 
 
