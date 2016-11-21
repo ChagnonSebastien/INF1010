@@ -9,6 +9,7 @@ Description:
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <list>
 #include <iostream>
 #include "Foncteur.h"
 
@@ -27,20 +28,20 @@ bool PolyLand::relacherCreature(Dresseur* dresseur, const std::string& nomCreatu
 std::ostream & operator<<(std::ostream & o, const PolyLand& polyland)
 {
 	
-	//o << "allo" << std::endl;
-	
 	FoncteurComparerDresseurs foncteurComparerDresseurs;
-	std::sort(polyland.obtenirListeMaitre().begin(), polyland.obtenirListeMaitre().end(), foncteurComparerDresseurs);
-/*
+	std::list<Dresseur*> dresseurs = polyland.obtenirListeMaitre();
+	dresseurs.sort(foncteurComparerDresseurs);
+
 	FoncteurComparerCreatures foncteurComparerCreatures;
-	std::sort(polyland.obtenirListeCompagnon().begin(), polyland.obtenirListeCompagnon().end(), foncteurComparerCreatures);
-	*/
-	for (std::list<Dresseur*>::const_iterator it = polyland.obtenirListeMaitre().begin(); it != polyland.obtenirListeMaitre().end(); it++) {
-		o << *it << std::endl;
+	std::list<Creature*> creatures = polyland.obtenirListeCompagnon();
+	creatures.sort(foncteurComparerCreatures);
+
+	for (std::list<Dresseur*>::const_iterator it = dresseurs.begin(); it != dresseurs.end(); it++) {
+		o << **it << std::endl;
 	}
 
-	for (std::list<Creature*>::const_iterator it = polyland.obtenirListeCompagnon().begin(); it != polyland.obtenirListeCompagnon().end(); it++) {
-		o << *it << std::endl;
+	for (std::list<Creature*>::const_iterator it = creatures.begin(); it != creatures.end(); it++) {
+		o << **it << std::endl;
 	}
 	
 	//list<T*>::iterator end = polyland.listMaitre_.end();
@@ -48,6 +49,5 @@ std::ostream & operator<<(std::ostream & o, const PolyLand& polyland)
 
 	//list<S*>::iterator end = polyland.listCompagnon_.end();
 	//copy(polyland.listCompagnon_.begin(), end, ostream_iterator<T>(o, "\n"));
-	o << "allo" << std::endl;
 	return o;
 }

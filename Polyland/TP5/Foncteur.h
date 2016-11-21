@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
 #define RAND_MIN_DEFAUT 0
 #define RAND_MAX_DEFAUT 6
@@ -30,10 +31,7 @@ public:
 	~FoncteurComparerCreatures() {}
 
 	bool operator() (Creature* a, Creature* b) const {
-		if (a->obtenirAttaque() < b->obtenirAttaque())
-			return true;
-		else
-			return false;
+		return a->obtenirAttaque() > b->obtenirAttaque();
 	}
 
 };
@@ -122,7 +120,9 @@ public:
 
 	void operator() (Creature* creature) {
 		if ((vieMinimale_ <= creature->obtenirPointDeVie()) && (creature->obtenirPointDeVie()<= vieMaximale_)) {
+			std::cout << "re" << std::endl;
 			compteur_++;
+			std::cout << compteur_ << std::endl;
 		}
 	}
 	int obtenirCompteur() const { return compteur_; }

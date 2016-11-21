@@ -24,7 +24,7 @@ int main()
 {
 	srand(time(NULL));
 	setlocale(LC_ALL, "");
-	/*
+	
 	// Dresseurs
 	Dresseur vous("Vous", "PolyMtl");
 	Dresseur sacha("Sacha", "UDEM");
@@ -109,16 +109,14 @@ int main()
 	vous.enleverCreature(touflamme.obtenirNom());
 
 	FoncteurCreatureVie vieCompriseEntre(80, 150);
-	std::cout << salimouche.obtenirPointDeVie() << std::endl;
-	std::cout << touflamme.obtenirPointDeVie() << std::endl;
-	vous.appliquerFoncteurUnaire(vieCompriseEntre);
+	vieCompriseEntre = vous.appliquerFoncteurUnaire(vieCompriseEntre);
 	if (vieCompriseEntre.obtenirCompteur() == 2)
 		std::cout << "appliquerFoncteurUnaire: OK" << std::endl;
 	else
 		std::cout << "appliquerFoncteurUnaire: Erreur Technique!!!!" << std::endl;
 		
 	std::cout << "TEST DRESSEUR : obtenir element max" << std::endl;
-	//std::cout << *(vous.obtenirCreatureMax(FoncteurComparerCreatures())) << std::endl;
+	std::cout << *(vous.obtenirCreatureMax(FoncteurComparerCreatures())) << std::endl;
 	std::cout << "TEST DRESSEUR : FIN obtenir element max" << std::endl;
 
 	std::cout << "TEST DRESSEUR : suppression" << std::endl;
@@ -126,25 +124,20 @@ int main()
 	//attaque max
 	unsigned int attaqueMax = 11;
 	FoncteurObtenirAttaqueCreature obtenirAttaque;
-	
-	*/
 
-	//vous.supprimerElements(
-		//std::bind(
-			/*A COMPLETER générer un opérateur > pour les entiers*/
-			//std::greater<int>(),
-			//Le bind ci-dessous permet d'appeler la méthode obtenirAttaque() de la
-			//Creature* passée en argument du foncteur lors des appels de ce dernier dans supprimerElements
-			//std::bind(
-				//obtenirAttaque, , 
-				/*A COMPLETER utiliser le premier placeholder (attention aux namespace) (reçoit un Creature*)*/
-				//), attaqueMax
-			/*A COMPLETER faire en sorte que le résultat de obtenirAttaque() soit comparer à attaquer max*/
-			//)
-	//);
+	vous.supprimerElements(
+		std::bind(
+			std::greater<bool>(),
+			std::bind(
+				obtenirAttaque,
+				std::placeholders::_1
+			),
+			attaqueMax
+		)
+	);
 	//N.B: A l'issue de la fonction vous ne devriez plus posséder de Salimouche
 	
-	/*
+	
 	
 	std::cout << vous << std::endl;
 	std::cout << "FIN TEST DRESSEUR" << std::endl;
@@ -200,7 +193,7 @@ int main()
 
 	polyland.vider();
 
-	*/
+	
 	
 	system("pause");
 	return 0;
