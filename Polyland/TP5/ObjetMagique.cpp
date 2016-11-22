@@ -1,3 +1,10 @@
+/*
+Fichier: ObjetMagique.cpp
+Auteur(s): Audrey Labrie (1827808) et Sebastien Chagnon (1804702)
+Date de modification: 21 novembre 2016
+Description: La classe ObjetMagique correspond aux differents objets utilisables
+par le dresseur sur ses creatures
+*/
 #include "ObjetMagique.h"
 #include <iostream>
 

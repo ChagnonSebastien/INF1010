@@ -23,8 +23,6 @@ les differents elements de jeu
 #include <time.h>
 #include <iostream>
 
-
-
 /**
 * @brief La classe Polyland, pour decrire le monde de Polyland
 */

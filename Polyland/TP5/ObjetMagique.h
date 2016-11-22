@@ -36,6 +36,7 @@ public:
 	*/
 	~ObjetMagique();
 
+
 	// Getters
 	/**
 	* @brief Pour obtenir le nom de l'objet magique
@@ -48,6 +49,7 @@ public:
 	* @return Le bonus de l'objet magique
 	*/
 	int obtenirBonus() const;
+
 
 	// Setters
 	/**

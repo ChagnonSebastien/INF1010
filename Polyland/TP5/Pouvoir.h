@@ -10,7 +10,6 @@ Description: La classe Pouvoir correspond a un pouvoir de creature
 #include <string>
 #include <iostream>
 
-
 /**
 * @brief La classe Pouvoir, pour decrire un pouvoir
 */
@@ -23,7 +22,6 @@ public:
 	* @brief Constructeur par default
 	*/
 	Pouvoir();
-
 	/**
 	* @brief Constructeur par parametres
 	* @param nom Nom du pouvoir
@@ -32,12 +30,10 @@ public:
 	*/
 	Pouvoir(const std::string& nom, 
 		unsigned int nombreDeDegat, unsigned int energieNecessaire);
-
 	/**
 	* @brief Destructeur de la classe
 	*/
 	~Pouvoir();
-
 	/**
 	* @brief Pour obtenir le nombre de degats infliges par le pouvoir
 	* @return Le nombre de degats infliges par le pouvoir

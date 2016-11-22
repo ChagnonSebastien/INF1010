@@ -1,3 +1,9 @@
+/*
+Fichier: Pouvoir.cpp
+Auteur(s): Audrey Labrie (1827808) et Sebastien Chagnon (1804702)
+Date de modification: 21 novembre 2016
+Description: La classe Pouvoir correspond a un pouvoir de creature
+*/
 #include "Pouvoir.h"
 #include <iostream>
 
@@ -72,5 +78,6 @@ bool Pouvoir::operator==(const Pouvoir& pouvoir) const
 
 std::ostream& operator<<(std::ostream& os, const Pouvoir& pouvoir)
 {
-	return os << pouvoir.nom_ << " possede un nombre de dégat de " << pouvoir.nombreDeDegat_ << " et une energie necessaire de " << pouvoir.energieNecessaire_ << std::endl;
+	return os << pouvoir.nom_ << " possede un nombre de dégat de " << pouvoir.nombreDeDegat_ 
+		<< " et une energie necessaire de " << pouvoir.energieNecessaire_ << std::endl;
 }
