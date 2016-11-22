@@ -1,37 +1,107 @@
+/*
+Fichier: MondeMagique.h
+Auteur(s): Audrey Labrie (1827808) et Sebastien Chagnon (1804702)
+Date de modification: 21 novembre 2016
+Description: La classe MondeMagique correspond au monde qui contient des 
+dresseurs et créatures
+*/
 #ifndef MONDE_MAGIQUE_H
 #define MONDE_MAGIQUE_H
 
 #include <list>
 #include <algorithm>
 
-
+/**
+* @brief La classe MondeMagique
+*/
 template<typename T, typename S>
 class MondeMagique
 {
 public:
-	MondeMagique(); //a verifier
-	~MondeMagique(); //a verifie
+	/**
+	* @brief Constructeur par default
+	*/
+	MondeMagique(); 
+	/**
+	* @brief Destructeur de la classe
+	*/
+	~MondeMagique();
 
+	/**
+	* @brief Pour obtenir la liste de maitre
+	* @return list
+	*/
 	std::list<T*> obtenirListeMaitre() const;
+
+	/**
+	* @brief Pour obtenir la liste de compagnon
+	* @return list
+	*/
 	std::list<S*> obtenirListeCompagnon() const;
 
+	/**
+	* @brief Pour ajouter un maitre
+	* @param maitre
+	*/
 	void ajouter(T* maitre);
+	/**
+	* @brief Pour ajouter un compagnon
+	* @param compagnon
+	*/
 	void ajouter(S* compagnon);
-
+	/**
+	* @brief Pour supprimer un maitre
+	* @param maitre
+	*/
 	void supprimer(T* maitre);
+	/**
+	* @brief Pour supprimer un compagnon
+	* @param compagnon
+	*/
 	void supprimer(S* compagnon);
 
+	/**
+	* @brief Pour supprimer un maitre selon un foncteur
+	* @param predicat
+	*/
 	template<typename A>
 	void supprimerMaitre(const A& pred);
 
+	/**
+	* @brief Pour supprimer un compagnon selon un foncteur
+	* @param predicat
+	*/
 	template<typename B>
 	void supprimerCompagnon(const B& pred);
 
+	/**
+	* @brief Pour vider le monde magique
+	*/
 	void vider();
 
+	/**
+	* @brief Redefinition de l'operateur '+=' avec un maitre
+	* @param maitre Une reference a la maitre a ajouter
+	* @return La reference a la classe mondeMagique
+	*/
 	MondeMagique<T, S>& operator+=(T* maitre);
+	/**
+	* @brief Redefinition de l'operateur '-=' avec un maitre
+	* @param maitre Une reference a la maitre a enlever
+	* @return La reference a la classe mondeMagique
+	*/
 	MondeMagique<T, S>& operator-=(T* maitre);
+	/**
+	* @brief Redefinition de l'operateur '+=' avec un compagnon
+	* @param compagnon Une reference a le compagnon a ajouter
+	* @return La reference a la classe mondeMagique
+	*/
 	MondeMagique<T, S>& operator+=(S* compagnon);
+	/**
+	* @brief Redefinition de l'operateur '-=' avec un compagnon
+	* @param maitre Une reference a le compagnon a enlever
+	* @return La reference a la classe mondeMagique
+	*/
 	MondeMagique<T, S>& operator-=(S* compagnon);
 
 
