@@ -11,6 +11,7 @@ Description: Programme de test
 #include <clocale>  // pour setlocale
 #include <functional> //pour bind
 #include <map>
+#include <utility>
 
 #include "AttaqueMagique.h"
 #include "Dresseur.h"
@@ -24,7 +25,7 @@ int main()
 {
 	srand(time(NULL));
 	setlocale(LC_ALL, "");
-	
+
 	// Dresseurs
 	Dresseur vous("Vous", "PolyMtl");
 	Dresseur sacha("Sacha", "UDEM");
@@ -113,7 +114,7 @@ int main()
 		std::cout << "appliquerFoncteurUnaire: OK" << std::endl;
 	else
 		std::cout << "appliquerFoncteurUnaire: Erreur Technique!!!!" << std::endl;
-		
+
 	std::cout << "TEST DRESSEUR : obtenir element max" << std::endl;
 	std::cout << *(vous.obtenirCreatureMax(FoncteurComparerCreatures())) << std::endl;
 	std::cout << "TEST DRESSEUR : FIN obtenir element max" << std::endl;
@@ -135,9 +136,9 @@ int main()
 		)
 	);
 	//N.B: A l'issue de la fonction vous ne devriez plus posséder de Salimouche
-	
-	
-	
+
+
+
 	std::cout << vous << std::endl;
 	std::cout << "FIN TEST DRESSEUR" << std::endl;
 	std::cout << std::endl;
@@ -152,17 +153,20 @@ int main()
 	// Cette map permettra de savoir quel dresseur a inscrit quelle créature!
 	// A COMPLETER...
 
+	std::map<Dresseur*, Creature*> creaturesInscrites;
 
 	//Vous désirez inscrire pokachu au tournoi
 	//Sacha désire inscrire touflamme au tournoi
 	// A COMPLETER...
 
+	creaturesInscrites[&vous] = &pokachu;
+	creaturesInscrites[&sacha] = &touflamme;
 
 	std::cout << "Début MAP" << std::endl;
 	std::cout << "Vous a inscrit la créature:" << std::endl;
-	//std::cout << *(creaturesInscrites[&vous]) << std::endl;
+	std::cout << *(creaturesInscrites[&vous]) << std::endl;
 	std::cout << "Sacha a inscrit la créature:" << std::endl;
-	//std::cout << *(creaturesInscrites[&sacha]) << std::endl;
+	std::cout << *(creaturesInscrites[&sacha]) << std::endl;
 
 	//Debut du duel avec Touflamme
 	std::cout << std::endl << "Touflamme se jette sur votre Pokachu" << std::endl;
@@ -174,10 +178,14 @@ int main()
 	//Vous êtes dans un tournoi après tout !!
 	//A COMPLETER...
 
+	while (creaturesInscrites[&sacha]->obtenirPointDeVie() > 0) {
+		creaturesInscrites[&vous]->attaquer(*(creaturesInscrites[&vous]->obtenirPouvoirs())[0], *(creaturesInscrites[&sacha]));
+	}
 
 	//Sacha désire remplacer sa créature inscrite au tournoi. Remplacez Touflamme par Salimouche.
 	// A COMPLETER...
 
+	creaturesInscrites[&sacha] = &salimouche;
 
 	std::cout << std::endl << "FIN DE POLYLAND ... :(" << std::endl << std::endl;
 
@@ -186,6 +194,10 @@ int main()
 
 	polyland -= &sacha;
 	polyland -= &pokachu;
+	polyland -= &pokachoum;
+	polyland -= &pokachu;
+	polyland -= &salimouche;
+	polyland -= &touflamme;
 
 	// Affichage de polyand
 	std::cout << polyland << std::endl;

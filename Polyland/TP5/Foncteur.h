@@ -31,7 +31,7 @@ public:
 	~FoncteurComparerCreatures() {}
 
 	bool operator() (Creature* a, Creature* b) const {
-		return a->obtenirAttaque() > b->obtenirAttaque();
+		return a->obtenirAttaque() < b->obtenirAttaque();
 	}
 
 };
