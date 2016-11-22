@@ -1,4 +1,9 @@
-#include "AttaqueMagiquePoison.h"
+/*
+Fichier: AttaqueMagiquePoison.cpp
+Auteur(s): Audrey Labrie (1827808) et Sebastien Chagnon (1804702)
+Date de modification: 21 novembre 2016
+Description: Les creatures magiques possèdent des attaques magiques
+*/#include "AttaqueMagiquePoison.h"
 
 AttaqueMagiquePoison::AttaqueMagiquePoison() : AttaqueMagique(MIN_DUREE_POISON), foncteur_(FoncteurGenerateurNombresAlea(1,6)) // À MODIFIER
 {}

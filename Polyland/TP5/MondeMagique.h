@@ -9,8 +9,17 @@ template<typename T, typename S>
 class MondeMagique
 {
 public:
-	MondeMagique(); //a verifier
-	~MondeMagique(); //a verifie
+
+	// Constructors
+	/**
+	* @brief Constructeur par default
+	*/
+	MondeMagique();
+
+	/**
+	* @brief Destructeur de la classe
+	*/
+	~MondeMagique();
 
 	std::list<T*> obtenirListeMaitre() const;
 	std::list<S*> obtenirListeCompagnon() const;
