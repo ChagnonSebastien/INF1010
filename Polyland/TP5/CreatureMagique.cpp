@@ -1,3 +1,9 @@
+/*
+Fichier: CreatureMagique.cpp
+Auteur(s): Audrey Labrie (1827808) et Sebastien Chagnon (1804702)
+Date de modification: 21 novembre 2016
+Description: Les creatures magiques sont des etres destines au combat
+*/
 #include "CreatureMagique.h"
 
 CreatureMagique::CreatureMagique() : bonus_(0)

@@ -1,8 +1,8 @@
 /*
 Fichier: Dresseur.cpp
-Auteur(s): Alexandre MAO
-Date de creation: 31 aout 2016
-Date de modification: 6 septembre 2016 par Maude Carrier
+Auteur(s): Audrey Labrie (1827808) et Sebastien Chagnon (1804702)
+Date de modification: 21 novembre 2016
+Description: Les dresseurs sont des êtres qui dresse des creatures
 */
 
 #include "Dresseur.h"
@@ -37,9 +37,8 @@ auto Dresseur::obtenirCreatures() const
 	return creatures_;
 }
 
-Creature* Dresseur::obtenirUneCreature(const std::string& nom) const //À MODIFIFIER !!
+Creature* Dresseur::obtenirUneCreature(const std::string& nom) const
 {
-    /*complétez moi*/
 	FoncteurCreaturesDeMemeNom foncteur(nom);
 	auto it = std::find_if(creatures_.begin(), creatures_.end(), std::ref(foncteur));
 
@@ -49,7 +48,7 @@ Creature* Dresseur::obtenirUneCreature(const std::string& nom) const //À MODIFIF
 	return *it;
 }
 
-void Dresseur::modifierCreature(std::list<Creature*> creatures) //A Compléter
+void Dresseur::modifierCreature(std::list<Creature*> creatures)
 {
 	creatures_ = creatures;
 }
@@ -115,7 +114,7 @@ void Dresseur::modifierEquipe(const std::string& equipe)
 	equipe_ = equipe;
 }
 
-bool Dresseur::operator==(Dresseur& dresseur) const //A compléter
+bool Dresseur::operator==(Dresseur& dresseur) const
 {
 	
     if (creatures_.size() == 0 && dresseur.creatures_.size() == 0)
@@ -123,8 +122,6 @@ bool Dresseur::operator==(Dresseur& dresseur) const //A compléter
     else if (creatures_.size() != dresseur.creatures_.size())
         return false;
 		
-    /*Complétez moi! Vérifiez l'égalité entre les créatures via
-    find_if*/
 	
 	std::list<Creature*>::const_iterator end = dresseur.creatures_.end();
 	for (std::list<Creature*>::iterator it = dresseur.creatures_.begin(); it != end; it++) {
@@ -152,31 +149,3 @@ std::ostream& operator<<(std::ostream& os, const Dresseur& dresseur)
     return os << dresseur.nom_ << " possede " << dresseur.creatures_.size() 
         << " creature(s) et appartient a l'equipe " << dresseur.equipe_ << std::endl;
 }
-
-/*
-template<typename T>
-void Dresseur::appliquerFoncteurUnaire(T& foncteur) {
-	
-	for_each(creatures_.begin(), creatures_.end(), foncteur);
-}*/
-
-/*
-template<typename T>
-bool Dresseur::supprimerElements(T& foncteur) {
-	
-	remove_if(creatures_.begin(), creature_.end(), foncteur);
-
-}*/
-
-/*
-template<typename T>
-Creature* Dresseur::obtenirCreatureMax(T& foncteur) {
-	
-
-	std::list<Creature*>::const_iterator it = std::find_if(creatures_.begin(), creatures_.end(), foncteur);
-	//std::sort(creature_.begin(), creature_.end(), foncteur);
-
-	//return creature_.last();
-	return *it;
-
-}*/

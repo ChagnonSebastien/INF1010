@@ -16,6 +16,8 @@ Description: La classe Pouvoir correspond a un pouvoir de creature
 class Pouvoir
 {
 public:
+
+	// Constructors
 	/**
 	* @brief Constructeur par default
 	*/
@@ -43,36 +45,43 @@ public:
 	* @return La quantite d'energie necessaire pour lancer le pouvoir
 	*/
 	unsigned int obtenirEnergieNecessaire() const;
+
 	/**
 	* @brief Pour obtenir le nom du pouvoir
 	* @return Le nom du pouvoir
 	*/
 	std::string obtenirNom() const;
+
 	/*@brief Pour modifier le nombre de degats infliges par le pouvoir
 	* @param nom Le nouveau nombre de degats infliges par le pouvoir
 	*/
 	void modifierNombreDeDegat(unsigned int nombreDegat);
+
 	/**
 	* @brief Pour modifier la quantite d'energie necessaire pour lancer le pouvoir
 	* @param nom La quantite d'energie necessaire pour lancer le pouvoir
 	*/
 	void modifierEnergieNecessarie(unsigned int energieNecessaire);
+
 	/**
 	* @brief Pour modifier le nom du pouvoir
 	* @param nom Le nouveau nom du pouvoir
 	*/
 	void modifierNom(const std::string& nom);
+
 	/**
 	* @brief Le constructeur par copie
 	* @param pouvoir Une reference au pouvoir a copier
 	*/
 	Pouvoir(const Pouvoir& pouvoir);
+
 	/**
 	* @brief Redefinition de l'operateur d'affectation
 	* @param pouvoir Le pouvoir a copier
 	* @return Le pouvoir
 	*/
 	Pouvoir& operator=(const Pouvoir& pouvoir);
+
 	/**
 	* @brief Redefinition de l'operateur '==' avec un pouvoir en parametre
 	* @param pouvoir Le pouvoir a comparer avec le pouvoir actuel

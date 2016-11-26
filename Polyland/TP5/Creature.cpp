@@ -1,3 +1,9 @@
+/*
+Fichier: Creature.cpp
+Auteur(s): Audrey Labrie (1827808) et Sebastien Chagnon (1804702)
+Date de modification: 21 novembre 2016
+Description: Les creatures sont des etres destines au combat
+*/
 #include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
@@ -320,10 +326,3 @@ std::string Creature::obtenirTypeCreature() const
 {
 	return (typeid(*this).name());
 }
-
-/*
-template<typename P>
-void Creature::trierPouvoir(P)
-{
-	sort(pouvoirs_.begin(), pouvoirs_.end(), P);
-}*/

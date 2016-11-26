@@ -29,6 +29,7 @@ les differents elements de jeu
 class PolyLand: public MondeMagique<Dresseur, Creature>
 {
 public:
+
 	/**
 	* @brief Methode pour qu'un dresseur attrape une creature
 	* @param dresseur Un pointeur vers le dresseur a qui ajouter la creature
@@ -36,6 +37,7 @@ public:
 	* @return true si l'ajout a ete un succes, false sinon
 	*/
 	bool attraperCreature(Dresseur* dresseur, Creature* creature);
+
 	/**
 	* @brief Methode pour qu'un dresseur relache une creature
 	* @param dresseur Un pointeur vers le dresseur a qui retirer une creature
@@ -43,6 +45,7 @@ public:
 	* @return true si le retrait a ete un succes, false sinon
 	*/
 	bool relacherCreature(Dresseur* dresseur, const std::string& nomCreature);
+
 	/**
 	* @brief Redefinition de l'operateur '<<' avec une instance de PolyLand en parametre
 	* @param o L'output stream dans lequel ajouter les informations du dresseur

@@ -18,10 +18,13 @@ template<typename T, typename S>
 class MondeMagique
 {
 public:
+
+	// Constructors
 	/**
 	* @brief Constructeur par default
 	*/
-	MondeMagique(); 
+	MondeMagique();
+
 	/**
 	* @brief Destructeur de la classe
 	*/
@@ -85,18 +88,21 @@ public:
 	* @return La reference a la classe mondeMagique
 	*/
 	MondeMagique<T, S>& operator+=(T* maitre);
+
 	/**
 	* @brief Redefinition de l'operateur '-=' avec un maitre
 	* @param maitre Une reference a la maitre a enlever
 	* @return La reference a la classe mondeMagique
 	*/
 	MondeMagique<T, S>& operator-=(T* maitre);
+
 	/**
 	* @brief Redefinition de l'operateur '+=' avec un compagnon
 	* @param compagnon Une reference a le compagnon a ajouter
 	* @return La reference a la classe mondeMagique
 	*/
 	MondeMagique<T, S>& operator+=(S* compagnon);
+
 	/**
 	* @brief Redefinition de l'operateur '-=' avec un compagnon
 	* @param maitre Une reference a le compagnon a enlever
@@ -112,7 +118,6 @@ private:
 
 #endif // !MONDE_MAGIQUE_H
 
-/// agréagation?????????????
 template<typename T, typename S>
 inline MondeMagique<T, S>::MondeMagique()
 {
