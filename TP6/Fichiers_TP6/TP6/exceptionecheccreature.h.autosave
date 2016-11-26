@@ -1,0 +1,11 @@
+#ifndef EXCEPTIONECHECCREATURE_H
+#define EXCEPTIONECHECCREATURE_H
+
+
+class ExceptionEchecCreature: public runtime_error
+{
+    
+    PossedeCreatureException(string exception = "");
+    
+}
+#endif // EXCEPTIONECHECCREATURE_H
