@@ -14,6 +14,7 @@ Description: Les creatures sont des etres destines au combat
 #include <algorithm>
 
 #include "Pouvoir.h"
+#include "ExceptionAttaqueEchouee.h"
 
 class Creature
 {

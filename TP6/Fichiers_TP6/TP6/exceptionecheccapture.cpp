@@ -1,6 +1,6 @@
 #include <ExceptionEchecCapture.h>
 
-ExceptionEchecCapture::PossedeCreatureException(string exception): runtime_error(exception)
+ExceptionEchecCapture::ExceptionEchecCapture(std::string exception): std::runtime_error(exception)
 {
 
 }

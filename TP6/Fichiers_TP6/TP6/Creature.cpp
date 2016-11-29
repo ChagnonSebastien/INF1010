@@ -129,7 +129,7 @@ void Creature::attaquer(const Pouvoir & pouvoir, Creature & creature)
 
     else
     {
-        throw ManqueEnergieException("La créature manque d'énergie pour attaquer");
+        throw ExceptionAttaqueEchouee("La créature manque d'énergie pour attaquer");
     }
 
 }

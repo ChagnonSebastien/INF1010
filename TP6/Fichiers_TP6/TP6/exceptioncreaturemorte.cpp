@@ -3,12 +3,12 @@
 
 int ExceptionCreatureMorte::compteur_ = 0;
 
-ExceptionCreatureMorte::ExceptionCreatureMorte(string messageErreur): runtime_error(messageErreur)
+ExceptionCreatureMorte::ExceptionCreatureMorte(std::string messageErreur): std::runtime_error(messageErreur)
 {
     compteur_++;
 }
 
-ExceptionCreatureMorte::obtenirValeurCompteur()
+int ExceptionCreatureMorte::obtenirValeurCompteur()
 {
     return compteur_;
 }

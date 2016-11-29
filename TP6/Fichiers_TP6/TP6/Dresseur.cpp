@@ -60,7 +60,7 @@ void Dresseur::ajouterCreature(Creature* creature)
     FoncteurEgalCreatures comparaison(creature);
     auto position_creature = find_if(creatures_.begin(), creatures_.end(), comparaison);
     if (position_creature != creatures_.end()){
-        throw ManqueEnergieException("Vous possédez déjà la créature");
+        throw ExceptionEchecCapture("Vous possédez déjà la créature");
     }
 	else{
 		creatures_.push_back(new Creature(*creature));

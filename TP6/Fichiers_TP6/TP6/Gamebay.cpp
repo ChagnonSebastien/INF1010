@@ -107,6 +107,9 @@ void Gamebay::setUI(){
     //Creation du widget pour les boutons d'attaques
     //!!!!!! A COMPLETER !!!!!!
 
+    QWidget* boutonsAttaque = new QWidget();
+    ChoixAttaque* choixAttaque = new ChoixAttaque(boutonsAttaque);
+
     //Creation de l'image d'accueil
     imageAccueil_ = new QLabel(this);
     imageAccueil_->setFixedSize(600,400);
@@ -119,6 +122,7 @@ void Gamebay::setUI(){
     layoutEcran->addLayout(layoutCombat);
     //Vous devez ajouter le widget pour le choix d'attaque dans le layoutEcran
     //!!!!!! A COMPLETER !!!!!!
+    layoutEcran->addWidget(boutonsAttaque);
 
     layoutAffichagePrincipal->addLayout(layoutEcran);
 

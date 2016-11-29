@@ -1,6 +1,6 @@
 #include "ExceptionAttaqueEchouee.h"
 
-ExceptionAttaqueEchouee::ManqueEnergieException(string exception) : runtime_error(exception)
+ExceptionAttaqueEchouee::ExceptionAttaqueEchouee(std::string exception) : std::runtime_error(exception)
 {
 
 }

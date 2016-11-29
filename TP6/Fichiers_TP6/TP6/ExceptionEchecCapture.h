@@ -1,11 +1,11 @@
 #ifndef EXCEPTIONECHECCAPTURE_H
 #define EXCEPTIONECHECCAPTURE_H
+#include <string>
 
-
-class ExceptionEchecCapture: public runtime_error
+class ExceptionEchecCapture: public std::runtime_error
 {
+public:
+    ExceptionEchecCapture(std::string exception = "");
 
-    PossedeCreatureException(string exception = "");
-
-}
+};
 #endif // EXCEPTIONECHECCAPTURE_H
