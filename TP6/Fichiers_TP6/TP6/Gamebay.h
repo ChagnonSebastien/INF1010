@@ -81,6 +81,7 @@ signals:
 
 private slots:
     //!!!!!! A COMPLETER !!!!!!
+    void afficherAttaques();
     void afficherCreaturesDresseur();
     void changerCreature(QListWidgetItem*);
     void afficherCreatures();

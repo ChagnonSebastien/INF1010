@@ -107,8 +107,7 @@ void Gamebay::setUI(){
     //Creation du widget pour les boutons d'attaques
     //!!!!!! A COMPLETER !!!!!!
 
-    QWidget* boutonsAttaque = new QWidget();
-    ChoixAttaque* choixAttaque = new ChoixAttaque(boutonsAttaque);
+    choixAttaque_ = new ChoixAttaque(this);
 
     //Creation de l'image d'accueil
     imageAccueil_ = new QLabel(this);
@@ -122,7 +121,7 @@ void Gamebay::setUI(){
     layoutEcran->addLayout(layoutCombat);
     //Vous devez ajouter le widget pour le choix d'attaque dans le layoutEcran
     //!!!!!! A COMPLETER !!!!!!
-    layoutEcran->addWidget(boutonsAttaque);
+    layoutEcran->addWidget(choixAttaque_);
 
     layoutAffichagePrincipal->addLayout(layoutEcran);
 
@@ -182,7 +181,15 @@ void Gamebay::setUI(){
 }
 
 void Gamebay::setConnections(){
-    //!!!!!! A COMPLETER !!!!!!
+    QObject::connect(boutonStart_, SIGNAL(clicked(bool)), this, SLOT(gestionDuMenu()));
+    QObject::connect(menu_->boutonAttaques_, SIGNAL(clicked(bool)), this, SLOT(afficherAttaques()));
+
+    QObject::connect(choixAttaque_->attaque1_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
+    QObject::connect(choixAttaque_->attaque2_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
+    QObject::connect(choixAttaque_->attaque3_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
+    QObject::connect(choixAttaque_->attaque4_, SIGNAL(clicked(bool)), this, SLOT(attaquerCreatureAdverse()));
+
+    QObject::connect(menu_->boutonAffichageCreaturesDresseur_, SIGNAL(clicked(bool)), this, SLOT(afficherCreaturesDresseur()));
 
     //Connexions de differents slots sur des signaux
     QObject::connect(menu_->boutonAffichageCreatures_, SIGNAL(clicked(bool)), this, SLOT(afficherCreatures()));
@@ -193,8 +200,12 @@ void Gamebay::setConnections(){
     QObject::connect(menu_->boutonCapturer_, SIGNAL(clicked(bool)), this, SLOT(capturerCreatureAdverse()));
 }
 
+void Gamebay::afficherAttaques(){
+    choixAttaque_->afficherAttaques(creatureAdverse_);
+}
+
 void Gamebay::afficherCreaturesDresseur(){
-    //!!!!!! A COMPLETER !!!!!!
+    menu_->afficherListeCreatures(polyland_->hero_.obtenirCreatures());
 }
 
 void Gamebay::afficherCapture(){
