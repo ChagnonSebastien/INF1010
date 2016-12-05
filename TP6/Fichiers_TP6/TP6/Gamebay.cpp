@@ -205,9 +205,9 @@ void Gamebay::afficherAttaques(){
 }
 
 void Gamebay::afficherCreaturesDresseur(){
-    menu_->afficherListeCreatures(polyland_->hero_.obtenirCreatures());
-}
 
+    menu_->afficherListeCreatures(menu_->obtenirCreatureDresseurSelectionne());
+}
 void Gamebay::afficherCapture(){
     //Affichage du bouton qui permettra la capture de la creature adverse
     menu_->boutonCapturer_->show();
@@ -263,8 +263,7 @@ void Gamebay::changerCreature(QListWidgetItem* item){
                                                     , pokomonDresseur_->height(),
                                                                     Qt::KeepAspectRatio));
     }else{
-        //!!!!!! A COMPLETER !!!!!!
-        //Sinon la creature est deja vaincue;
+        throw ExceptionEchecCapture("It's dead, don't even try, babe");
     }
 }
 
@@ -322,21 +321,40 @@ QPixmap Gamebay::obtenirImageCreature(Creature* creature){
 
 void Gamebay::attaquerCreatureAdverse(){
     //Cette methode va permettre de voir les consequences de votre attaque sur la creature adverse
-     //!!!!!! A COMPLETER !!!!!!
      QObject* button = QObject::sender();
      //On va faire l'attaque en fonction du bouton clique
-     if(button == choixAttaque_->attaque1_){
-        creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[0]), *creatureAdverse_);
-     }else if(button == choixAttaque_->attaque2_){
-        creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[1]), *creatureAdverse_);
-     }else if(button == choixAttaque_->attaque3_){
-        creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[2]), *creatureAdverse_);
-     }else{
-        creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[3]), *creatureAdverse_);
+     try {
+         if(button == choixAttaque_->attaque1_){
+            creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[0]), *creatureAdverse_);
+         }else if(button == choixAttaque_->attaque2_){
+            creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[1]), *creatureAdverse_);
+         }else if(button == choixAttaque_->attaque3_){
+            creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[2]), *creatureAdverse_);
+         }else{
+            creatureHero_->attaquer(*(creatureHero_->obtenirPouvoirs()[3]), *creatureAdverse_);
+         }
+     } catch (ExceptionAttaqueEchouee& e) {
+         QMessageBox messagebox;
+         messagebox.critical(0, "La crésture n'a pas asser d'énergie pour attaquer", e.what());
      }
+
      //On met a jour les informations des creatures
-     informationsAdversaire_->modifierAffichageInformationCreature(creatureAdverse_);
-     informationsDresseur_->modifierAffichageInformationCreature(creatureHero_);
+     try {
+         informationsAdversaire_->modifierAffichageInformationCreature(creatureAdverse_);
+         informationsDresseur_->modifierAffichageInformationCreature(creatureHero_);
+
+    } catch (ExceptionCreatureMorte& e) {
+         if (e.obtenirValeurCompteur() < 3) {
+             QMessageBox messagebox;
+             messagebox.critical(0, "La creature n'a plus de points de vie", e.what());
+         } else if (e.obtenirValeurCompteur() < 5) {
+             QMessageBox messagebox;
+             messagebox.critical(0, "Je t'ai déja dis 3 fois que la créature n'a plus de points de vie", e.what());
+         } else {
+             QMessageBox messagebox;
+             messagebox.critical(0, "Serieusement?", e.what());
+         }
+    }
      //Nous vous demandons d'attraper deux types d'exception ici, a vous de voir lesquels
      //Pour l'exception que vous trouverez pertinente, vous devez afficher :
      //-Un certain message lorsque cette exception a ete lance strictement moins de 3 fois
@@ -358,7 +376,10 @@ void Gamebay::gestionDuMenu(){
 }
 
 void Gamebay::capturerCreatureAdverse(){
-    //!!!!!! A COMPLETER !!!!!!
     QMessageBox msg;
-    polyland_->attraperCreature(&polyland_->obtenirHero(), creatureAdverse_);
+    try {
+     polyland_->attraperCreature(&polyland_->obtenirHero(), creatureAdverse_);
+    } catch (ExceptionEchecCapture e) {
+        msg.critical(0, "La capture a echouee", e.what());
+    }
 }

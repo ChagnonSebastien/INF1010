@@ -38,13 +38,14 @@ public:
 	//PolyLand& operator+=(Dresseur* dresseur);
 	//PolyLand& operator-=(Dresseur* dresseur);
 	//PolyLand& operator+=(Creature* creature);
-	//PolyLand& operator-=(Creature* creature);
+    //PolyLand& operator-=(Creature* creature);
 
 	friend std::ostream& operator<<(std::ostream& os, const PolyLand& poly);
 
 private:
 //	std::vector<Dresseur*> dresseurs_;
 //	std::vector<Creature*> creatures_;
-	Dresseur& hero_;
+
+    Dresseur& hero_;
 };
 #endif
