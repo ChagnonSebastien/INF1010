@@ -78,9 +78,6 @@ private:
 
 signals:
     //!!!!!! A COMPLETER !!!!!!
-    //!
-    void creatureAdverseVaincue();
-    void creatureVaincue();
 
 private slots:
     //!!!!!! A COMPLETER !!!!!!
@@ -98,7 +95,6 @@ private slots:
     void gestionDuMenu();
     void afficherCapture();
     void capturerCreatureAdverse();
-    void attraperCreatureAdverse();
 };
 
 #endif // GAMEBAY_H

@@ -1,5 +1,6 @@
 #include "Gamebay.h"
 #include <iostream>
+#include "exceptioncreaturemorte.h"
 
 Gamebay::Gamebay(PolyLand* polyland, QWidget *parent) :
     QMainWindow(parent), polyland_(polyland), combatEnCours_(false), creatureHero_(nullptr), creatureAdverse_(nullptr)//,ui(new Ui::Gamebay)
@@ -191,9 +192,6 @@ void Gamebay::setConnections(){
 
     QObject::connect(menu_->boutonAffichageCreaturesDresseur_, SIGNAL(clicked(bool)), this, SLOT(afficherCreaturesDresseur()));
 
-    QObject::connect(this,SIGNAL(creatureAdverseVaincue()),this,SLOT(afficherCapture()));
-    QObject::connect(this, SIGNAL(creatureVaincue()), this, SLOT(afficherCreatures()));
-
     //Connexions de differents slots sur des signaux
     QObject::connect(menu_->boutonAffichageCreatures_, SIGNAL(clicked(bool)), this, SLOT(afficherCreatures()));
     QObject::connect(menu_->boutonAffichageDresseurs_, SIGNAL(clicked(bool)), this, SLOT(afficherDresseurs()));
@@ -209,7 +207,23 @@ void Gamebay::afficherAttaques(){
 
 void Gamebay::afficherCreaturesDresseur(){
 
-    menu_->afficherListeCreatures(menu_->obtenirCreatureDresseurSelectionne());
+    Dresseur hero = polyland_->obtenirHero();
+    std::vector<Creature*> creatures = hero.obtenirCreatures();
+    QListWidget* listeCreaturesDresseur = new QListWidget();
+
+    if (!listeCreaturesDresseur->isVisible()) {
+        listeCreaturesDresseur->show();
+        if (creatures.size() > 0) {
+            for (auto it = creatures.begin(); it != creatures.end(); it++) {
+                QString s(QString::fromStdString((*it)->obtenirNom() + "\t\t V:" + std::to_string((*it)->obtenirPointDeVie()) + "/" + std::to_string(
+                  (*it)->obtenirPointDeVieTotal()) + "\t E:" +std::to_string((*it)->obtenirEnergie()) + "/" + std::to_string((*it)->obtenirEnergieTotale())));
+                QListWidgetItem* item = new QListWidgetItem(s, listeCreaturesDresseur);
+                item->setData(Qt::UserRole, QVariant::fromValue<Creature*>(*it));
+            }
+        }
+    } else {
+        listeCreaturesDresseur->hide();
+    }
 }
 void Gamebay::afficherCapture(){
     //Affichage du bouton qui permettra la capture de la creature adverse
@@ -266,7 +280,7 @@ void Gamebay::changerCreature(QListWidgetItem* item){
                                                     , pokomonDresseur_->height(),
                                                                     Qt::KeepAspectRatio));
     }else{
-        emit creatureVaincue();
+        throw ExceptionEchecCapture("It's dead, don't even try, babe");
     }
 }
 
@@ -274,10 +288,6 @@ void Gamebay::debuterCombat(QListWidgetItem* item){
     //Cette Slot permet de lancer le combat avec la creature adverse selectionnee
     Creature* creature = item->data(Qt::UserRole).value<Creature*>();
     debuterCombat(creature);
-}
-
-void Gamebay::attraperCreatureAdverse() {
-    if (polyland_->obtenirHero())
 }
 
 void Gamebay::debuterCombat(Creature* creature){
@@ -344,24 +354,20 @@ void Gamebay::attaquerCreatureAdverse(){
          QMessageBox messagebox;
          messagebox.critical(0, "La crésture n'a pas asser d'énergie pour attaquer", e.what());
      }
-     if (creatureAdverse_->obtenirPointDeVie() <= 0)
-         emit creatureAdverseVaincue();
 
      //On met a jour les informations des creatures
+     QMessageBox messagebox;
      try {
          informationsAdversaire_->modifierAffichageInformationCreature(creatureAdverse_);
          informationsDresseur_->modifierAffichageInformationCreature(creatureHero_);
 
-    } catch (ExceptionCreatureMorte& e) {
-         if (e.obtenirValeurCompteur() < 3) {
-             QMessageBox messagebox;
-             messagebox.critical(0, "La creature n'a plus de points de vie", e.what());
-         } else if (e.obtenirValeurCompteur() < 5) {
-             QMessageBox messagebox;
-             messagebox.critical(0, "Je t'ai déja dis 3 fois que la créature n'a plus de points de vie", e.what());
+    } catch (ExceptionCreatureMorte ex) {
+         if (ex.obtenirValeurCompteur() < 3) {
+             messagebox.critical(0, "La creature n'a plus de points de vie", ex.what());
+         } else if (ex.obtenirValeurCompteur() < 5) {
+             messagebox.critical(0, "Je t'ai déja dis 3 fois que la créature n'a plus de points de vie", ex.what());
          } else {
-             QMessageBox messagebox;
-             messagebox.critical(0, "Serieusement?", e.what());
+             messagebox.critical(0, "Serieusement?", ex.what());
          }
     }
      //Nous vous demandons d'attraper deux types d'exception ici, a vous de voir lesquels
